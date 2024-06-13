@@ -1,5 +1,5 @@
-"use client"
-import React, {  useState } from "react";
+"use client";
+import React, { useState } from "react";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -26,9 +26,9 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="w-[662.1px] flex flex-col gap-[30px] m-auto max-[700px]:w-auto">
-        <div className="flex gap-4 max-[700px]:flex-col">
-          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[700px]:w-full">
+      <div className="w-[662.1px] flex flex-col gap-[30px] m-auto max-[720px]:w-auto">
+        <div className="flex gap-4 max-[550px]:flex-col">
+          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[550px]:w-full">
             <h4 className="font-montserrat font-semibold text-lg leading-[21.94px] text-[#999999]">
               Full name *
             </h4>
@@ -36,14 +36,14 @@ const Form = () => {
               type="text"
               name="name"
               id="name"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] outline-none max-[700px]:px-4 max-[700px]:py-3"
+              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="John David"
               value={formData.name}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[700px]:w-full">
+          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[550px]:w-full">
             <h4 className="font-montserrat font-semibold text-lg leading-[21.94px] text-[#999999]">
               Your email *
             </h4>
@@ -51,7 +51,7 @@ const Form = () => {
               type="email"
               name="email"
               id="email"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] outline-none max-[700px]:px-4 max-[700px]:py-3"
+              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="example@yourmail.com"
               value={formData.email}
               onChange={handleChange}
@@ -60,8 +60,8 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="flex gap-4 max-[700px]:flex-col">
-          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[700px]:w-full">
+        <div className="flex gap-4 max-[550px]:flex-col">
+          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[550px]:w-full">
             <h4 className="font-montserrat font-semibold text-lg leading-[21.94px] text-[#999999]">
               Phone *
             </h4>
@@ -69,14 +69,14 @@ const Form = () => {
               type="number"
               name="phone"
               id="phone"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] outline-none max-[700px]:px-4 max-[700px]:py-3"
+              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="(000) 123 456"
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[700px]:w-full">
+          <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[550px]:w-full">
             <h4 className="font-montserrat font-semibold text-lg leading-[21.94px] text-[#999999]">
               Subject *
             </h4>
@@ -84,7 +84,7 @@ const Form = () => {
               type="text"
               name="subject"
               id="subject"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] outline-none max-[700px]:px-4 max-[700px]:py-3"
+              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="ex. project"
               value={formData.subject}
               onChange={handleChange}
@@ -101,7 +101,7 @@ const Form = () => {
             name="message"
             id="message"
             placeholder="Hello there,I would like to talk about how to..."
-            className="px-[30px] py-[31px] w-full rounded-[20px] font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] outline-none max-[700px]:px-4 max-[700px]:py-3"
+            className="px-[30px] py-[31px] w-full rounded-[20px] font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
             rows={8}
             value={formData.message}
             onChange={handleChange}
