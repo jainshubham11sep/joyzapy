@@ -2,55 +2,65 @@
 import FeaturedGames from "../home/featuredGames";
 import Relatedgames from "./relatedGames";
 
+const imageData = [
+  { image: "/assets/relatedgames/1.png", name: "olx" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/assets/relatedgames/1.png", name: "olx" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
+];
+
 const Product_details = () => {
   return (
-    <div className="max-w-[1444px] m-auto overflow-hidden px-4">
-      <div class="flex flex-col px-[8px] md:px-[40px] py-[4px] md:py-[32px] items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE]">
-        <div class="sm:px-[46px] sm:py-[40px] px-[8px]  py-[4px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px]">
-          <div class="flex  gap-[16px] self-stretch">
-            <div class="flex flex-col basis-[100%] md:basis-[70%] gap-[24px] items-start ">
-              <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video">
+    <div className=" px-4 ">
+      <div class="flex flex-col px-[10px] pt-[24px] md:px-[40px]  md:py-[32px] items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE]">
+        <div class="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px]">
+          <div class="flex  gap-[16px]  ">
+            <div class="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start ">
+              <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden">
                 <img
                   className="absolute w-full h-full z-[0] rounded-[30px]"
                   src="assets/miniblox.png"
                 />
-                <div class=" z-[1] bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square h-[90%] text-nowrap">
-                  <div class="flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[12px] sm:text-[18px] md:text-[25px]   px-[8px] py-[4px]   rounded-[12px]">
-                    <div class=" ">Play Now</div>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <g clipPath="url(#clip0_242_158)">
-                          <path
-                            d="M13.6613 5.31296L7.30266 0.65029C6.80601 0.286613 6.21835 0.0675647 5.60483 0.0174251C4.99131 -0.0327145 4.37589 0.0880131 3.82678 0.366226C3.27767 0.644439 2.81633 1.06927 2.49388 1.59363C2.17144 2.11799 2.00049 2.72139 1.99999 3.33696V12.667C1.99903 13.2831 2.16909 13.8875 2.49122 14.4127C2.81336 14.938 3.27494 15.3635 3.82458 15.642C4.37423 15.9205 4.99038 16.041 5.60444 15.9901C6.2185 15.9392 6.80639 15.7188 7.30266 15.3536L13.6613 10.691C14.0832 10.3813 14.4263 9.9767 14.6628 9.50983C14.8993 9.04296 15.0225 8.52697 15.0225 8.00362C15.0225 7.48028 14.8993 6.96429 14.6628 6.49742C14.4263 6.03055 14.0832 5.62592 13.6613 5.31629V5.31296Z"
-                            fill="#FEFEFE"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_242_158">
-                            <rect width="16" height="16" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
+                <div class="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute"></div>
+                <div class="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px]">
+                  <div class="">Play Now</div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <g clipPath="url(#clip0_242_158)">
+                        <path
+                          d="M13.6613 5.31296L7.30266 0.65029C6.80601 0.286613 6.21835 0.0675647 5.60483 0.0174251C4.99131 -0.0327145 4.37589 0.0880131 3.82678 0.366226C3.27767 0.644439 2.81633 1.06927 2.49388 1.59363C2.17144 2.11799 2.00049 2.72139 1.99999 3.33696V12.667C1.99903 13.2831 2.16909 13.8875 2.49122 14.4127C2.81336 14.938 3.27494 15.3635 3.82458 15.642C4.37423 15.9205 4.99038 16.041 5.60444 15.9901C6.2185 15.9392 6.80639 15.7188 7.30266 15.3536L13.6613 10.691C14.0832 10.3813 14.4263 9.9767 14.6628 9.50983C14.8993 9.04296 15.0225 8.52697 15.0225 8.00362C15.0225 7.48028 14.8993 6.96429 14.6628 6.49742C14.4263 6.03055 14.0832 5.62592 13.6613 5.31629V5.31296Z"
+                          fill="#FEFEFE"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_242_158">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
                   </div>
                 </div>
               </div>
-              <div class="flex justify-between items-center self-stretch text-white ">
-                <div class="flex gap-[8px] items-start flex-1 sm:text-[16px] text-[12px]">
-                  <button class="py-[8px] flex justify-center items-center grow shrink-0 basis-0 rounded-[30px] bg-[#373952] ">
+              <div class="flex flex-wrap justify-between items-center self-stretch text-white ">
+                <div class="flex  gap-[8px] items-start flex-1   md:text-[16px] text-[12px] ">
+                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] ">
                     Share
                   </button>
-                  <button class="py-[8px] flex justify-center items-center grow shrink-0 basis-0 rounded-[30px] bg-[#373952] gap-[8px]">
+                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] gap-[8px]">
                     <div>Whishlist</div>
                     <div>
                       <svg
-                        className="w-[16px] h-[16px] sm:w-[25px] sm:h-[25px]"
+                        className="w-[16px] h-[16px] md:w-[25px] md:h-[25px]"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 25 25"
                         fill="none"
@@ -75,7 +85,7 @@ const Product_details = () => {
                     </div>
                   </button>
                 </div>
-                <button class="sm:flex-1 px-2 ">
+                <button class="flex-1 px-2 ">
                   <svg
                     class="float-end"
                     xmlns="http://www.w3.org/2000/svg"
@@ -116,12 +126,12 @@ const Product_details = () => {
                 </button>
               </div>
             </div>
-            <div class=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center  text-3xl md:h-[400px] lg:h-[600px]">
+            <div class=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center  text-3xl ">
               Ad space
             </div>
           </div>
 
-          <div class="flex flex-col items-start gap-6 self-stretch hidden md:block">
+          <div class=" flex-col items-start gap-6 self-stretch hidden md:flex">
             <div class="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
             <div class="text-[18px] font-semibold mb-6">
               Home/<span class="text-[#15AEE3]"> Miniblox </span>
@@ -172,14 +182,12 @@ const Product_details = () => {
             </div>
           </div>
         </div>
-
-
       </div>
-        <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-16 mb-4 lg:mb-16">
-          <FeaturedGames title={"Related Games"} />
+      <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-[13px] md:mt-16 mb-4 lg:mb-16">
+        <FeaturedGames title={"Related Games"} data={imageData} />
 
-          <FeaturedGames title={"Featured Games"} />
-        </div>
+        <FeaturedGames title={"Featured Games"} data={imageData} />
+      </div>
     </div>
   );
 };

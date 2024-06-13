@@ -1,7 +1,7 @@
-"use client"
-import React, { useState ,useRef} from "react";
+"use client";
+import React, { useState, useRef } from "react";
 
-const FeaturedGames = ({title}) => {
+const FeaturedGames = ({ title, data }) => {
   const [items, setItems] = useState([{}]);
   const scrollContainerRef = useRef(null);
 
@@ -24,16 +24,16 @@ const FeaturedGames = ({title}) => {
   };
   return (
     <>
-    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <div className="flex justify-between">
           <div className="flex gap-2 items-center">
-            <h3 className="font-montserrat font-bold text-[25px] leading-[30.48px] text-[#FFFFFF] max-[600px]:text-lg max-[600px]:leading-[21.94px] max-[600px]:font-semibold">
+            <h3 className="font-montserrat font-bold text-[25px] leading-[30.48px] text-[#FFFFFF] max-[768px]:text-lg max-[768px]:leading-[21.94px] max-[768px]:font-semibold">
               {title}
             </h3>
             <img
               src={"/assets/gamepad.png"}
               alt="gamepad"
-              className="w-6 h-6 max-[600px]:h-[18.92px]"
+              className="w-6 h-6 max-[768px]:h-[18.92px]"
             />
           </div>
           <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3]">
@@ -56,30 +56,28 @@ const FeaturedGames = ({title}) => {
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
           >
-            {Array(8)
-              .fill(0)
-              .map((_, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[600px]:min-w-[164px]"
-                >
+            {data?.map((data, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px]"
+              >
+                <img
+                  src={data.image}
+                  alt={data.name}
+                  className="h-[180px] rounded-[30px] max-[768px]:h-[114px] max-[768px]:rounded-[8px] z-0"
+                />
+                <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
+                  {data.name}
+                </h2>
+                <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[768px]:w-6 max-[768px]:h-6 max-[768px]:top-2 max-[768px]:right-2">
                   <img
-                    src={"/assets/gameImage.png"}
-                    alt="game image"
-                    className="h-[180px] rounded-[30px] max-[600px]:h-[114px] max-[600px]:rounded-[8px] z-0"
+                    src={"/assets/Vector.png"}
+                    alt="heart image"
+                    className="max-[768px]:w-4 max-[768px]:h-4"
                   />
-                  <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[600px]:text-base max-[600px]:leading-[28.8px] max-[600px]:tracking-[5%]">
-                    Miniblox
-                  </h2>
-                  <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[600px]:w-6 max-[600px]:h-6 max-[600px]:top-2 max-[600px]:right-2">
-                    <img
-                      src={"/assets/Vector.png"}
-                      alt="heart image"
-                      className="max-[600px]:w-4 max-[600px]:h-4"
-                    />
-                  </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
           <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[225px] lg:h-[298px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
@@ -94,7 +92,6 @@ const FeaturedGames = ({title}) => {
         </div>
       </div>
     </>
-
   );
 };
 
