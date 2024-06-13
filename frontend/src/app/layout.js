@@ -2,11 +2,16 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/index.js";
 import Footer from "@/components/footer";
+import Sidebar from "@/components/sidebar/sidebar";
+import DrawerContextComponent from "@/context/drawerContext";
+// import { useDrawerContext } from '@/context/drawerContext'
+import CustomDrawer from "@/components/sidebar/Drawer";
+
 
 
 
 const montserrat = Montserrat({
-  weight: ['400','700'],
+  weight: ['400', '700'],
   subsets: ["latin"]
 });
 
@@ -16,16 +21,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+//   const { drawerOpen, setDrawerOpen } = useDrawerContext();
+// console.log(drawerOpen,"drawerOpen");
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <div style={{ width: "100%",
-        //  background: "#F8F8F8" 
-         }}>
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <DrawerContextComponent>
+          <div style={{ width: "100%" }}>
+            <Navbar />
+            <div style={{ maxWidth: "1444px", margin: "auto", }}>
+              <main className="flex gap-3 mainWrapper justify-center ">
+                 <div className="sidebarcontainer">
+                  <Sidebar />
+                </div>
+
+                {children}
+              </main>
+            </div>
+            <Footer />
+          </div>
+        </DrawerContextComponent>
       </body>
     </html>
   );

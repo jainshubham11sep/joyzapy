@@ -29,3 +29,19 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.sidebarcontainer {
+  display: block;
+  /* flex: 1; */
+  /* max-width: 270px !important; */
+  height: min-content !important;
+  position: sticky;
+  top: 5px;
+}
+@media (max-width: 767px) {
+
+  .sidebarcontainer{
+    display: none;
+    
+  }
+}
