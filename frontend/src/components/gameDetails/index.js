@@ -15,17 +15,17 @@ const imageData = [
 
 const Product_details = () => {
   return (
-    <div className=" px-4 ">
-      <div class="flex flex-col px-[10px] pt-[24px] md:px-[40px]  md:py-[32px] items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE]">
-        <div class="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px]">
-          <div class="flex  gap-[16px]  ">
-            <div class="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start ">
-              <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden">
+    <div className=" ">
+      <div class="flex flex-col px-[10px] pt-[24px] md:px-[40px]  md:py-[32px] items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE] w-full">
+        <div class="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px] w-full">
+          <div class="flex  gap-[16px]  w-full">
+            <div class="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start w-full">
+              <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden ">
                 <img
                   className="absolute w-full h-full z-[0] rounded-[30px]"
                   src="assets/miniblox.png"
                 />
-                <div class="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute"></div>
+                <div class="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>
                 <div class="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px]">
                   <div class="">Play Now</div>
                   <div>
@@ -182,11 +182,10 @@ const Product_details = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-[13px] md:mt-16 mb-4 lg:mb-16">
-        <FeaturedGames title={"Related Games"} data={imageData} />
-
-        <FeaturedGames title={"Featured Games"} data={imageData} />
+        <div className="w-full border border-red-500">
+          <FeaturedGames title={"Featured Games"} data={imageData} />
+          <FeaturedGames title={"Related Games"} data={imageData} />
+        </div>
       </div>
     </div>
   );
