@@ -1,14 +1,53 @@
-import React from 'react'
-import CustomDrawer from '../sidebar/Drawer'
+"use client"
+import React, { useEffect, useState } from 'react'
+import CustomDrawer from '../sidebar/DrawerMobile'
+
+import {useDrawerContext} from '@/context/drawerContext'
 
 
 const HorizontalComponent = () => {
+
+  const { drawerOpen, setDrawerOpen } = useDrawerContext();
+  const [size, setSize] = useState([0]);
+
+  const handleDrawer = () => {
+
+    setDrawerOpen(!drawerOpen)
+  }
+
+  useEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth]);
+    }
+
+    window.addEventListener("resize", updateSize);
+    updateSize();
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  console.log(size)
+
+
+  
+
   return (
     <div className='flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] max-w-[1444px] m-auto' >
 
-      <div className='flex flex-row w-[100%] justify-between'>
-        <div className='flex items-center'>
+      <div className='flex flex-row w-[100%] items-start justify-between'>
+        <div className='flex items-center justify-between'>
+          {/* <CustomDrawer /> */}
+
+          {
+            size[0] > 768 ? 
+
+            <button onClick={handleDrawer} className={`duration-100 ${drawerOpen?'rotate-180':''}`} >
+            <img src={"/assets/menu.svg"} alt="" />
+          </button> :
+
           <CustomDrawer />
+          }
+
           {/* <img className='p-2 md:hidden md:p-0' src={"/assets/menu.svg"} alt="menu-bar" /> */}
           {/* <div className='flex md:hidden'>
             <CustomDrawer />
@@ -34,5 +73,6 @@ const HorizontalComponent = () => {
     </div>
   )
 }
+
 
 export default HorizontalComponent
