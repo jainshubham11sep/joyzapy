@@ -1,6 +1,6 @@
 import React from "react";
 
-const SportGame = () => {
+const SportGame = ({ data }) => {
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -14,27 +14,25 @@ const SportGame = () => {
         </div>
 
         <div className="flex gap-5 overflow-x-scroll no_scrollbar">
-          {Array(6)
-            .fill(0)
-            .map((data) => (
-              <div className="flex flex-col gap-4 relative min-w-[204px] max-[600px]:min-w-[143px] ">
+          {data.map((data) => (
+            <div className="flex flex-col gap-4 relative min-w-[204px] max-[600px]:min-w-[143px] ">
+              <img
+                src={data.image}
+                alt="game image"
+                className="h-[304px] rounded-[30px] max-[600px]:h-[239px] max-[600px]:rounded-[8px]"
+              />
+              <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[600px]:text-base max-[600px]:leading-[28.8px] max-[600px]:tracking-[5%]">
+                {data.name}
+              </h2>
+              <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[600px]:w-6 max-[600px]:h-6 max-[600px]:top-2 max-[600px]:right-2">
                 <img
-                  src={"/assets/sport-game-image.png"}
-                  alt="game image"
-                  className="h-[304px] rounded-[30px] max-[600px]:h-[239px] max-[600px]:rounded-[8px]"
+                  src={"/assets/Vector.png"}
+                  alt="heart image"
+                  className="max-[600px]:w-4 max-[600px]:h-4"
                 />
-                <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[600px]:text-base max-[600px]:leading-[28.8px] max-[600px]:tracking-[5%]">
-                  Miniblox
-                </h2>
-                <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[600px]:w-6 max-[600px]:h-6 max-[600px]:top-2 max-[600px]:right-2">
-                  <img
-                    src={"/assets/Vector.png"}
-                    alt="heart image"
-                    className="max-[600px]:w-4 max-[600px]:h-4"
-                  />
-                </div>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
       </div>
     </>

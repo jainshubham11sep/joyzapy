@@ -1,4 +1,3 @@
-
 import FeaturedGames from "./featuredGames";
 import SportGame from "./sportsGame";
 
@@ -13,10 +12,22 @@ const imageData = [
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
+const sportGameData = [
+  { image: "/assets/sportsgames/1.png", name: "Smash karts" },
+  { image: "/assets/sportsgames/2.png", name: "Smash karts" },
+  { image: "/assets/sportsgames/3.png", name: "Smash karts" },
+  { image: "/assets/sportsgames/4.png", name: "Smash karts" },
+  { image: "/assets/sportsgames/5.png", name: "Smash karts" },
+  { image: "/assets/sportsgames/6.png", name: "Smash karts" },
+];
+
 function index() {
   return (
     <>
-      <div className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[80%]" style={{flex:3}} >
+      <div
+        className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[80%]"
+        style={{ flex: 3 }}
+      >
         <div>
           <div className="containerRight">
             <img
@@ -33,8 +44,8 @@ function index() {
           <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-16 mb-4 lg:mb-16">
             <FeaturedGames title={"Featured Games"} data={imageData} />
 
-            <SportGame />
-            <FeaturedGames title={"Featured Games"}data={imageData} />
+            <SportGame data={sportGameData} />
+            <FeaturedGames title={"Featured Games"} data={imageData} />
           </div>
         </div>
       </div>
