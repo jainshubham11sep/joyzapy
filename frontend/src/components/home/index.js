@@ -5,7 +5,7 @@ import SportGame from "./sportsGame";
 function index() {
   return (
     <>
-      <div className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[80%]" style={{flex:3}} >
+      <div className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[70%]" style={{flex:3}} >
         <div>
           <div className="containerRight">
             <img
