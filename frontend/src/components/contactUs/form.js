@@ -26,7 +26,7 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="w-[662.1px] flex flex-col gap-[30px] m-auto max-[720px]:w-auto">
+      <div className="max-w-[662.1px] flex flex-col gap-[30px] m-auto max-[720px]:w-auto mb-16">
         <div className="flex gap-4 max-[550px]:flex-col">
           <div className="flex flex-col gap-[7px] w-[calc((100%/2))] max-[550px]:w-full">
             <h4 className="font-montserrat font-semibold text-lg leading-[21.94px] text-[#999999]">

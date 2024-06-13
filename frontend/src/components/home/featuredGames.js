@@ -68,7 +68,7 @@ const FeaturedGames = ({title}) => {
                     alt="game image"
                     className="h-[180px] rounded-[30px] max-[600px]:h-[114px] max-[600px]:rounded-[8px] z-0"
                   />
-                  <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[600px]:text-base max-[600px]:leading-[28.8px] max-[600px]:tracking-[5%]">
+                  <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[600px]:text-base max-[600px]:leading-[28.8px] max-[600px]:tracking-[5%] z-[1]">
                     Miniblox
                   </h2>
                   <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[600px]:w-6 max-[600px]:h-6 max-[600px]:top-2 max-[600px]:right-2">

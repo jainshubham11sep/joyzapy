@@ -9,7 +9,7 @@ function index() {
         <div>
           <div className="containerRight">
             <img
-              src={"/assets/Frame16.png"}
+              src={"/assets/Frame 166.png"}
               alt="image"
               className="hidden min-[600px]:block"
             />
