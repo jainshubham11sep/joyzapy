@@ -7,12 +7,9 @@ import DrawerContextComponent from "@/context/drawerContext";
 // import { useDrawerContext } from '@/context/drawerContext'
 import CustomDrawer from "@/components/sidebar/Drawer";
 
-
-
-
 const montserrat = Montserrat({
-  weight: ['400', '700'],
-  subsets: ["latin"]
+  weight: ["400", "700"],
+  subsets: ["latin"],
 });
 
 export const metadata = {
@@ -21,17 +18,17 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-//   const { drawerOpen, setDrawerOpen } = useDrawerContext();
-// console.log(drawerOpen,"drawerOpen");
+  //   const { drawerOpen, setDrawerOpen } = useDrawerContext();
+  // console.log(drawerOpen,"drawerOpen");
   return (
     <html lang="en">
       <body className={montserrat.className}>
         <DrawerContextComponent>
           <div style={{ width: "100%" }}>
             <Navbar />
-            <div style={{ maxWidth: "1444px", margin: "auto", }}>
+            <div style={{ maxWidth: "1444px", margin: "auto" }}>
               <main className="flex gap-3 mainWrapper justify-center ">
-                 <div className="sidebarcontainer">
+                <div className="sidebarcontainer">
                   <Sidebar />
                 </div>
 
