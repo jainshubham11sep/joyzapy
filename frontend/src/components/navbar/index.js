@@ -4,7 +4,7 @@ import HorizontalComponent from "./HorizontalComponent";
 
 const index = () => {
   return (
-    <div className="bg-[#11101D]  md:h-[108ypx] w-full z-50 justify-center items-center">
+    <div className="bg-[#11101D] h-[68px] md:h-[108px] w-full z-50 justify-center items-center">
       {/* <VerticalComponent /> */}
       <HorizontalComponent />
     </div>
