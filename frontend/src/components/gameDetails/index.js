@@ -126,7 +126,7 @@ const Product_details = () => {
                 </button>
               </div>
             </div>
-            <div class=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center  text-3xl ">
+            <div class=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center text-center text-3xl ">
               Ad space
             </div>
           </div>
