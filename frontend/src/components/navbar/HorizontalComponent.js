@@ -64,7 +64,7 @@ const HorizontalComponent = () => {
           <img src={"/assets/magnifying_glass.svg"} alt="magnifying-glass" />
 
           <input
-            className="hidden md:block bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full"
+            className="hidden md:block bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full font-montserrat font-normal text-xl leading-[28px] tracking-[0.1px] text-[#FFFFFF]"
             type="text"
             placeholder="Search..."
           />
