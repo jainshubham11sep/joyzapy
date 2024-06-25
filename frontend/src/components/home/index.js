@@ -1,5 +1,6 @@
 import FeaturedGames from "./featuredGames";
 import SportGame from "./sportsGame";
+import Image from "next/image";
 
 const imageData = [
   { image: "/assets/relatedgames/1.png", name: "olx" },
@@ -30,13 +31,17 @@ function index() {
       >
         <div>
           <div className="containerRight">
-            <img
+            <Image
+              width={500}
+              height={500}
               src={"/assets/Frame 166.png"}
               alt="image"
-              className="hidden min-[600px]:block"
+              className="hidden min-[600px]:block w-full"
             />
-            <img
-              src={"/assets/Frame 17.png"}
+            <Image
+              width={500}
+              height={500}
+              src={"/assets/Frame16Mob.png"}
               alt="image"
               className="hidden max-[600px]:block w-full"
             />

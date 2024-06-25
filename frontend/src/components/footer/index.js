@@ -1,3 +1,7 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import console from "../../../public/assets/console_icon.svg"
+
 const Footer = () => {
   return (
     <div className='bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full'>
@@ -5,7 +9,7 @@ const Footer = () => {
         <div className='flex flex-col items-start justify-start gap-[27px] py-14 max-w-[1440px] mx-auto'>
 
             <div className='flex items-center justify-start gap-4'>
-                <img src={"/assets/console_icon.svg"} alt="footer_icon" />
+                <Image src={console} alt="footer_icon" />
 
                 <h1 className='text-[30px] font-bold'>Game store</h1>
             </div>
@@ -34,18 +38,18 @@ const Footer = () => {
                     <div className='flex flex-col items-start gap-[3px]'>
                         <div className='text-[14px] font-normal'>Follow us on:</div>
                         <div className='flex items-center justify-center gap-6'>
-                            <a href="">
-                                <img src={"/assets/facebook.svg"} alt="facebook" />
-                            </a>
-                            <a href="">
-                                <img src={"/assets/Twitter.svg"} alt="twitter" />
-                            </a>
-                            <a href="">
-                                <img src={"/assets/linkedin.svg"} alt="linkedin" />
-                            </a>
-                            <a href="">
-                                <img src={"/assets/instagram.svg"} alt="instagram" />
-                            </a>
+                            <Link href="">
+                                <Image height={10} width={10} src={"/assets/facebook.svg"} alt="facebook" />
+                            </Link>
+                            <Link href="">
+                                <Image height={20} width={20} src={"/assets/Twitter.svg"} alt="twitter" />
+                            </Link>
+                            <Link href="">
+                                <Image height={20} width={20} src={"/assets/linkedin.svg"} alt="linkedin" />
+                            </Link>
+                            <Link href="">
+                                <Image height={20} width={20} src={"/assets/instagram.svg"} alt="instagram" />
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -53,19 +57,19 @@ const Footer = () => {
                 {/* footer part 2 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
                     <h1 className='text-[25px] font-bold'>Categories</h1>
-                    <a className='text-[18px] font-normal' href="">Featured</a>
-                    <a className='text-[18px] font-normal' href="">Adventure</a>
-                    <a className='text-[18px] font-normal' href="">Sports</a>
-                    <a className='text-[18px] font-normal' href="">Puzzle</a>
+                    <Link className='text-[18px] font-normal' href="">Featured</Link>
+                    <Link className='text-[18px] font-normal' href="">Adventure</Link>
+                    <Link className='text-[18px] font-normal' href="">Sports</Link>
+                    <Link className='text-[18px] font-normal' href="">Puzzle</Link>
                 </div>
 
                 {/* footer part 3 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
                     <h1 className='text-[25px] font-bold'>Main</h1>
-                    <a className='text-[18px] font-normal' href="">Home</a>
-                    <a className='text-[18px] font-normal' href="">About Us</a>
-                    <a className='text-[18px] font-normal' href="">Trending</a>
-                    <a className='text-[18px] font-normal' href="">Contact Us</a>
+                    <Link className='text-[18px] font-normal' href="/">Home</Link>
+                    <Link className='text-[18px] font-normal' href="/about-us">About Us</Link>
+                    <Link className='text-[18px] font-normal' href="">Trending</Link>
+                    <Link className='text-[18px] font-normal' href="/contact-us">Contact Us</Link>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import CustomDrawer from "../sidebar/DrawerMobile";
-
+import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
 
 const HorizontalComponent = () => {
@@ -36,7 +36,7 @@ const HorizontalComponent = () => {
               onClick={handleDrawer}
               className={`duration-100 ${drawerOpen ? "rotate-180" : ""}`}
             >
-              <img src={"/assets/menu.svg"} alt="" />
+              <Image height={30} width={30} src={"/assets/menu.svg"} alt="burger" />
             </button>
           ) : (
             <CustomDrawer />
@@ -48,7 +48,9 @@ const HorizontalComponent = () => {
           </div> */}
 
           <div className="flex items-center justify-center max-[1023px]:gap-2 min-[1024px]::gap-4 md:px-4 ">
-            <img
+            <Image
+            height={50}
+              width={50}
               className="self-center pt-1"
               src={"/assets/header_icon.svg"}
               alt="header-console"
@@ -61,7 +63,7 @@ const HorizontalComponent = () => {
         </div>
 
         <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
-          <img src={"/assets/magnifying_glass.svg"} alt="magnifying-glass" />
+          <Image height={30} width={30} src={"/assets/magnifying_glass.svg"} alt="magnifying-glass" />
 
           <input
             className="hidden md:block bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full"

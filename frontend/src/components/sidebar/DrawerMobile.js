@@ -3,6 +3,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
+import Image from 'next/image';
 // import List from '@mui/material/List';
 // import Divider from '@mui/material/Divider';
 // import ListItem from '@mui/material/ListItem';
@@ -67,7 +68,7 @@ export default function CustomDrawer() {
             zIndex: theme.zIndex.drawer + 1,
           }}
         >
-          <img src={"/assets/menu.svg"} alt="" />
+          <Image width={30} height={30} src={"/assets/menu.svg"} alt="" />
         </IconButton>
       )}
       {open && (
@@ -81,7 +82,7 @@ export default function CustomDrawer() {
 
         <DrawerHeader>
             <button onClick={handleDrawerClose}>
-                <img className='rotate-180' src={"/assets/menu.svg"} alt='menu' />
+                <Image width={30} height={30} className='rotate-180' src={"/assets/menu.svg"} alt='menu' />
             </button>
         </DrawerHeader>
 
