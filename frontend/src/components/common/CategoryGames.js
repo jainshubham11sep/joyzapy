@@ -1,5 +1,7 @@
+"use client"
 import GameCard from "./GameCard";
 import styles from "./game.module.css";
+import { useRouter } from "next/navigation";
 
 const data = [
   { image: "/assets/relatedgames/1.png", name: "olx" },
@@ -17,6 +19,8 @@ const data = [
 ];
 
 const CategoryGames = ({ category }) => {
+const router = useRouter()
+
   return (
     <div className="flex flex-col gap-[64px] px-[40px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9 w-full">
       {/* <div class="text-[18px] font-semibold text-[#FEFEFE]">
@@ -33,7 +37,7 @@ const CategoryGames = ({ category }) => {
         </div>
       </div>
 
-      <div className="grid-container-game">
+      <div className="grid-container-game justify-items-center">
         {data.map((data) => {
           return <GameCard data={data} />;
         })}

@@ -42,7 +42,7 @@ const FeaturedGames = ({ title, data }) => {
               alt="gamepad"
             />
           </div>
-          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3]">
+          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer" onClick={() => router.push(`/games/${title.split(' ')[0]}`)}>
             See all
           </h3>
         </div>

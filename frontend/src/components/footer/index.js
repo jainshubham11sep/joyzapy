@@ -26,7 +26,7 @@ const Footer = () => {
 
                     <div className='relative'>
 
-                        <input className='py-[7px] pl-4 pr-2 rounded-full w-[250px] md:w-[300px] h-[46px]' type="text" placeholder='Your email' />
+                        <input className='py-[7px] pl-4 pr-2 rounded-full w-[250px] md:w-[300px] h-[46px] text-[#000]' type="text" placeholder='Your email' />
 
                         <svg className='absolute bg-[#0088DC] rounded-full bottom-[10px] right-[9px]' xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none">
                             <path d="M3.64011 18.3004L5.58011 11.5904L3.64011 4.88037C3.40011 4.06037 4.24011 3.33037 5.02011 3.70037L20.1201 10.6904C20.8901 11.0504 20.8901 12.1504 20.1201 12.5004L5.02011 19.4904C4.24011 19.8504 3.40011 19.1304 3.64011 18.3004Z" stroke="#F5F5F5" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
