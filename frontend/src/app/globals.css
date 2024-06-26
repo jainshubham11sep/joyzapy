@@ -45,3 +45,21 @@ body {
     
   }
 }
+
+@media (max-width: 800px) {
+  .grid-container-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr)) !important;
+    /* / gap: 20px; / */
+    justify-content: center;
+    /* / border: 1px solid red; / */
+  }
+}
+
+.grid-container-game {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  /* / border: 1px solid red; / */
+}
