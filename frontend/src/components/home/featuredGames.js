@@ -1,8 +1,12 @@
 "use client";
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const FeaturedGames = ({ title, data }) => {
+
+  const router = useRouter()
+
   const [items, setItems] = useState([{}]);
   const scrollContainerRef = useRef(null);
 
@@ -63,7 +67,7 @@ const FeaturedGames = ({ title, data }) => {
             {data?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer"
+                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer" onClick={() => router.push('/game-details')}
               >
                 <Image
                   width={700}
