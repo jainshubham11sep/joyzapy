@@ -31,8 +31,10 @@ export default function RootLayout({ children }) {
                 <div className="sidebarcontainer">
                   <Sidebar />
                 </div>
+<div className="w-full">
 
                 {children}
+</div>
               </main>
             </div>
             <Footer />

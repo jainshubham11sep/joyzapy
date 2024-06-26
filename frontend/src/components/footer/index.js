@@ -57,7 +57,7 @@ const Footer = () => {
                 {/* footer part 2 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
                     <h1 className='text-[25px] font-bold'>Categories</h1>
-                    <Link className='text-[18px] font-normal' href="">Featured</Link>
+                    <Link className='text-[18px] font-normal' href="/games/featuredGames">Featured</Link>
                     <Link className='text-[18px] font-normal' href="">Adventure</Link>
                     <Link className='text-[18px] font-normal' href="">Sports</Link>
                     <Link className='text-[18px] font-normal' href="">Puzzle</Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                     <h1 className='text-[25px] font-bold'>Main</h1>
                     <Link className='text-[18px] font-normal' href="/">Home</Link>
                     <Link className='text-[18px] font-normal' href="/about-us">About Us</Link>
-                    <Link className='text-[18px] font-normal' href="">Trending</Link>
+                    <Link className='text-[18px] font-normal' href="/privacy-policy">Privacy Policy</Link>
                     <Link className='text-[18px] font-normal' href="/contact-us">Contact Us</Link>
                 </div>
             </div>
