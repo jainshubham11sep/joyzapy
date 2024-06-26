@@ -63,7 +63,7 @@ const FeaturedGames = ({ title, data }) => {
             {data?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px]"
+                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer"
               >
                 <Image
                   width={700}
@@ -81,7 +81,7 @@ const FeaturedGames = ({ title, data }) => {
                     width={25}
                     src={"/assets/Vector.png"}
                     alt="heart image"
-                  // className="max-[768px]:w-4 max-[768px]:h-4"
+                    // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
                 </div>
               </div>

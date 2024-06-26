@@ -23,13 +23,13 @@ const Product_details = () => {
             <div class="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start w-full">
               <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden ">
                 <Image
-                height={500}
-                width={500}
+                  height={500}
+                  width={500}
                   className="absolute w-full h-full z-[0] rounded-[30px]"
                   src="/assets/miniblox.png"
                 />
                 <div class="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>
-                <div class="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px]">
+                <div class="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px] cursor-pointer">
                   <div class="">Play Now</div>
                   <div>
                     <svg

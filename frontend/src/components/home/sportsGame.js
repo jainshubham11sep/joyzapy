@@ -16,10 +16,10 @@ const SportGame = ({ data }) => {
 
         <div className="flex gap-5 overflow-x-scroll no_scrollbar">
           {data.map((data) => (
-            <div className="flex flex-col gap-4 relative min-w-[204px] max-[600px]:min-w-[143px] ">
+            <div className="flex flex-col gap-4 relative min-w-[204px] max-[600px]:min-w-[143px] cursor-pointer">
               <Image
-              width={100}
-              height={100}
+                width={100}
+                height={100}
                 src={data.image}
                 alt="game image"
                 className="h-[304px] rounded-[30px] max-[600px]:h-[239px] max-[600px]:rounded-[8px] w-full"
@@ -29,8 +29,8 @@ const SportGame = ({ data }) => {
               </h2>
               <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[600px]:w-6 max-[600px]:h-6 max-[600px]:top-2 max-[600px]:right-2">
                 <Image
-                width={100}
-                height={100}
+                  width={100}
+                  height={100}
                   src={"/assets/Vector.png"}
                   alt="heart image"
                   className="max-[600px]:w-4 max-[600px]:h-4"
