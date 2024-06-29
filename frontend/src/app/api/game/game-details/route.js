@@ -33,6 +33,7 @@ export async function GET() {
             title: "$gameDetails.title",
             developer_name: "$gameDetails.developer_name",
             release_date: "$gameDetails.release_date",
+            screenshots: "$gameDetails.screenshots",
             priority: "$priority",
           },
         },
