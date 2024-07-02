@@ -4,7 +4,9 @@ import CustomDrawer from "../sidebar/DrawerMobile";
 import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
 
-const HorizontalComponent = () => {
+const HorizontalComponent = ({gameCategories}) => {
+
+
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
 
@@ -44,7 +46,7 @@ const HorizontalComponent = () => {
               />
             </button>
           ) : (
-            <CustomDrawer />
+            <CustomDrawer gameCategories={gameCategories}/>
           )}
 
           {/* <img className='p-2 md:hidden md:p-0' src={"/assets/menu.svg"} alt="menu-bar" /> */}

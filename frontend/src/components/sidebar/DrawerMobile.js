@@ -44,7 +44,7 @@ const Drawer = styled(MuiDrawer)(({ theme, open }) => ({
   }),
 }));
 
-export default function CustomDrawer() {
+export default function CustomDrawer({ gameCategories }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -226,7 +226,62 @@ export default function CustomDrawer() {
                     <p className="text-[18px] font-normal">Featured</p>
                   </button>
                 </Link>
-                <Link //Sports
+
+
+
+                {
+                  gameCategories.map((data, index) => {
+                    return (
+                      <Link
+                        href={"/games" + "/" + data.cat_name}
+                      >
+                        <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="25"
+                            height="24"
+                            viewBox="0 0 25 24"
+                            fill="none"
+                          >
+                            <g clip-path="url(#clip0_310_121)">
+                              <path
+                                d="M22.7075 5.02918C21.8112 3.53541 20.2178 2.53955 18.4253 2.53955H6.47511C4.68256 2.53955 3.08923 3.53541 2.19294 5.02918C1.09752 7.0209 0.5 9.21179 0.5 11.5022C0.5 16.9794 2.69089 21.4607 5.47925 21.4607C6.97302 21.4607 8.16805 20.0665 9.0643 17.1786C9.16386 16.7802 9.5622 16.4815 10.0602 16.4815H14.9398C15.3382 16.4815 15.7365 16.7802 15.9357 17.1786C16.832 20.0665 18.027 21.4607 19.5208 21.4607C22.3091 21.4607 24.5 16.9794 24.5 11.5022C24.4004 9.21179 23.8029 7.0209 22.7075 5.02918ZM19.4211 19.469C19.1224 19.469 18.4253 18.6723 17.7282 16.5811C17.3299 15.2865 16.1348 14.4898 14.8402 14.4898H10.0602C8.76556 14.4898 7.57053 15.386 7.17219 16.5811C6.47511 18.6723 5.77798 19.469 5.47925 19.469C4.48339 19.469 2.49172 16.3819 2.49172 11.5022C2.49172 9.61013 2.98962 7.71802 3.88592 6.02508C4.48344 5.12883 5.4793 4.53132 6.47516 4.53132H18.4254C19.4212 4.53132 20.4171 5.12883 21.0146 6.02508C21.9109 7.71802 22.4088 9.61013 22.4088 11.5022C22.4087 16.3819 20.417 19.469 19.4211 19.469Z"
+                                fill="#FEFEFE"
+                              />
+                              <path
+                                d="M9.49993 9.00002H8.49994V8.00004C8.49994 7.40004 8.09996 7.00006 7.49996 7.00006C6.89996 7.00006 6.49997 7.40004 6.49997 8.00004V9.00002H5.49999C4.89998 9.00002 4.5 9.40001 4.5 10C4.5 10.6 4.89998 11 5.49999 11H6.49992V12C6.49992 12.6 6.89991 13 7.49991 13C8.09991 13 8.4999 12.6 8.4999 12V11H9.49993C10.0999 11 10.4999 10.6001 10.4999 10.0001C10.4999 9.40001 10.0999 9.00002 9.49993 9.00002Z"
+                                fill="#FEFEFE"
+                              />
+                              <path
+                                d="M19 10C19.8284 10 20.5 9.32843 20.5 8.5C20.5 7.67157 19.8284 7 19 7C18.1716 7 17.5 7.67157 17.5 8.5C17.5 9.32843 18.1716 10 19 10Z"
+                                fill="#FEFEFE"
+                              />
+                              <path
+                                d="M16 13C16.8284 13 17.5 12.3284 17.5 11.5C17.5 10.6716 16.8284 10 16 10C15.1716 10 14.5 10.6716 14.5 11.5C14.5 12.3284 15.1716 13 16 13Z"
+                                fill="#FEFEFE"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_310_121">
+                                <rect
+                                  width="24"
+                                  height="24"
+                                  fill="white"
+                                  transform="translate(0.5)"
+                                />
+                              </clipPath>
+                            </defs>
+                          </svg>
+
+                          <p className="text-[18px] font-normal">{data?.cat_name}</p>
+                        </button>
+                      </Link>
+                    )
+                  })
+                }
+
+
+                {/* <Link //Sports
                   href="/games/Sports"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
@@ -317,7 +372,7 @@ export default function CustomDrawer() {
 
                     <p className="text-[18px] font-normal">Puzzle Games</p>
                   </button>
-                </Link>
+                </Link> */}
 
                 {/* line div  */}
                 <div className="w-full h-[1px] bg-[#FFF]"></div>

@@ -23,15 +23,11 @@ const router = useRouter()
 
   return (
     <div className="flex flex-col gap-[64px] px-[40px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9 w-full">
-      {/* <div class="text-[18px] font-semibold text-[#FEFEFE]">
-        Home/<span class="text-[#15AEE3]">Privacy Policy</span>
-      </div> */}
-
       <div
         className={`h-[152px] ${styles.background} bg-cover bg-no-repeat rounded-[20px] flex justify-center items-center  `}
       >
         <div className="flex flex-col justify-center items-center   ">
-          <p className="text-[35px] font-bold  px-[2px] md:text-[40px] leading-[48px] text-[#333333] text-center ">
+          <p className="text-[35px] font-bold  px-[2px] md:text-[40px] leading-[48px] text-[#333333] text-center capitalize">
             {category} Games
           </p>
         </div>

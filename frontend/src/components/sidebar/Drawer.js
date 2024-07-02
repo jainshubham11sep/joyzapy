@@ -46,11 +46,13 @@ const Drawer = styled(MuiDrawer)(({ theme, drawerOpen }) => ({
   }),
 }));
 
-export default function CustomDrawer() {
+export default function CustomDrawer({ gameCategories }) {
+
+  console.log(gameCategories, "hey")
+
   const theme = useTheme();
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
 
-  console.log(drawerOpen, setDrawerOpen, "jai");
 
   // const [drawerOpen, setOpen] = React.useState(false);
 
@@ -65,9 +67,8 @@ export default function CustomDrawer() {
   return (
     <Box sx={{ display: "flex" }}>
       <div
-        className={`hidden md:flex bg-[#11101D] text-[#FFF] w-min py-[31px] flex-col items-center justify-center gap-10 ${
-          drawerOpen ? "" : ""
-        }`}
+        className={`hidden md:flex bg-[#11101D] text-[#FFF] w-min py-[31px] flex-col items-center justify-center gap-10 ${drawerOpen ? "" : ""
+          }`}
       >
         {/* <div className="flex items-center justify-center">
         <CustomDrawer />
@@ -93,9 +94,8 @@ export default function CustomDrawer() {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal ${
-                    drawerOpen ? "block" : "hidden"
-                  }`}
+                  className={`text-[18px] font-normal ${drawerOpen ? "block" : "hidden"
+                    }`}
                 >
                   All Games
                 </p>
@@ -133,9 +133,8 @@ export default function CustomDrawer() {
               </svg>
 
               <p
-                className={`text-[18px] font-normal  ${
-                  drawerOpen ? "block" : "hidden"
-                }`}
+                className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
+                  }`}
               >
                 Recently Played
               </p>
@@ -168,9 +167,8 @@ export default function CustomDrawer() {
               </svg>
 
               <p
-                className={`text-[18px] font-normal ${
-                  drawerOpen ? "block" : "hidden"
-                }`}
+                className={`text-[18px] font-normal ${drawerOpen ? "block" : "hidden"
+                  }`}
               >
                 Wishlist
               </p>
@@ -178,6 +176,8 @@ export default function CustomDrawer() {
 
             {/* line div */}
             <div className="w-full h-[1px] bg-[#FFF]"></div>
+
+
 
             <Link //Featured
               href="/games/Featured"
@@ -221,15 +221,53 @@ export default function CustomDrawer() {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal  ${
-                    drawerOpen ? "block" : "hidden"
-                  }`}
+                  className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
+                    }`}
                 >
                   Featured
                 </p>
               </button>
             </Link>
+            {
+              gameCategories.map((data, index) => {
+                return (
+                  <Link
+                    href={"/games" + "/" + data.cat_name}
+                  >
+                    <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23"
+                        height="24"
+                        viewBox="0 0 23 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M10.2389 8.12254C9.63553 5.87615 8.66681 3.74432 7.37147 1.81241C6.74526 0.783599 5.40361 0.457255 4.37484 1.08346C4.12917 1.23299 3.91551 1.42968 3.74615 1.66213C3.34851 2.22308 2.98594 2.80813 2.66048 3.4138C0.548341 7.19835 -0.410909 11.6326 0.760967 15.8736C1.37278 18.1409 2.3535 20.292 3.66389 22.2407C4.32192 23.2548 5.6774 23.5435 6.6915 22.8854C6.94931 22.7181 7.16897 22.4985 7.33626 22.2407C9.76805 18.9157 11.7199 12.6665 10.2389 8.12254ZM8.17158 16.0034C6.3682 17.4805 3.70884 17.216 2.23176 15.4125C2.21184 15.3882 2.1922 15.3637 2.17284 15.3389C1.488 12.596 1.6545 9.70949 2.65022 7.06344C4.41155 8.08972 6.58861 8.08972 8.34994 7.06344C9.34565 9.70949 9.51215 12.596 8.82731 15.3389C8.63048 15.581 8.41092 15.8034 8.17158 16.0034ZM6.0517 2.55636C6.72098 3.52691 7.29548 4.55947 7.76733 5.63985C6.39079 6.54294 4.60959 6.54299 3.23306 5.63999C3.59137 4.82493 4.00603 4.03579 4.47398 3.27829C4.81045 2.65986 5.37183 1.78715 6.0517 2.55636ZM6.08676 21.4101C5.883 21.7341 5.45517 21.8316 5.13117 21.6279C5.04319 21.5726 4.96875 21.4981 4.91344 21.4101C4.17647 20.3042 3.54525 19.1313 3.02817 17.907C4.59019 18.6595 6.40997 18.6595 7.97203 17.907C7.45495 19.1313 6.82373 20.3042 6.08676 21.4101Z"
+                          fill="#FEFEFE"
+                        />
+                        <path
+                          d="M7 11.25C7.41423 11.2421 7.74358 10.8998 7.73566 10.4856C7.72792 10.0826 7.40303 9.75767 6.99995 9.74999H6.25C6.24194 9.33575 5.89961 9.00655 5.48538 9.01461C5.08253 9.02249 4.75783 9.34714 4.75 9.74999H4C3.58581 9.75856 3.25698 10.1013 3.26552 10.5155C3.27381 10.9176 3.59786 11.2417 4.00005 11.25H4.75V12.75H4C3.58577 12.75 3.25 13.0858 3.25 13.5C3.25 13.9142 3.58577 14.25 4 14.25H4.75C4.75806 14.6642 5.10039 14.9934 5.51462 14.9854C5.91747 14.9775 6.24217 14.6528 6.25 14.25H7C7.41423 14.2421 7.74358 13.8998 7.73566 13.4856C7.72792 13.0826 7.40303 12.7577 6.99995 12.75H6.25V11.25H7Z"
+                          fill="#FEFEFE"
+                        />
+                        <path
+                          d="M22.75 4.50001C22.7491 3.25656 21.7404 2.24922 20.4969 2.25006C19.8963 2.25048 19.3207 2.49086 18.8982 2.91775C17.5992 2.04011 15.8969 2.04109 14.5989 2.92028C13.7201 2.04367 12.2971 2.04541 11.4205 2.92417C10.9099 3.43605 10.6767 4.16237 10.7939 4.87581C10.7962 4.97387 12.2421 16.4459 12.25 16.5463V18.75C12.4579 24.7004 21.0387 24.7089 21.25 18.7499V16.5461L22.6972 4.96473C22.6972 4.96473 22.737 4.74137 22.75 4.50001ZM13.75 17.25H19.75V18H13.75V17.25ZM20.5 3.75001C20.9283 3.76042 21.267 4.11606 21.2566 4.54436C21.2545 4.63244 19.8379 15.75 19.8379 15.75H19.0482L19.75 4.50001C19.7504 4.08597 20.0859 3.75044 20.5 3.75001ZM16.75 3.75001C17.6468 3.75001 18.2426 4.1965 18.2488 4.49509L17.5454 15.75H15.9545L15.25 4.50001C15.25 4.20156 15.8484 3.75001 16.75 3.75001ZM13 3.75001C13.422 3.75667 13.7587 4.1042 13.7521 4.52622C13.752 4.53311 13.7517 4.54 13.7515 4.54689L14.4516 15.75H13.6621L12.2939 4.80175C12.1414 4.4012 12.3426 3.95294 12.7431 3.8005C12.8253 3.76928 12.9121 3.75217 13 3.75001ZM16.75 21.75C15.3858 21.7461 14.1964 20.8212 13.8565 19.5H19.6435C19.3036 20.8212 18.1142 21.7461 16.75 21.75Z"
+                          fill="#FEFEFE"
+                        />
+                      </svg>
 
+                      <p
+                        className={`text-[18px] font-normal justify-self-end   ${drawerOpen ? "block" : "hidden"
+                          }`}
+                      >
+                        {data?.cat_name}
+                      </p>
+                    </button>
+                  </Link>
+                )
+              })
+            }
+            {/* 
             <Link //Sports
               href="/games/Sports"
             >
@@ -341,7 +379,7 @@ export default function CustomDrawer() {
                   Puzzle Games
                 </p>
               </button>
-            </Link>
+            </Link> */}
 
             {/* line div  */}
             <div className="w-full h-[1px] bg-[#FFF]"></div>
@@ -367,9 +405,8 @@ export default function CustomDrawer() {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal  ${
-                    drawerOpen ? "block" : "hidden"
-                  }`}
+                  className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
+                    }`}
                 >
                   About
                 </p>

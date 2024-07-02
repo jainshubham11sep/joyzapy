@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, data }) => {
+const FeaturedGames = ({ title, imageData,gameData }) => {
 
   const router = useRouter()
 
@@ -27,6 +27,11 @@ const FeaturedGames = ({ title, data }) => {
       });
     }
   };
+
+  // console.log(gameData,"gameDatagameData")
+
+
+
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -64,20 +69,28 @@ const FeaturedGames = ({ title, data }) => {
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
           >
-            {data?.map((data, index) => (
+            {gameData?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer" onClick={() => router.push('/game-details')}
+                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer" onClick={() => router.push(`/${data.game_name.split(" ").join("-")}`)}
               >
+                
+                {/* <Image
+                  width={700}
+                  height={700}
+                  src={data.featured_img}
+                  alt={data.name}
+                  className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
+                /> */}
                 <Image
                   width={700}
                   height={700}
-                  src={data.image}
+                  src={imageData[index].image}
                   alt={data.name}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
                 />
                 <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
-                  {data.name}
+                  {data.game_name}
                 </h2>
                 <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[768px]:w-6 max-[768px]:h-6 max-[768px]:top-2 max-[768px]:right-2">
                   <Image

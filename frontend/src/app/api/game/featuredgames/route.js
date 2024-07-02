@@ -4,52 +4,54 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("punogames");
+    console.log("runningggg")
     const featuredGamesData = await db
-      .collection("featuredgames")
+    .collection("featuredgames")
       .aggregate([
         {
           $lookup: {
-            from: "allgames", // the foreign collection
-            localField: "game_id", // field in the featuredgames collection
-            foreignField: "_id", // field in the allgames collection
-            as: "gameDetails", // output array field containing joined records
-          },
+            from: "allgames",
+            localField: "game_id",
+            foreignField: "_id",
+            as: "gameDetails"
+          }
         },
         {
-          $unwind: "$gameDetails", //Flatten the gameDetails array
-          preserveNullAndEmptyArrays: true, //Include documents that don't have a match in the joined collection
+          $unwind: {
+            path: "$gameDetails",
+            preserveNullAndEmptyArrays: true
+          }
         },
         {
-          $limit: 10, // Limit the results for simplicity
+          $sort: { "priority": 1 }
         },
         {
-          $sort: { priority: 1 }, // Sort by priority in ascending order
+          $limit: 10
         },
         {
           $project: {
             game_id: "$gameDetails._id",
             game_name: "$gameDetails.game_name",
-            description: "$gameDetails.description", // You can include fields from joined documents
+            description: "$gameDetails.description",
             game_file: "$gameDetails.game_file",
             cat_arr: "$gameDetails.cat_arr",
             featured_img: "$gameDetails.featured_img",
             title: "$gameDetails.title",
             developer_name: "$gameDetails.developer_name",
             release_date: "$gameDetails.release_date",
-            priority: "$priority",
-          },
-        },
+            priority: 1
+          }
+        }
       ])
       .toArray();
-
-    // Properly return the response using new Response() constructor
+      console.log(featuredGamesData, "featureeeee")
     return new Response(JSON.stringify(featuredGamesData), {
       headers: {
         "Content-Type": "application/json",
       },
-      status: 200, // HTTP status code
+      status: 200,
     });
-  } catch (error) {
+}catch (error) {
     console.error(error, "error");
 
     // Return an error response properly
