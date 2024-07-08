@@ -3,7 +3,7 @@ import GameCard from "./GameCard";
 import styles from "./game.module.css";
 import { useRouter } from "next/navigation";
 
-const data = [
+const imageData = [
   { image: "/assets/relatedgames/1.png", name: "olx" },
   { image: "/assets/relatedgames/2.png", name: "Store Manager" },
   { image: "/assets/relatedgames/3.png", name: "Store Manager" },
@@ -18,8 +18,8 @@ const data = [
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
-const CategoryGames = ({ category }) => {
-const router = useRouter()
+const CategoryGames = ({ category, allGameData, featureGameData }) => {
+  const router = useRouter()
 
   return (
     <div className="flex flex-col gap-[64px] px-[40px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9 w-full">
@@ -32,12 +32,24 @@ const router = useRouter()
           </p>
         </div>
       </div>
+      {
+        category === "Featured" ?
+          (
+            <div className="grid-container-game justify-items-center">
+              {featureGameData.map((data) => {
+                return <GameCard data={data} imageData={imageData} />;
+              })}
+            </div>
+          )
+          :
+          (
+            <div className="grid-container-game justify-items-center">
+              {allGameData.map((data) => {
+                return <GameCard data={data} imageData={imageData} />;
+              })}
+            </div>
+          )}
 
-      <div className="grid-container-game justify-items-center">
-        {data.map((data) => {
-          return <GameCard data={data} />;
-        })}
-      </div>
     </div>
   );
 };

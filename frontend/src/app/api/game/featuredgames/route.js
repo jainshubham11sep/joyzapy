@@ -4,7 +4,7 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("punogames");
-    console.log("runningggg")
+    // console.log("runningggg")
     const featuredGamesData = await db
     .collection("featuredgames")
       .aggregate([
@@ -44,7 +44,7 @@ export async function GET() {
         }
       ])
       .toArray();
-      console.log(featuredGamesData, "featureeeee")
+      // console.log(featuredGamesData, "featureeeee")
     return new Response(JSON.stringify(featuredGamesData), {
       headers: {
         "Content-Type": "application/json",

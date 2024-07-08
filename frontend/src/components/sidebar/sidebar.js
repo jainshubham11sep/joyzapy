@@ -8,7 +8,7 @@ const sidebar =  ({gameCategories}) => {
   // console.log(gameCategories,"gameCategoriesgameCategories")
 
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
-  console.log(drawerOpen, "drawerOpen")
+  // console.log(drawerOpen, "drawerOpen")
   return (
     <>
       <CustomDrawer gameCategories={gameCategories} />

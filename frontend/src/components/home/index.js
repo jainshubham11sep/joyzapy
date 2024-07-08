@@ -1,7 +1,7 @@
+"use client"
 import FeaturedGames from "./featuredGames";
 import SportGame from "./sportsGame";
 import Image from "next/image";
-
 
 const imageData = [
   { image: "/assets/relatedgames/1.png", name: "olx" },
@@ -24,6 +24,8 @@ const sportGameData = [
 ];
 
 function index({ gameData, featureGameData }) {
+
+  console.log(featureGameData, "featureGameDatafeatureGameData")
 
   return (
     <>
@@ -51,7 +53,7 @@ function index({ gameData, featureGameData }) {
           <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-16 mb-4 lg:mb-16">
             <FeaturedGames title={"All Games"} imageData={imageData} gameData={gameData} />
 
-            <SportGame data={sportGameData} />
+            {/* <SportGame title={"Sports Games"} data={sportGameData} /> */}
 
             <FeaturedGames title={"Featured Games"} imageData={imageData} gameData={featureGameData} />
           </div>

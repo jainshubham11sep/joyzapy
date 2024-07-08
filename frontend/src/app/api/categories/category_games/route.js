@@ -3,7 +3,7 @@ import clientPromise from "@/lib/mongodb";
 export async function GET() {
   try {
     const client = await clientPromise;
-    let categoryId = "667d4d2f7fd5b95183945740";
+    let categoryId = "667d4d2f7fd5b95183945747";
     const db = client.db("punogames");
 
     const projection = {

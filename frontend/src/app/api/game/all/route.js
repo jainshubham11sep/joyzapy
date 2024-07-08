@@ -5,15 +5,30 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("punogames");
+
     const allgames = await db
       .collection("allgames")
       .find({})
       // .sort({ metacritic: -1 })
-      .limit(10)
+      // .limit(10)
       .toArray();
 
     // Properly return the response using new Response() constructor
-    return new Response(JSON.stringify(allgames), {
+
+    const transformedGames = allgames.map((game) => ({
+      game_id: game._id,
+      game_name: game.game_name,
+      description: game.description,
+      game_file: game.game_file,
+      featured_img: game.featured_img,
+      title: game.title,
+      developer_name: game.developer_name,
+      release_date: game.release_date,
+      screenshots: game.screenshots,
+      cat_arr: game.cat_arr,
+    }));
+
+    return new Response(JSON.stringify(transformedGames), {
       headers: {
         "Content-Type": "application/json",
       },

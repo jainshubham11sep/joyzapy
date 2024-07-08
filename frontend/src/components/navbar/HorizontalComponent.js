@@ -3,12 +3,42 @@ import React, { useEffect, useState } from "react";
 import CustomDrawer from "../sidebar/DrawerMobile";
 import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
+import { useRouter } from "next/navigation";
 
-const HorizontalComponent = ({gameCategories}) => {
-
+const HorizontalComponent = ({ gameCategories, games }) => {
+  // console.log(games, "allgaa")
 
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
+  const [query, setQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const router = useRouter();
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    // console.log(value, "vallll");
+    setQuery(value);
+
+    if (value.length > 2) {
+      const filteredGames = games.filter((game) => {
+        // console.log(game, "gamaa");
+        return game.game_name.toLowerCase().includes(value.toLowerCase());
+      });
+
+      // console.log(filteredGames, "filteredGamesfilteredGames");
+      setSuggestions(filteredGames);
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+
+  const handleSuggestionClick = (game) => {
+    // console.log(game,"gameee")
+    router.push(`/${game.game_id}`);
+    setQuery('');
+    setSuggestions([]);
+  };
 
   const handleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -24,8 +54,6 @@ const HorizontalComponent = ({gameCategories}) => {
 
     return () => window.removeEventListener("resize", updateSize);
   }, []);
-
-  console.log(size);
 
   return (
     <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] max-w-[1444px] m-auto">
@@ -46,7 +74,7 @@ const HorizontalComponent = ({gameCategories}) => {
               />
             </button>
           ) : (
-            <CustomDrawer gameCategories={gameCategories}/>
+            <CustomDrawer gameCategories={gameCategories} />
           )}
 
           {/* <img className='p-2 md:hidden md:p-0' src={"/assets/menu.svg"} alt="menu-bar" /> */}
@@ -69,19 +97,36 @@ const HorizontalComponent = ({gameCategories}) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
-          <Image
-            height={30}
-            width={30}
-            src={"/assets/magnifying_glass.svg"}
-            alt="magnifying-glass"
-          />
+        <div className="relative">
+          <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
+            <Image
+              height={30}
+              width={30}
+              src={"/assets/magnifying_glass.svg"}
+              alt="magnifying-glass"
+            />
 
-          <input
-            className="hidden md:block text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
-            type="text"
-            placeholder="Search..."
-          />
+            <input
+              className="hidden md:block text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+              type="text"
+              value={query}
+              onChange={handleSearchChange}
+              placeholder="Search for games..."
+            />
+          </div>
+          {suggestions.length > 0 && (
+            <ul className="absolute z-10 w-full mr-10 bg-white shadow-lg rounded-lg mt-2 lg:w-[92%]">
+              {suggestions.map((game) => (
+                <li
+                  key={game._id}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                  onClick={() => handleSuggestionClick(game)}
+                >
+                  {game.game_name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </div>

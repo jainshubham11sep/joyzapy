@@ -14,7 +14,25 @@ const imageData = [
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
-const Product_details = () => {
+
+
+const Product_details = ({ data, featureGameData }) => {
+
+  console.log(data,"datadata")
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (isNaN(date)) {
+      console.error(`Invalid date string: ${dateString}`);
+      return 'Invalid Date';
+    }
+    return new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(date);
+  };
+
   return (
     <div className=" ">
       <div class="flex flex-col items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE] w-full">
@@ -56,10 +74,10 @@ const Product_details = () => {
               </div>
               <div class="flex flex-wrap justify-between items-center self-stretch text-white ">
                 <div class="flex  gap-[8px] items-start flex-1   md:text-[16px] text-[12px] ">
-                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] ">
+                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] hover:bg-[#9f9fa6] duration-500">
                     Share
                   </button>
-                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] gap-[8px]">
+                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] gap-[8px] hover:bg-[#9f9fa6] duration-500">
                     <div>Whishlist</div>
                     <div>
                       <svg
@@ -137,14 +155,11 @@ const Product_details = () => {
           <div class=" flex-col items-start gap-6 self-stretch hidden md:flex">
             <div class="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
             <div class="text-[18px] font-semibold mb-6">
-              Home/<span class="text-[#15AEE3]"> Miniblox </span>
+              Home/<span class="text-[#15AEE3]"> {data?.game_name} </span>
             </div>
-            <div class="text-[35px] font-bold mb-6">Miniblox</div>
+            <div class="text-[35px] font-bold mb-6">{data?.game_name}</div>
             <p class=" leading-[28.8px] tracking-[0.8px] mb-6">
-              Miniblox is an online game featuring voxelated graphics and a
-              diverse selection of minigames. Explore endless possibilities as
-              you delve into a vibrant world of creativity and competition. Join
-              in, and let the voxel adventures begin!
+              {data?.description}
             </p>
 
             <div className="mb-6">
@@ -176,18 +191,18 @@ const Product_details = () => {
             <div className="mb-6">
               <div class="text-xl font-bold ">Studio/Developer</div>
               <div class=" leading-[28.8px] tracking-[0.8px]">
-                harsola studios
+                {data?.developer_name}
               </div>
             </div>
             <div>
               <div class="text-xl font-bold ">Release date</div>
-              <div class=" leading-[28.8px] tracking-[0.8px]">2 july 2014</div>
+              <div class=" leading-[28.8px] tracking-[0.8px]">{formatDate(data?.release_date)}</div>
             </div>
           </div>
         </div>
         <div className="w-full">
-          <FeaturedGames title={"Featured Games"} data={imageData} />
-          <FeaturedGames title={"Related Games"} data={imageData} />
+          <FeaturedGames title={"Featured Games"} imageData={imageData} gameData={featureGameData} />
+          <FeaturedGames title={"Related Games"} imageData={imageData}   />
         </div>
       </div>
     </div>

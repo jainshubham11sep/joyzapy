@@ -3,7 +3,9 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, imageData,gameData }) => {
+const FeaturedGames = ({ title, imageData, gameData }) => {
+
+  console.log(gameData, "datafromcards")
 
   const router = useRouter()
 
@@ -28,7 +30,6 @@ const FeaturedGames = ({ title, imageData,gameData }) => {
     }
   };
 
-  // console.log(gameData,"gameDatagameData")
 
 
 
@@ -47,7 +48,7 @@ const FeaturedGames = ({ title, imageData,gameData }) => {
               alt="gamepad"
             />
           </div>
-          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer" onClick={() => router.push(`/games/${title.split(' ')[0]}`)}>
+          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] " onClick={() => router.push(`/games/${title.split(' ')[0]}`)}>
             See all
           </h3>
         </div>
@@ -72,9 +73,11 @@ const FeaturedGames = ({ title, imageData,gameData }) => {
             {gameData?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer" onClick={() => router.push(`/${data.game_name.split(" ").join("-")}`)}
+                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer gameCard"
+                onClick={() => {
+                  router.push(`/${data.game_id}`)
+                }}
               >
-                
                 {/* <Image
                   width={700}
                   height={700}
@@ -87,7 +90,7 @@ const FeaturedGames = ({ title, imageData,gameData }) => {
                   height={700}
                   src={imageData[index].image}
                   alt={data.name}
-                  className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
+                  className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500	 "
                 />
                 <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
                   {data.game_name}
@@ -98,7 +101,7 @@ const FeaturedGames = ({ title, imageData,gameData }) => {
                     width={25}
                     src={"/assets/Vector.png"}
                     alt="heart image"
-                    // className="max-[768px]:w-4 max-[768px]:h-4"
+                  // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
                 </div>
               </div>
