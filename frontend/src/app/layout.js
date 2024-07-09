@@ -36,8 +36,8 @@ export default async function RootLayout({ children }) {
         <DrawerContextComponent>
           <div style={{ width: "100%" }}>
             <Navbar gameCategories={gameCategories}/>
-            <div style={{ maxWidth: "1444px", margin: "auto" }}>
-              <main className="flex gap-3 mainWrapper justify-center ">
+            <div style={{  }}>
+              <main className="flex gap-3 justify-center">
                 <div className="sidebarcontainer">
                   <Sidebar gameCategories={gameCategories} />
                 </div>

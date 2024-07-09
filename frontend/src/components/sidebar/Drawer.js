@@ -24,7 +24,7 @@ export default function CustomDrawer({ gameCategories }) {
   return (
     <Box sx={{ display: "flex" }} >
       <div className={`hidden md:flex bg-[#11101D] text-[#FFF] w-min py-[31px] flex-col items-center justify-center gap-10 ${drawerOpen ? "" : ""}`}>
-        <div className="flex flex-col items-center justify-between" >
+        <div className="flex flex-col items-center justify-between h-[100vh]" >
           <div className="flex flex-col items-start justify-start gap-4 w-max">
             <Link //all Games
               href="/"

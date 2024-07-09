@@ -30,8 +30,8 @@ function index({ gameData, featureGameData }) {
   return (
     <>
       <div
-        className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[70%]"
-        style={{ flex: 3 }}
+        className="bg-[#1F1F29] px-4 lg:px-16 py-6 w-[70%] "
+        style={{ flex: 3 , margin:"auto" , maxWidth:"1444px"}}
       >
         <div>
           <div className="containerRight">
@@ -50,7 +50,7 @@ function index({ gameData, featureGameData }) {
               className="hidden max-[600px]:block w-full"
             />
           </div>
-          <div className="flex flex-col gap-16 max-[600px]:gap-8 mt-16 mb-4 lg:mb-16">
+          <div className="flex flex-col mt-16 mb-4 lg:mb-16">
             <FeaturedGames title={"All Games"} imageData={imageData} gameData={gameData} />
 
             {/* <SportGame title={"Sports Games"} data={sportGameData} /> */}

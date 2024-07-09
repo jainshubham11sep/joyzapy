@@ -56,7 +56,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] max-w-[1444px] m-auto">
+    <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] ">
       <div className="flex flex-row w-[100%] items-center justify-between">
         <div className="flex items-center justify-between max-[767px]:gap-2 min-[768px]:gap-6 min-[1024px]:gap-16">
           {/* <CustomDrawer /> */}
@@ -98,16 +98,25 @@ const HorizontalComponent = ({ gameCategories, games }) => {
         </div>
 
         <div className="relative">
-          <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
+        <Image
+              height={30}
+              width={30}
+              src={"/assets/magnifying_glass.svg"}
+              alt="magnifying-glass"
+              onClick={()=>console.log("mobile")}
+              className="block md:hidden" 
+            />
+          <div className="hidden md:flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
             <Image
               height={30}
               width={30}
               src={"/assets/magnifying_glass.svg"}
               alt="magnifying-glass"
+              onClick={()=>console.log("desktop")}
             />
 
             <input
-              className="hidden md:block text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+              className="text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
               type="text"
               value={query}
               onChange={handleSearchChange}
@@ -115,7 +124,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             />
           </div>
           {suggestions.length > 0 && (
-            <ul className="absolute z-10 w-full mr-10 bg-white shadow-lg rounded-lg mt-2 lg:w-[92%]">
+            <ul className="hidden md:block absolute z-10 w-full mr-10 bg-white shadow-lg rounded-lg mt-2 lg:w-[92%]">
               {suggestions.map((game) => (
                 <li
                   key={game._id}

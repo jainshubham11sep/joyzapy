@@ -55,7 +55,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
 
         <div className="overflow-hidden no_scrollbar relative">
           <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[225px] lg:h-[298px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollLeft}
           >
             <Image
@@ -73,7 +73,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             {gameData?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer gameCard"
+                className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit	"
                 onClick={() => {
                   router.push(`/${data.game_id}`)
                 }}
@@ -88,7 +88,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                 <Image
                   width={700}
                   height={700}
-                  src={imageData[index].image}
+                  src={imageData[index]?.image}
                   alt={data.name}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500	 "
                 />
@@ -108,7 +108,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             ))}
           </div>
           <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[225px] lg:h-[298px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollRight}
           >
             <Image
