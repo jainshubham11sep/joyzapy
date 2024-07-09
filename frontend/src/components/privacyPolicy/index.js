@@ -5,8 +5,8 @@ function PrivacyPolicy() {
   return (
     <>
       <div className="flex flex-col gap-[64px] px-5 min-[768px]:px-[20px] min-[1024px]:pl-[64px] min-[1024px]:pr-[65px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9">
-        <div class="text-[18px] font-semibold text-[#FEFEFE]">
-          Home/<span class="text-[#15AEE3]">Privacy Policy</span>
+        <div className="text-[18px] font-semibold text-[#FEFEFE]">
+          Home/<span className="text-[#15AEE3]">Privacy Policy</span>
         </div>
 
         <div

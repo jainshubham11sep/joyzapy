@@ -30,17 +30,43 @@ const fetchFeaturedGames = async () => {
     console.log(error.message, "game error");
   }
 };
+const fetchRelatedGames = async (req) => {
+  try {
+    const cat_arr = await req;
+    console.log(cat_arr, "cat_arr");
+    const data = await fetch("http://localhost:3000/api/game/relatedgames", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cat_arr),
+    });
+
+    const jsonData = await data.json();
+    // console.log(jsonData, "game dataa");
+    return jsonData;
+  } catch (error) {
+    console.log(error, "eror in fetching game data");
+  }
+};
 
 const page = async ({ params }) => {
 
   const data = await fetchGameDetails({
     gameId: params.gamedetails,
   });
+
   const featureGameData = await fetchFeaturedGames();
+
+  const relatedgames = await fetchRelatedGames({
+    cat_arr: data.cat_arr,
+  });
+  console.log(relatedgames, "relatedgames")
+  
 
   return (
     <div className="px-4 lg:pl-10 lg:pr-16 py-6 w-[70%]" style={{ flex: 3 }}>
-      <GameDetails data={data} featureGameData={featureGameData} />
+      <GameDetails data={data} featureGameData={featureGameData} relatedgames={relatedgames}/>
     </div>
   );
 };

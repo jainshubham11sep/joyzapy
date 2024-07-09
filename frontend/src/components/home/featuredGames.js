@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, imageData, gameData }) => {
+const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
 
   console.log(gameData, "datafromcards")
 

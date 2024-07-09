@@ -16,7 +16,7 @@ const imageData = [
 
 
 
-const Product_details = ({ data, featureGameData }) => {
+const Product_details = ({ data, featureGameData,relatedgames }) => {
 
   console.log(data,"datadata")
 
@@ -35,20 +35,20 @@ const Product_details = ({ data, featureGameData }) => {
 
   return (
     <div className=" ">
-      <div class="flex flex-col items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE] w-full">
-        <div class="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px] w-full">
-          <div class="flex  gap-[16px]  w-full">
-            <div class="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start w-full">
-              <div class="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden ">
+      <div className="flex flex-col items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE] w-full">
+        <div className="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px] w-full">
+          <div className="flex  gap-[16px]  w-full">
+            <div className="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start w-full">
+              <div className="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden ">
                 <Image
                   height={500}
                   width={500}
                   className="absolute w-full h-full z-[0] rounded-[30px]"
                   src="/assets/miniblox.png"
                 />
-                <div class="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>
-                <div class="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px] cursor-pointer">
-                  <div class="">Play Now</div>
+                <div className="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>
+                <div className="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px] cursor-pointer">
+                  <div className="">Play Now</div>
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -72,12 +72,12 @@ const Product_details = ({ data, featureGameData }) => {
                   </div>
                 </div>
               </div>
-              <div class="flex flex-wrap justify-between items-center self-stretch text-white ">
-                <div class="flex  gap-[8px] items-start flex-1   md:text-[16px] text-[12px] ">
-                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] hover:bg-[#9f9fa6] duration-500">
+              <div className="flex flex-wrap justify-between items-center self-stretch text-white ">
+                <div className="flex  gap-[8px] items-start flex-1   md:text-[16px] text-[12px] ">
+                  <button className="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] hover:bg-[#9f9fa6] duration-500">
                     Share
                   </button>
-                  <button class="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] gap-[8px] hover:bg-[#9f9fa6] duration-500">
+                  <button className="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] gap-[8px] hover:bg-[#9f9fa6] duration-500">
                     <div>Whishlist</div>
                     <div>
                       <svg
@@ -106,9 +106,9 @@ const Product_details = ({ data, featureGameData }) => {
                     </div>
                   </button>
                 </div>
-                <button class="flex-1 px-2 ">
+                <button className="flex-1 px-2 ">
                   <svg
-                    class="float-end"
+                    className="float-end"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="25"
@@ -147,26 +147,26 @@ const Product_details = ({ data, featureGameData }) => {
                 </button>
               </div>
             </div>
-            <div class=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center text-center text-3xl ">
+            <div className=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center text-center text-3xl ">
               Ad space
             </div>
           </div>
 
-          <div class=" flex-col items-start gap-6 self-stretch hidden md:flex">
-            <div class="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
-            <div class="text-[18px] font-semibold mb-6">
-              Home/<span class="text-[#15AEE3]"> {data?.game_name} </span>
+          <div className=" flex-col items-start gap-6 self-stretch hidden md:flex">
+            <div className="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
+            <div className="text-[18px] font-semibold mb-6">
+              Home/<span className="text-[#15AEE3]"> {data?.game_name} </span>
             </div>
-            <div class="text-[35px] font-bold mb-6">{data?.game_name}</div>
-            <p class=" leading-[28.8px] tracking-[0.8px] mb-6">
+            <div className="text-[35px] font-bold mb-6">{data?.game_name}</div>
+            <p className=" leading-[28.8px] tracking-[0.8px] mb-6">
               {data?.description}
             </p>
 
             <div className="mb-6">
-              <h2 class="text-[35px] font-bold">How to play</h2>
-              <ul class="list-disc list-inside leading-[28.8px] tracking-[0.8px]  pl-[1em] ">
-                <li class="pl-[1em] indent-[-1em] ">Core game modes</li>
-                <li class="pl-[1.5em] indent-[-1.5em] ">
+              <h2 className="text-[35px] font-bold">How to play</h2>
+              <ul className="list-disc list-inside leading-[28.8px] tracking-[0.8px]  pl-[1em] ">
+                <li className="pl-[1em] indent-[-1em] ">Core game modes</li>
+                <li className="pl-[1.5em] indent-[-1.5em] ">
                   The two core game modes in Miniblox are survival and creative.
                   Much like Minecraft, survival involves starting out with
                   nothing with a survivalist aim, whereas creative mode gives
@@ -174,8 +174,8 @@ const Product_details = ({ data, featureGameData }) => {
                   join a game filled with other players, click browse to view
                   the list of active games with players in!
                 </li>
-                <li class="pl-[1.5em] indent-[-1.5em] ">World creation</li>
-                <li class="pl-[1.5em] indent-[-1.5em] ">
+                <li className="pl-[1.5em] indent-[-1.5em] ">World creation</li>
+                <li className="pl-[1.5em] indent-[-1.5em] ">
                   Like other creative voxelated games, you can harvest
                   resources, mine the Earth, build structures, and craft various
                   items to advance. You can also create and load worlds with
@@ -185,24 +185,24 @@ const Product_details = ({ data, featureGameData }) => {
               </ul>
             </div>
             <div className="mb-6">
-              <div class="text-xl font-bold ">Category</div>
-              <div class=" leading-[28.8px] tracking-[0.8px]">Action</div>
+              <div className="text-xl font-bold ">Category</div>
+              <div className=" leading-[28.8px] tracking-[0.8px]">Action</div>
             </div>
             <div className="mb-6">
-              <div class="text-xl font-bold ">Studio/Developer</div>
-              <div class=" leading-[28.8px] tracking-[0.8px]">
+              <div className="text-xl font-bold ">Studio/Developer</div>
+              <div className=" leading-[28.8px] tracking-[0.8px]">
                 {data?.developer_name}
               </div>
             </div>
             <div>
-              <div class="text-xl font-bold ">Release date</div>
-              <div class=" leading-[28.8px] tracking-[0.8px]">{formatDate(data?.release_date)}</div>
+              <div className="text-xl font-bold ">Release date</div>
+              <div className=" leading-[28.8px] tracking-[0.8px]">{formatDate(data?.release_date)}</div>
             </div>
           </div>
         </div>
         <div className="w-full">
           <FeaturedGames title={"Featured Games"} imageData={imageData} gameData={featureGameData} />
-          <FeaturedGames title={"Related Games"} imageData={imageData}   />
+          <FeaturedGames title={"Related Games"} imageData={imageData} relatedgames={relatedgames}  />
         </div>
       </div>
     </div>

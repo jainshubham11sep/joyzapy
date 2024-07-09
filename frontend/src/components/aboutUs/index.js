@@ -5,8 +5,8 @@ function AboutUS() {
   return (
     <>
       <div className="flex flex-col gap-[64px] px-5 min-[768px]:px-[20px] min-[1024px]:px-[64px] py-6 max-w-[1444px] m-auto max-[550px]:px-4 max-[700px]:gap-9">
-        <div class="text-[18px] font-semibold text-[#FEFEFE]">
-          Home/<span class="text-[#15AEE3]"> About Us </span>
+        <div className="text-[18px] font-semibold text-[#FEFEFE]">
+          Home/<span className="text-[#15AEE3]"> About Us </span>
         </div>
 
         <div
