@@ -3,8 +3,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, imageData, gameData, relatedgames }) => {
-  console.log(gameData, "datafromcards");
+const FeaturedGames = ({ title, imageData, gameData }) => {
 
   const router = useRouter();
 
@@ -70,7 +69,7 @@ const FeaturedGames = ({ title, imageData, gameData, relatedgames }) => {
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
           >
-            {/* { gameData?.map((data, index) => (
+            { gameData?.map((data, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit	"
@@ -78,13 +77,13 @@ const FeaturedGames = ({ title, imageData, gameData, relatedgames }) => {
                   router.push(`/${data.game_id}`);
                 }}
               >
-                <Image
+                {/* <Image
                   width={700}
                   height={700}
                   src={data.featured_img}
                   alt={data.name}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
-                />
+                /> */}
                 <Image
                   width={700}
                   height={700}
@@ -105,7 +104,7 @@ const FeaturedGames = ({ title, imageData, gameData, relatedgames }) => {
                   />
                 </div>
               </div>
-            ))} */}
+            ))}
           </div>
           <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"

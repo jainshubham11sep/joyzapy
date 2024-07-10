@@ -202,7 +202,7 @@ const Product_details = ({ data, featureGameData,relatedgames }) => {
         </div>
         <div className="w-full">
           <FeaturedGames title={"Featured Games"} imageData={imageData} gameData={featureGameData} />
-          <FeaturedGames title={"Related Games"} imageData={imageData} relatedgames={relatedgames}  />
+          <FeaturedGames title={"Related Games"} imageData={imageData} gameData={relatedgames}  />
         </div>
       </div>
     </div>
