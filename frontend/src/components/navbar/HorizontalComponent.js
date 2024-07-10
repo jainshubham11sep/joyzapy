@@ -4,13 +4,14 @@ import CustomDrawer from "../sidebar/DrawerMobile";
 import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
 import { useRouter } from "next/navigation";
-
+import Autocomplete from "@mui/material/Autocomplete";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 
 const HorizontalComponent = ({ gameCategories, games }) => {
-
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
   const [query, setQuery] = useState("");
@@ -32,15 +33,22 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     setState({ ...state, [anchor]: open });
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleInputChange = (event, value, reason) => {
+    if (reason === "input") {
+      setAnchorEl(event.currentTarget);
+    }
+  };
+
   const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" }}
-      role="presentation"
-    >
+    <Box sx={{ width: anchor === "top" }} role="presentation">
       <div className="flex flex-col gap-4 bg-[#11101D] p-4">
         {" "}
-        <div className="w-full self-end flex cursor-pointer justify-end float-end"
-          onClick={toggleDrawer(anchor, false)}>
+        <div
+          className="w-full self-end flex cursor-pointer justify-end float-end"
+          onClick={toggleDrawer(anchor, false)}
+        >
           <Image
             height={30}
             width={30}
@@ -49,37 +57,112 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             className=""
           />
         </div>
-        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl p-1 lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
+        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-0 rounded-xl lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
           <Image
             height={30}
             width={30}
             src={"/assets/magnifying_glass.svg"}
             alt="magnifying-glass"
           />
-
-          <input
-            className="text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
-            type="text"
-            value={query}
-            onChange={handleSearchChange}
-            placeholder="Search for games..."
-          />
+          <Stack spacing={2} sx={{ width: "100%" }}>
+            <Autocomplete
+              id="combo-box-demo"
+              disableClearable
+              freeSolo
+              options={
+                // <div className="absolute w-[90%]">
+                //   {suggestions.length > 0 && (
+                //     <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
+                //       {suggestions.map((game) => (
+                //         <li
+                //           key={game._id}
+                //           className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                //           // onClick={() => handleSuggestionClick(game)}
+                //         >
+                //           {game.game_name}
+                //         </li>
+                //       ))}
+                //     </ul>
+                //   )}
+                // </div>
+                suggestions.map((game) => game.game_name)
+              }
+              onChange={(event, value) => {
+                const selectedGame = suggestions.find(
+                  (game) => game.game_name === value
+                );
+                if (selectedGame) {
+                  handleSuggestionClick(selectedGame);
+                }
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  className="text-[20px] bg-[rgba(196,196,196,0.01)] !outline-none focus:outline-none !placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+                  type="text"
+                  value={query}
+                  onChange={handleSearchChange}
+                  placeholder="Search for games..."
+                  InputLabelProps={{
+                    style: { color: "#FFFFFF" }, // Change this to the desired color
+                  }}
+                  InputProps={{
+                    ...params.InputProps,
+                    type: "search",
+                    style: {
+                      border: "none", // Remove the default border
+                    },
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        display: "none", // Remove the fieldset
+                      },
+                      "& .MuiAutocomplete-input": {
+                        "::placeholder": {
+                          color: "white",
+                        },
+                        color: "white",
+                      },
+                    },
+                  }}
+                />
+              )}
+              PopperComponent={(props) => (
+                <div
+                  onClick={toggleDrawer(anchor, false)}
+                  {...props}
+                  style={
+                    // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
+                    {
+                      position: "fixed",
+                      width: "82%",
+                      left: "7%",
+                      top: "12%",
+                    }
+                  }
+                >
+                  {props.children}
+                </div>
+              )}
+            />
+          </Stack>
         </div>
-        <div className="absolute w-[90%]">
-        {suggestions.length > 0 && (
-          <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
-            {suggestions.map((game) => (
-              <li
-                key={game._id}
-                className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                onClick={() => handleSuggestionClick(game)}
-              >
-                {game.game_name}
-              </li>
-            ))}
-          </ul>
-        )}
-        </div>
+        {/* <div className="absolute w-[90%]">
+          {suggestions.length > 0 && (
+            <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
+              {suggestions.map((game) => (
+                <li
+                  key={game._id}
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                  onClick={() => handleSuggestionClick(game)}
+                >
+                  {game.game_name}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div> */}
       </div>
     </Box>
   );

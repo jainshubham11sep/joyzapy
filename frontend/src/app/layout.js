@@ -32,6 +32,9 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+      <meta name="google-site-verification" content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw" />
+      </head>
       <body className={montserrat.className}>
         <DrawerContextComponent>
           <div style={{ width: "100%" }}>

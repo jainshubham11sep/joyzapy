@@ -31,8 +31,6 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
   };
 
 
-
-
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -48,7 +46,10 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
               alt="gamepad"
             />
           </div>
-          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] " onClick={() => router.push(`/games/${title.split(' ')[0]}`)}>
+          <h3
+            className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] "
+            onClick={() => router.push(`/games/${title.split(" ")[0]}`)}
+          >
             See all
           </h3>
         </div>
@@ -68,9 +69,9 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
           </button>
           <div
             ref={scrollContainerRef}
-            className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
+            className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
           >
-            {gameData?.map((data, index) => (
+            { gameData?.map((data, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
@@ -101,7 +102,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                     width={25}
                     src={"/assets/Vector.png"}
                     alt="heart image"
-                  // className="max-[768px]:w-4 max-[768px]:h-4"
+                    // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
                 </div>
               </div>
