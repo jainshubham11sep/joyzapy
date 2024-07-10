@@ -3,11 +3,10 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
+const FeaturedGames = ({ title, imageData, gameData, relatedgames }) => {
+  console.log(gameData, "datafromcards");
 
-  console.log(gameData, "datafromcards")
-
-  const router = useRouter()
+  const router = useRouter();
 
   const [items, setItems] = useState([{}]);
   const scrollContainerRef = useRef(null);
@@ -31,8 +30,6 @@ const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
   };
 
 
-
-
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -48,7 +45,10 @@ const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
               alt="gamepad"
             />
           </div>
-          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] " onClick={() => router.push(`/games/${title.split(' ')[0]}`)}>
+          <h3
+            className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] "
+            onClick={() => router.push(`/games/${title.split(" ")[0]}`)}
+          >
             See all
           </h3>
         </div>
@@ -70,21 +70,21 @@ const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
           >
-            {gameData?.map((data, index) => (
+            {/* { gameData?.map((data, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit	"
                 onClick={() => {
-                  router.push(`/${data.game_id}`)
+                  router.push(`/${data.game_id}`);
                 }}
               >
-                {/* <Image
+                <Image
                   width={700}
                   height={700}
                   src={data.featured_img}
                   alt={data.name}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
-                /> */}
+                />
                 <Image
                   width={700}
                   height={700}
@@ -101,11 +101,11 @@ const FeaturedGames = ({ title, imageData, gameData,relatedgames }) => {
                     width={25}
                     src={"/assets/Vector.png"}
                     alt="heart image"
-                  // className="max-[768px]:w-4 max-[768px]:h-4"
+                    // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
           <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"

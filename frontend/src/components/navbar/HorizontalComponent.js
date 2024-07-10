@@ -5,14 +5,71 @@ import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
 import { useRouter } from "next/navigation";
 
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+
 const HorizontalComponent = ({ gameCategories, games }) => {
   // console.log(games, "allgaa")
 
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const router = useRouter();
+
+  const [state, setState] = React.useState({
+    top: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === "top" }}
+      role="presentation"
+    >
+      <div className="!z-[10101010] flex flex-col gap-4 bg-[#11101D] p-4">
+        {" "}
+        <div className="w-full self-end flex cursor-pointer justify-end float-end"
+        onClick={toggleDrawer(anchor, false)}>
+          <Image
+            height={30}
+            width={30}
+            src="/assets/cross-circle.svg"
+            alt="cross icon"
+            className=""
+          />
+        </div>
+        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl p-1 lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
+          <Image
+            height={30}
+            width={30}
+            src={"/assets/magnifying_glass.svg"}
+            alt="magnifying-glass"
+            // onClick={()=>console.log("desktop")}
+          />
+
+          <input
+            className="text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+            type="text"
+            value={query}
+            onChange={handleSearchChange}
+            placeholder="Search for games..."
+          />
+        </div>
+      </div>
+    </Box>
+  );
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -32,11 +89,10 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     }
   };
 
-
   const handleSuggestionClick = (game) => {
     // console.log(game,"gameee")
     router.push(`/${game.game_id}`);
-    setQuery('');
+    setQuery("");
     setSuggestions([]);
   };
 
@@ -64,7 +120,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           {size[0] > 768 ? (
             <button
               onClick={handleDrawer}
-              className={`duration-100 ${drawerOpen ? "rotate-180" : ""}`}
+              className={`duration-100 ${drawerOpen ? "rotate-180" : ""} z-0`}
             >
               <Image
                 height={30}
@@ -97,15 +153,29 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           </div>
         </div>
 
-        <div className="relative">
-        <Image
-              height={30}
-              width={30}
-              src={"/assets/magnifying_glass.svg"}
-              alt="magnifying-glass"
-              // onClick={()=>console.log("mobile")}
-              className="block md:hidden" 
-            />
+        <div className="relative ">
+          {["top"].map((anchor) => (
+            <React.Fragment key={anchor}>
+              <Button onClick={toggleDrawer(anchor, true)}>
+                <Image
+                  height={30}
+                  width={30}
+                  src={"/assets/magnifying_glass.svg"}
+                  alt="magnifying-glass"
+                  // onClick={()=>console.log("mobile")}
+                  className="block md:hidden"
+                />
+              </Button>{" "}
+              <Drawer
+                anchor={anchor}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+                className="!z-[1010101000000]"
+              >
+                {list(anchor)}
+              </Drawer>
+            </React.Fragment>
+          ))}
           <div className="hidden md:flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
             <Image
               height={30}
@@ -143,3 +213,13 @@ const HorizontalComponent = ({ gameCategories, games }) => {
 };
 
 export default HorizontalComponent;
+
+function Example() {
+  return (
+    <>
+      {["start", "end", "top", "bottom"].map((placement, idx) => (
+        <OffCanvasExample key={idx} placement={placement} name={placement} />
+      ))}
+    </>
+  );
+}
