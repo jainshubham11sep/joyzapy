@@ -67,6 +67,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           <Stack spacing={2} sx={{ width: "100%" }}>
             <Autocomplete
               id="combo-box-demo"
+              className="!relative"
               disableClearable
               freeSolo
               options={
@@ -104,7 +105,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                   onChange={handleSearchChange}
                   placeholder="Search for games..."
                   InputLabelProps={{
-                    style: { color: "#FFFFFF" }, // Change this to the desired color
+                    style: { color: "#FFFFFF", position: "relative" }, // Change this to the desired color
                   }}
                   InputProps={{
                     ...params.InputProps,
@@ -136,9 +137,9 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                     // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
                     {
                       position: "fixed",
-                      width: "82%",
+                      width: "85%",
                       left: "7%",
-                      top: "12%",
+                      top: "103px",
                     }
                   }
                 >
