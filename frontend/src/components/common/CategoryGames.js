@@ -22,7 +22,7 @@ const CategoryGames = ({ category, allGameData, featureGameData }) => {
   const router = useRouter()
 
   return (
-    <div className="flex flex-col gap-[64px] px-[40px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9 w-full">
+    <div className="flex flex-col gap-[64px] px-[20px] md:px-[40px] py-[24px] max-w-[1444px] m-auto max-[700px]:gap-9 w-full">
       <div
         className={`h-[152px] ${styles.background} bg-cover bg-no-repeat rounded-[20px] flex justify-center items-center  `}
       >

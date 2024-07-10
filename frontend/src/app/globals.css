@@ -38,6 +38,13 @@ body {
   position: sticky;
   top: 5px;
 }
+.grid-container-game {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  /* / border: 1px solid red; / */
+}
 
 @media (max-width: 767px) {
 
@@ -57,10 +64,13 @@ body {
   }
 }
 
-.grid-container-game {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  /* / border: 1px solid red; / */
+@media (max-width: 400px) {
+  .grid-container-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+    /* / gap: 20px; / */
+    justify-content: center;
+    /* / border: 1px solid red; / */
+  }
 }
+

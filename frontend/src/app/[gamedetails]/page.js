@@ -62,11 +62,11 @@ const page = async ({ params }) => {
     cat_arr: data.cat_arr,
   });
   console.log(relatedgames, "relatedgames")
-  
+
 
   return (
     <div className="px-4 lg:pl-10 lg:pr-16 py-6 w-[70%]" style={{ flex: 3 }}>
-      <GameDetails data={data} featureGameData={featureGameData} relatedgames={relatedgames}/>
+      <GameDetails data={data} featureGameData={featureGameData} relatedgames={relatedgames} />
     </div>
   );
 };
