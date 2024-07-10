@@ -4,14 +4,14 @@ import CustomDrawer from "../sidebar/DrawerMobile";
 import Image from "next/image";
 import { useDrawerContext } from "@/context/drawerContext";
 import { useRouter } from "next/navigation";
-
+import Autocomplete from "@mui/material/Autocomplete";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 
 const HorizontalComponent = ({ gameCategories, games }) => {
-  // console.log(games, "allgaa")
-
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
   const [query, setQuery] = useState("");
@@ -33,42 +33,87 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     setState({ ...state, [anchor]: open });
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleInputChange = (event, value, reason) => {
+    if (reason === 'input') {
+      setAnchorEl(event.currentTarget);
+    }
+  };
+
   const list = (anchor) => (
     <Box sx={{ width: anchor === "top" }} role="presentation">
-      <div className="flex flex-col gap-4 bg-[#11101D] p-4 relative h-full">
+      <div className="flex flex-col gap-4 bg-[#11101D] p-4">
         {" "}
-        <div>
-          <div
-            className="w-full self-end flex cursor-pointer justify-end float-end"
-            onClick={toggleDrawer(anchor, false)}
-          >
-            <Image
-              height={30}
-              width={30}
-              src="/assets/cross-circle.svg"
-              alt="cross icon"
-              className=""
-            />
-          </div>
-          <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl p-1 lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
-            <Image
-              height={30}
-              width={30}
-              src={"/assets/magnifying_glass.svg"}
-              alt="magnifying-glass"
-              // onClick={()=>console.log("desktop")}
-            />
-
-            <input
-              className="text-[20px] bg-[rgba(196,196,196,0.01)] focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
-              type="text"
-              value={query}
-              onChange={handleSearchChange}
-              placeholder="Search for games..."
-            />
-          </div>
+        <div
+          className="w-full self-end flex cursor-pointer justify-end float-end"
+          onClick={toggleDrawer(anchor, false)}
+        >
+          <Image
+            height={30}
+            width={30}
+            src="/assets/cross-circle.svg"
+            alt="cross icon"
+            className=""
+          />
         </div>
-        <div className="absolute w-[90%] ">
+        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl p-1 lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
+          <Image
+            height={30}
+            width={30}
+            src={"/assets/magnifying_glass.svg"}
+            alt="magnifying-glass"
+          />
+          <Stack spacing={2} sx={{ width: "100%" }}>
+            <Autocomplete
+              id="combo-box-demo"
+              disableClearable
+              freeSolo
+              options={
+                // <div className="absolute w-[90%]">
+                //   {suggestions.length > 0 && (
+                //     <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
+                //       {suggestions.map((game) => (
+                //         <li
+                //           key={game._id}
+                //           className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+                //           // onClick={() => handleSuggestionClick(game)}
+                //         >
+                //           {game.game_name}
+                //         </li>
+                //       ))}
+                //     </ul>
+                //   )}
+                // </div>
+                suggestions.map((game) => game.game_name)
+              }
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  className="text-[20px] bg-[rgba(196,196,196,0.01)] !outline-none focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+                  type="text"
+                  value={query}
+                  onChange={handleSearchChange}
+                  label="Search for games..."
+                  InputProps={{
+                    ...params.InputProps,
+                    type: "search",
+                  }}
+                />
+              )}
+              PopperComponent={(props) => (
+                <div {...props} 
+                style={
+                  // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
+                  {position: "fixed", width: "82%", left: "7%", top: "12.9%" }
+                  }>
+                  {props.children}
+                </div>
+              )}
+            />
+          </Stack>
+        </div>
+        {/* <div className="absolute w-[90%]">
           {suggestions.length > 0 && (
             <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
               {suggestions.map((game) => (
@@ -82,23 +127,19 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               ))}
             </ul>
           )}
-        </div>
+        </div> */}
       </div>
     </Box>
   );
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
-    // console.log(value, "vallll");
     setQuery(value);
 
     if (value.length > 2) {
       const filteredGames = games.filter((game) => {
-        // console.log(game, "gamaa");
         return game.game_name.toLowerCase().includes(value.toLowerCase());
       });
-
-      // console.log(filteredGames, "filteredGamesfilteredGames");
       setSuggestions(filteredGames);
     } else {
       setSuggestions([]);
@@ -106,7 +147,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   };
 
   const handleSuggestionClick = (game) => {
-    // console.log(game,"gameee")
     router.push(`/${game.game_id}`);
     setQuery("");
     setSuggestions([]);
@@ -131,8 +171,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] ">
       <div className="flex flex-row w-[100%] items-center justify-between">
         <div className="flex items-center justify-between max-[767px]:gap-2 min-[768px]:gap-6 min-[1024px]:gap-16">
-          {/* {/ <CustomDrawer / > /} */}
-
           {size[0] > 768 ? (
             <button
               onClick={handleDrawer}
@@ -148,12 +186,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           ) : (
             <CustomDrawer gameCategories={gameCategories} />
           )}
-
-          {/* {/ <img className='p-2 md:hidden md:p-0' src={"/assets / menu.svg"} alt="menu-bar" /> /} */}
-          {/* <div className='flex md:hidden'>
-            <CustomDrawer />
-          </div> */}
-
           <div className=" bg-slate-50 px-4 py-[6px] ">
             <Image
               height={100}
@@ -162,10 +194,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               src={"/assets/gamehub.png"}
               alt="header-console"
             />
-
-            {/* <h1 className="text-[18px] font-semibold text-[#FFF] md:text-[25px]">
-              Game <span className="text-[#15AEE3]">Hub</span>
-            </h1> */}
           </div>
         </div>
 
@@ -179,7 +207,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                     width={30}
                     src={"/assets/magnifying_glass.svg"}
                     alt="magnifying-glass"
-                    // onClick={()=>console.log("mobile")}
                     className="block md:hidden"
                   />
                 </Button>{" "}
@@ -200,7 +227,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               width={30}
               src={"/assets/magnifying_glass.svg"}
               alt="magnifying-glass"
-              // onClick={()=>console.log("desktop")}
             />
 
             <input
