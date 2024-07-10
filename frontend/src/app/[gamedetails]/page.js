@@ -59,7 +59,7 @@ const page = async ({ params }) => {
   const featureGameData = await fetchFeaturedGames();
 
   const relatedgames = await fetchRelatedGames({
-    cat_arr: data.cat_arr,
+    cat_arr: data?.cat_arr,
   });
   console.log(relatedgames, "relatedgames")
 
