@@ -103,7 +103,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               width={30}
               src={"/assets/magnifying_glass.svg"}
               alt="magnifying-glass"
-              onClick={()=>console.log("mobile")}
+              // onClick={()=>console.log("mobile")}
               className="block md:hidden" 
             />
           <div className="hidden md:flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl md:w-[300px] lg:w-[464px] md:bg-[rgba(196,196,196,0.5)]">
@@ -112,7 +112,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               width={30}
               src={"/assets/magnifying_glass.svg"}
               alt="magnifying-glass"
-              onClick={()=>console.log("desktop")}
+              // onClick={()=>console.log("desktop")}
             />
 
             <input
