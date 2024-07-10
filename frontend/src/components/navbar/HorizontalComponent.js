@@ -36,7 +36,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleInputChange = (event, value, reason) => {
-    if (reason === 'input') {
+    if (reason === "input") {
       setAnchorEl(event.currentTarget);
     }
   };
@@ -57,7 +57,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             className=""
           />
         </div>
-        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-2 rounded-xl p-1 lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
+        <div className="flex items-center gap-[22px] px-[15px] max-[1023px]:mr-[0px] min-[1024px]:mr-10 py-0 rounded-xl lg:w-[464px] bg-[rgba(196,196,196,0.5)]">
           <Image
             height={30}
             width={30}
@@ -87,26 +87,61 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                 // </div>
                 suggestions.map((game) => game.game_name)
               }
+              onChange={(event, value) => {
+                const selectedGame = suggestions.find(
+                  (game) => game.game_name === value
+                );
+                if (selectedGame) {
+                  handleSuggestionClick(selectedGame);
+                }
+              }}
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  className="text-[20px] bg-[rgba(196,196,196,0.01)] !outline-none focus:outline-none placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
+                  className="text-[20px] bg-[rgba(196,196,196,0.01)] !outline-none focus:outline-none !placeholder:text-[#FFF] placeholder:text-[20px] placeholder:font-normal w-full text-[#fff]"
                   type="text"
                   value={query}
                   onChange={handleSearchChange}
-                  label="Search for games..."
+                  placeholder="Search for games..."
+                  InputLabelProps={{
+                    style: { color: "#FFFFFF" }, // Change this to the desired color
+                  }}
                   InputProps={{
                     ...params.InputProps,
                     type: "search",
+                    style: {
+                      border: "none", // Remove the default border
+                    },
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": {
+                        display: "none", // Remove the fieldset
+                      },
+                      "& .MuiAutocomplete-input": {
+                        "::placeholder": {
+                          color: "white",
+                        },
+                        color: "white",
+                      },
+                    },
                   }}
                 />
               )}
               PopperComponent={(props) => (
-                <div {...props} 
-                style={
-                  // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
-                  {position: "fixed", width: "82%", left: "7%", top: "12.9%" }
-                  }>
+                <div
+                  onClick={toggleDrawer(anchor, false)}
+                  {...props}
+                  style={
+                    // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
+                    {
+                      position: "fixed",
+                      width: "82%",
+                      left: "7%",
+                      top: "12.9%",
+                    }
+                  }
+                >
                   {props.children}
                 </div>
               )}
