@@ -11,18 +11,22 @@ const Footer = () => {
             <div className='flex items-center justify-start gap-4'>
                 <Image src={console} alt="footer_icon" />
 
-                <h1 className='text-[30px] font-bold'>Game store</h1>
+          <h1 className="text-[30px] font-bold">Game store</h1>
+        </div>
+
+        {/* container of three parts of footer */}
+        <div className="flex flex-col items-start justify-center gap-9 md:flex-row gap-[80px] md:gap-[77px] lg:gap-[180px] ">
+          {/* footer part 1 */}
+          <div className="flex flex-col items-start justify-center gap-[39px]">
+            <div className="flex flex-col items-start gap-2">
+              <div className="text-[25px] font-bold">Contact Us</div>
+              <div className="leading-[29px] text-[18px] font-normal">
+                You can contact Us
+                <br />
+                to send email
+                <br /> to us
+              </div>
             </div>
-
-            {/* container of three parts of footer */}
-            <div className='flex flex-col items-start justify-center gap-9 md:flex-row gap-[80px] md:gap-[77px] lg:gap-[180px] '>
-                {/* footer part 1 */}
-                <div className='flex flex-col items-start justify-center gap-[39px]'>
-
-                    <div className='flex flex-col items-start gap-2'>
-                        <div className='text-[25px] font-bold'>Contact Us</div>
-                        <div className='leading-[29px] text-[18px] font-normal'>You can contact Us<br/>to send email<br/> to us</div>
-                    </div>
 
                     <div className='relative'>
 
@@ -73,14 +77,12 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* 3 parts end */}
+        {/* 3 parts end */}
+      </div>
 
-        </div>
-
-        <div className='text-[18px] font-normal py-[17px]'>
-            Game store/ All rights reserved.
-        </div>
-
+      <div className="text-[18px] font-normal py-[17px]">
+        Game store/ All rights reserved.
+      </div>
     </div>
   );
 };

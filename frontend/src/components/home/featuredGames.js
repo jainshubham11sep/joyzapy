@@ -67,7 +67,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
           </button>
           <div
             ref={scrollContainerRef}
-            className="flex gap-5 overflow-x-scroll no_scrollbar z-[2]"
+            className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
           >
             { gameData?.map((data, index) => (
               <div
