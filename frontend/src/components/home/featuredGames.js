@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 const FeaturedGames = ({ title, imageData, gameData }) => {
 
-  console.log(gameData, "datafromcards")
+  // console.log(gameData, "datafromcards")
 
   const router = useRouter()
 
@@ -55,7 +55,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
 
         <div className="overflow-hidden no_scrollbar relative">
           <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollLeft}
           >
             <Image
@@ -73,9 +73,9 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             {gameData?.map((data, index) => (
               <div
                 key={index}
-                className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit	"
+                className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
                 onClick={() => {
-                  router.push(`/${data.game_id}`)
+                  router.push(`/${data?.game_id || data?._id}`)
                 }}
               >
                 {/* <Image
@@ -108,7 +108,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             ))}
           </div>
           <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[190px] h-[180px] lg:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollRight}
           >
             <Image

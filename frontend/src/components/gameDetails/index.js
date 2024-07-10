@@ -1,6 +1,5 @@
 "use client";
 import FeaturedGames from "../home/featuredGames";
-import Relatedgames from "./relatedGames";
 import Image from "next/image";
 
 const imageData = [
@@ -10,15 +9,19 @@ const imageData = [
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
   { image: "/assets/relatedgames/1.png", name: "olx" },
   { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/1.png", name: "olx" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/1.png", name: "olx" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
   { image: "/assets/relatedgames/3.png", name: "Store Manager" },
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
 
 
-const Product_details = ({ data, featureGameData,relatedgames }) => {
+const GameDetails = ({ data, featureGameData, relatedgames }) => {
 
-  console.log(data,"datadata")
+  // console.log(relatedgames, "relatedgames")
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -186,7 +189,11 @@ const Product_details = ({ data, featureGameData,relatedgames }) => {
             </div>
             <div className="mb-6">
               <div className="text-xl font-bold ">Category</div>
-              <div className=" leading-[28.8px] tracking-[0.8px]">Action</div>
+              <div className=" leading-[28.8px] tracking-[0.8px]">
+                {data?.category_names?.map((data, index) => (
+                  <li key={index}>{data}</li>
+                ))}
+              </div>
             </div>
             <div className="mb-6">
               <div className="text-xl font-bold ">Studio/Developer</div>
@@ -202,10 +209,10 @@ const Product_details = ({ data, featureGameData,relatedgames }) => {
         </div>
         <div className="w-full">
           <FeaturedGames title={"Featured Games"} imageData={imageData} gameData={featureGameData} />
-          <FeaturedGames title={"Related Games"} imageData={imageData} gameData={relatedgames}  />
+          <FeaturedGames title={"Related Games"} imageData={imageData} gameData={relatedgames} />
         </div>
       </div>
     </div>
   );
 };
-export default Product_details;
+export default GameDetails;

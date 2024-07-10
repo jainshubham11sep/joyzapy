@@ -5,11 +5,6 @@ import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Link from "next/link";
-// import List from '@mui/material/List';
-// import Divider from '@mui/material/Divider';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemText from '@mui/material/ListItemText';
 
 const drawerWidth = 270;
 
@@ -79,7 +74,7 @@ export default function CustomDrawer({ gameCategories }) {
             position: "absolute",
           }}
         >
-          <div className="flex bg-[#11101D] text-[#FFF] px-6 py-[10px] flex-col items-start justify-start gap-6">
+          <div className="flex bg-[#11101D] text-[#FFF] px-4 py-[10px] flex-col items-start justify-start gap-6">
             <div className="flex items-start justify-start">
               <DrawerHeader>
                 <button onClick={handleDrawerClose}>
@@ -100,7 +95,7 @@ export default function CustomDrawer({ gameCategories }) {
                   href="/"
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
-                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="33"
@@ -118,7 +113,7 @@ export default function CustomDrawer({ gameCategories }) {
                   </button>
                 </Link>
 
-                <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700">
+                <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700" onClick={handleDrawerClose}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -151,7 +146,7 @@ export default function CustomDrawer({ gameCategories }) {
                   <p className="text-[18px] font-normal">Recently Played</p>
                 </button>
 
-                <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700 w-full">
+                <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700 w-full" onClick={handleDrawerClose}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -187,7 +182,7 @@ export default function CustomDrawer({ gameCategories }) {
                   href="/games/Featured"
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
-                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="25"
@@ -288,7 +283,7 @@ export default function CustomDrawer({ gameCategories }) {
                   href="/about-us"
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
-                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+                  <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="33"

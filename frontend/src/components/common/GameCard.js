@@ -7,7 +7,7 @@ const GameCard = ({ data,imageData }) => {
   const router = useRouter()
   
   return (
-    <div onClick={() => router.push('/game-details')}
+    <div onClick={() => router.push(`/${data.game_id}`)}
       className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[800px]:min-w-[164px] cursor-pointer max-[400px]:min-w-[140px]"
     >
       <Image

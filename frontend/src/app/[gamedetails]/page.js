@@ -33,7 +33,7 @@ const fetchFeaturedGames = async () => {
 const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
-    console.log(cat_arr, "cat_arr");
+    // console.log(cat_arr, "cat_arr");
     const data = await fetch("http://localhost:3000/api/game/relatedgames", {
       method: "POST",
       headers: {
@@ -61,7 +61,7 @@ const page = async ({ params }) => {
   const relatedgames = await fetchRelatedGames({
     cat_arr: data?.cat_arr,
   });
-  console.log(relatedgames, "relatedgames")
+  // console.log(relatedgames, "relatedgames")
 
 
   return (

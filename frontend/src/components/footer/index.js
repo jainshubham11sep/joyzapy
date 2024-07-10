@@ -57,19 +57,19 @@ const Footer = () => {
                 {/* footer part 2 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
                     <h1 className='text-[25px] font-bold'>Categories</h1>
-                    <Link className='text-[18px] font-normal' href="/games/Featured">Featured</Link>
-                    <Link className='text-[18px] font-normal' href="/games/Adventure">Adventure</Link>
-                    <Link className='text-[18px] font-normal' href="/games/Sports">Sports</Link>
-                    <Link className='text-[18px] font-normal' href="/games/Puzzle">Puzzle</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Featured">Featured</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Adventure">Adventure</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Sports">Sports</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Puzzle">Puzzle</Link>
                 </div>
 
                 {/* footer part 3 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
-                    <h1 className='text-[25px] font-bold'>Main</h1>
-                    <Link className='text-[18px] font-normal' href="/">Home</Link>
-                    <Link className='text-[18px] font-normal' href="/about-us">About Us</Link>
-                    <Link className='text-[18px] font-normal' href="/privacy-policy">Privacy Policy</Link>
-                    <Link className='text-[18px] font-normal' href="/contact-us">Contact Us</Link>
+                    <h1 className='text-[25px] font-bold transition-colors duration-300 hover:text-blue-500'>Main</h1>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/">Home</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/about-us">About Us</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/privacy-policy">Privacy Policy</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/contact-us">Contact Us</Link>
                 </div>
             </div>
 

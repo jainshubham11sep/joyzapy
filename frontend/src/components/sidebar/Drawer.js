@@ -19,6 +19,9 @@ export default function CustomDrawer({ gameCategories }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const handleLinkClick = () => {
+    setDrawerOpen(false);
+  };
 
 
   return (
@@ -30,7 +33,7 @@ export default function CustomDrawer({ gameCategories }) {
               href="/"
               className="w-full hover:bg-sky-700 duration-700"
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 ">
+              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 " onClick={handleLinkClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="33"
@@ -53,7 +56,7 @@ export default function CustomDrawer({ gameCategories }) {
               </button>
             </Link>
 
-            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700">
+            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700" onClick={handleLinkClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -91,7 +94,7 @@ export default function CustomDrawer({ gameCategories }) {
               </p>
             </button>
 
-            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700">
+            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700" onClick={handleLinkClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -133,8 +136,9 @@ export default function CustomDrawer({ gameCategories }) {
             <Link //Featured
               href="/games/Featured"
               className=" hover:bg-sky-700 duration-700 w-full"
+              on
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleLinkClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -224,7 +228,7 @@ export default function CustomDrawer({ gameCategories }) {
               href="/about-us"
               className=" hover:bg-sky-700 duration-700 w-full"
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8">
+              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleLinkClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="33"
