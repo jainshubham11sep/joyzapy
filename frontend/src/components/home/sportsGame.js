@@ -19,7 +19,7 @@ const SportGame = ({ data , title }) => {
         </div>
 
         <div className="flex gap-5 overflow-x-scroll no_scrollbar">
-          {data.map((data) => (
+          {data?.map((data) => (
             <div className="flex flex-col gap-4 relative min-w-[204px] max-[600px]:min-w-[143px] cursor-pointer">
               <Image
                 width={100}

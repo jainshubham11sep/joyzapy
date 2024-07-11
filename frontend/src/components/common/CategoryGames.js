@@ -36,15 +36,17 @@ const CategoryGames = ({ category, allGameData, featureGameData }) => {
         category === "Featured" ?
           (
             <div className="grid-container-game justify-items-center">
-              {featureGameData.map((data) => {
+
+              {featureGameData?.filter((data)=>data.game_id)?.map((data) => {
                 return <GameCard data={data} imageData={imageData} />;
               })}
+
             </div>
           )
           :
           (
             <div className="grid-container-game justify-items-center">
-              {allGameData.map((data) => {
+              {allGameData?.map((data) => {
                 return <GameCard data={data} imageData={imageData} />;
               })}
             </div>

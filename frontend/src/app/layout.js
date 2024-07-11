@@ -4,6 +4,8 @@ import Navbar from "@/components/navbar/index.js";
 import Footer from "@/components/footer";
 import Sidebar from "@/components/sidebar/sidebar";
 import DrawerContextComponent from "@/context/drawerContext";
+import Script from "next/script";
+
 
 const montserrat = Montserrat({
   weight: ["400", "700"],
@@ -33,13 +35,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <meta name="google-site-verification" content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw" />
+        <meta name="google-site-verification" content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw" />
+
       </head>
       <body className={montserrat.className}>
         <DrawerContextComponent>
           <div style={{ width: "100%" }}>
-            <Navbar gameCategories={gameCategories}/>
-            <div style={{  }}>
+            <Navbar gameCategories={gameCategories} />
+            <div style={{}}>
               <main className="flex gap-3 justify-center">
                 <div className="sidebarcontainer">
                   <Sidebar gameCategories={gameCategories} />
@@ -51,6 +54,17 @@ export default async function RootLayout({ children }) {
             <Footer />
           </div>
         </DrawerContextComponent>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-65RF85LYJ9"></Script>
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-65RF85LYJ9');
+            `,
+          }}
+        />
       </body>
     </html>
   );

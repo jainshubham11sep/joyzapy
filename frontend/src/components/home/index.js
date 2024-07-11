@@ -25,8 +25,6 @@ const sportGameData = [
 
 function index({ gameData, featureGameData }) {
 
-  console.log(featureGameData, "featureGameDatafeatureGameData")
-
   return (
     <>
       <div

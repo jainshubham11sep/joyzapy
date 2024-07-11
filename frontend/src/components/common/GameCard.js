@@ -27,7 +27,7 @@ const GameCard = ({ data,imageData }) => {
       <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[800px]:text-base max-[800px]:leading-[28.8px] max-[800px]:tracking-[5%]">
         {data?.game_name}
       </h2>
-      <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[800px]:w-6 max-[800px]:h-6 max-[800px]:top-2 max-[800px]:right-2">
+      {/* <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[800px]:w-6 max-[800px]:h-6 max-[800px]:top-2 max-[800px]:right-2">
         <Image
         width={25}
         height={25}
@@ -35,7 +35,7 @@ const GameCard = ({ data,imageData }) => {
           alt="heart image"
           className="max-[800px]:w-4 max-[800px]:h-4"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

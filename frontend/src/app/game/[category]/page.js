@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryGames from "@/components/common/CategoryGames";
+import { notFound } from "next/navigation";
 
 const fetchAllGames = async () => {
   try {
@@ -22,13 +23,23 @@ const fetchFeaturedGames = async () => {
 };
 
 
+
 const category = async({ params }) => {
+
+  
+  
   const { category } = params;
   console.log(category, "paramsparams");
+  const arr = ["all","featured"];
+if(!arr.includes(category)) {
+notFound()
+}
 
   const featureGameData = await fetchFeaturedGames();
   const gameData = await fetchAllGames();
 
+  console.log(featureGameData,"featureGameDatafeatureGameData")
+  console.log(gameData,"allgameee")
   return (
     <div className="w-full">
       <CategoryGames category={category} allGameData={gameData} featureGameData={featureGameData}/>

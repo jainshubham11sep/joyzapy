@@ -1,5 +1,6 @@
 import React from "react";
 import GameDetails from "../../components/gameDetails";
+import { notFound } from "next/navigation";
 
 const fetchGameDetails = async (req) => {
   try {
@@ -12,7 +13,9 @@ const fetchGameDetails = async (req) => {
       },
       body: JSON.stringify(gameId),
     });
-
+    if(!data.ok){
+      return data.ok;
+    }
     const jsonData = await data.json();
     console.log(jsonData, "game dataa");
     return jsonData;
@@ -33,7 +36,7 @@ const fetchFeaturedGames = async () => {
 const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
-    // console.log(cat_arr, "cat_arr");
+    console.log(cat_arr, "cat_arrrrr");
     const data = await fetch("http://localhost:3000/api/game/relatedgames", {
       method: "POST",
       headers: {
@@ -55,13 +58,18 @@ const page = async ({ params }) => {
   const data = await fetchGameDetails({
     gameId: params.gamedetails,
   });
+  console.log(data,"game details")
+
+  if(!data){
+    notFound();
+  }
 
   const featureGameData = await fetchFeaturedGames();
 
   const relatedgames = await fetchRelatedGames({
     cat_arr: data?.cat_arr,
   });
-  // console.log(relatedgames, "relatedgames")
+  console.log(relatedgames, "relatedgamesrelatedgames")
 
 
   return (

@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.punogames.com/blog/sitemap_index.xml 

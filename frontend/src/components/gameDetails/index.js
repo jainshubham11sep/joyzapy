@@ -11,9 +11,14 @@ const imageData = [
   { image: "/assets/relatedgames/2.png", name: "Store Manager" },
   { image: "/assets/relatedgames/1.png", name: "olx" },
   { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/1.png", name: "olx" },
+  { image: "/assets/relatedgames/1.png", name: "olx" },
   { image: "/assets/relatedgames/1.png", name: "olx" },
   { image: "/assets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
   { image: "/assets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
   { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
@@ -21,7 +26,7 @@ const imageData = [
 
 const GameDetails = ({ data, featureGameData, relatedgames }) => {
 
-  // console.log(relatedgames, "relatedgames")
+  console.log(relatedgames, "relatedgames")
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -75,7 +80,9 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap justify-between items-center self-stretch text-white ">
+              {/* share , wishlist button  */}
+
+              {/* <div className="flex flex-wrap justify-between items-center self-stretch text-white ">
                 <div className="flex  gap-[8px] items-start flex-1   md:text-[16px] text-[12px] ">
                   <button className="min-w-fit py-[8px] px-[16px] flex flex-1 justify-center items-center grow shrink-0 rounded-[30px] bg-[#373952] hover:bg-[#9f9fa6] duration-500">
                     Share
@@ -148,22 +155,27 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
                     </defs>
                   </svg>
                 </button>
-              </div>
+              </div> */}
             </div>
             <div className=" hidden md:flex basis-[30%] bg-[#D9D9D9]/20 text-white justify-center items-center text-center text-3xl ">
               Ad space
             </div>
           </div>
-
+          <div className="block md:hidden">
+            <div className="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
+            <div className="text-[18px] font-semibold mb-6">
+              Home/<span className="text-[#15AEE3]"> {data?.game_name} </span>
+            </div>
+            <div className="text-[35px] font-bold mb-6">{data?.game_name}</div>
+          </div>
           <div className=" flex-col items-start gap-6 self-stretch hidden md:flex">
             <div className="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
             <div className="text-[18px] font-semibold mb-6">
               Home/<span className="text-[#15AEE3]"> {data?.game_name} </span>
             </div>
             <div className="text-[35px] font-bold mb-6">{data?.game_name}</div>
-            <p className=" leading-[28.8px] tracking-[0.8px] mb-6">
-              {data?.description}
-            </p>
+            
+            <div className="leading-[28.8px] tracking-[0.8px] mb-6" dangerouslySetInnerHTML={{__html:data?.description}}/>
 
             <div className="mb-6">
               <h2 className="text-[35px] font-bold">How to play</h2>

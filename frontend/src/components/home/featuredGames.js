@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 const FeaturedGames = ({ title, imageData, gameData }) => {
 
-  // console.log(gameData, "datafromcards")
+  console.log(gameData, "datafromcards")
 
   const router = useRouter()
 
@@ -33,7 +33,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
 
   return (
     <>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mb-[32px]">
         <div className="flex justify-between">
           <div className="flex gap-2 items-center">
             <h3 className="font-montserrat font-bold text-[25px] leading-[30.48px] text-[#FFFFFF] max-[768px]:text-lg max-[768px]:leading-[21.94px] max-[768px]:font-semibold">
@@ -70,33 +70,34 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
           <div
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
-          >
-            { gameData?.map((data, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
-                onClick={() => {
-                  router.push(`/${data?.game_id || data?._id}`)
-                }}
-              >
-                {/* <Image
+          >{
+
+              gameData?.map((data, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
+                  onClick={() => {
+                    router.push(`/${data?.game_id || data?._id}`)
+                  }}
+                >
+                  {/* <Image
                   width={700}
                   height={700}
                   src={data.featured_img}
                   alt={data.name}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
                 /> */}
-                <Image
-                  width={700}
-                  height={700}
-                  src={imageData[index]?.image}
-                  alt={data.name}
-                  className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500	 "
-                />
-                <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
-                  {data.game_name}
-                </h2>
-                <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[768px]:w-6 max-[768px]:h-6 max-[768px]:top-2 max-[768px]:right-2">
+                  <Image
+                    width={700}
+                    height={700}
+                    src={imageData[index]?.image}
+                    alt={data.name}
+                    className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500 max-h-[170px]"
+                  />
+                  <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
+                    {data.game_name}
+                  </h2>
+                  {/* <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[768px]:w-6 max-[768px]:h-6 max-[768px]:top-2 max-[768px]:right-2">
                   <Image
                     height={25}
                     width={25}
@@ -104,9 +105,10 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                     alt="heart image"
                     // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
+                </div> */}
                 </div>
-              </div>
-            ))}
+              ))}
+            
           </div>
           <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
