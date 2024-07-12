@@ -1,21 +1,16 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const FeaturedGames = ({ title, imageData, gameData }) => {
-
-  console.log(gameData, "datafromcards")
-
   const router = useRouter()
-
-  const [items, setItems] = useState([{}]);
   const scrollContainerRef = useRef(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: -300, // Adjust the value to control the scroll distance
+        left: -300, 
         behavior: "smooth",
       });
     }
@@ -24,7 +19,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: 300, // Adjust the value to control the scroll distance
+        left: 300,
         behavior: "smooth",
       });
     }

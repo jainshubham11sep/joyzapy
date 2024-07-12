@@ -24,25 +24,21 @@ const fetchFeaturedGames = async () => {
 
 
 
-const category = async({ params }) => {
-
-  
-  
+const category = async ({ params }) => {
   const { category } = params;
-  console.log(category, "paramsparams");
-  const arr = ["All","Featured"];
-if(!arr.includes(category)) {
-notFound()
-}
+  const arr = ["All", "Featured"];
+  if (!arr.includes(category)) {
+    notFound()
+  }
 
   const featureGameData = await fetchFeaturedGames();
   const gameData = await fetchAllGames();
 
-  console.log(featureGameData,"featureGameDatafeatureGameData")
-  console.log(gameData,"allgameee")
+  // console.log(featureGameData, "featureGameDatafeatureGameData")
+  // console.log(gameData, "allgameee")
   return (
     <div className="w-full">
-      <CategoryGames category={category} allGameData={gameData} featureGameData={featureGameData}/>
+      <CategoryGames category={category} allGameData={gameData} featureGameData={featureGameData} />
     </div>
   );
 };

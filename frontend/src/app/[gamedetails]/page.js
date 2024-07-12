@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 const fetchGameDetails = async (req) => {
   try {
     const gameId = await req;
-    console.log(gameId, "gameId");
+    // console.log(gameId, "gameId");
     const data = await fetch("http://localhost:3000/api/game/gamedetails", {
       method: "POST",
       headers: {
@@ -17,7 +17,7 @@ const fetchGameDetails = async (req) => {
       return data.ok;
     }
     const jsonData = await data.json();
-    console.log(jsonData, "game dataa");
+    // console.log(jsonData, "game dataa");
     return jsonData;
   } catch (error) {
     console.log(error, "eror in fetching game data");
@@ -36,7 +36,7 @@ const fetchFeaturedGames = async () => {
 const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
-    console.log(cat_arr, "cat_arrrrr");
+    // console.log(cat_arr, "cat_arrrrr");
     const data = await fetch("http://localhost:3000/api/game/relatedgames", {
       method: "POST",
       headers: {
@@ -58,7 +58,7 @@ const page = async ({ params }) => {
   const data = await fetchGameDetails({
     gameId: params.gamedetails,
   });
-  console.log(data,"game details")
+  // console.log(data,"game details")
 
   if(!data){
     notFound();
@@ -69,7 +69,7 @@ const page = async ({ params }) => {
   const relatedgames = await fetchRelatedGames({
     cat_arr: data?.cat_arr,
   });
-  console.log(relatedgames, "relatedgamesrelatedgames")
+  // console.log(relatedgames, "relatedgamesrelatedgames")
 
 
   return (

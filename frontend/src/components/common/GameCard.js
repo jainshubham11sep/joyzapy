@@ -1,18 +1,16 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const GameCard = ({ data,imageData }) => {
-
-  console.log(data,"allgameer")
+const GameCard = ({ data, imageData }) => {
   const router = useRouter()
-  
+
   return (
     <div onClick={() => router.push(`/${data.game_id}`)}
       className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[800px]:min-w-[164px] cursor-pointer max-[400px]:min-w-[140px]"
     >
       <Image
-      height={700}
-      width={700}
+        height={700}
+        width={700}
         src={imageData[0].image}
         alt={imageData[0].name}
         className="h-[180px] rounded-[30px] max-[800px]:h-[114px] max-[800px]:rounded-[8px] z-0"

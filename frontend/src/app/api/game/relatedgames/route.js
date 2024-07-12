@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 
 export async function POST(request) {
     const { cat_arr } = await request.json();
-    console.log(cat_arr, "cat_arrcat_arr");
+    // console.log(cat_arr, "cat_arrcat_arr");
 
     if (!cat_arr || !Array.isArray(cat_arr)) {
         return new Response(JSON.stringify({ error: 'Invalid cat_arr' }), {
@@ -64,7 +64,7 @@ export async function POST(request) {
             });
         }
 
-        console.log(catgames, "catgamescatgames");
+        // console.log(catgames, "catgamescatgames");
         return new Response(JSON.stringify(catgames), {
             status: 200,
             headers: { 'Content-Type': 'application/json' }

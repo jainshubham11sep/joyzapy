@@ -26,8 +26,6 @@ const imageData = [
 
 const GameDetails = ({ data, featureGameData, relatedgames }) => {
 
-  console.log(relatedgames, "relatedgames")
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     if (isNaN(date)) {

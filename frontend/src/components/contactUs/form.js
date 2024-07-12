@@ -20,8 +20,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("i am submitted");
-    console.log(formData);
+    // console.log(formData);
   };
 
   return (

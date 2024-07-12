@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 export async function POST(request) {
   try {
     const { gameId } = await request.json(); // Extract gameId from the request body
-    console.log(gameId,"gameIdgameId")
+    // console.log(gameId,"gameIdgameId")
 
     if (!ObjectId.isValid(gameId)) {
       return new Response(JSON.stringify({ error: "Invalid game ID" }), {

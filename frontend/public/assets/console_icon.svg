@@ -5,8 +5,8 @@
 <path d="M13.189 8.6552C11.7589 9.82787 10.7793 11.4598 10.4168 13.2734C7.40501 28.3414 21.7028 26.8414 21.7028 26.8414H33.7028L39.6388 32.7754C40.2995 33.4359 41.1411 33.8857 42.0574 34.0679C42.9737 34.2501 43.9234 34.1566 44.7865 33.7991C45.6496 33.4416 46.3873 32.8362 46.9064 32.0595C47.4255 31.2828 47.7027 30.3696 47.7028 29.4354V26.8414L44.9888 13.2734C44.6263 11.4598 43.6467 9.82787 42.2166 8.6552C40.7865 7.48252 38.9942 6.84156 37.1448 6.84137H18.2608C16.4114 6.84156 14.6192 7.48252 13.189 8.6552Z" fill="white"/>
 </g>
 <g id="Group 1">
-<path id="Vector 1" d="M16.2026 16.3414H24.7026" stroke="#11101D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector 2" d="M20.4526 20.5914L20.4526 12.0914" stroke="#11101D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector 1" d="M16.2026 16.3414H24.7026" stroke="#11101D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path id="Vector 2" d="M20.4526 20.5914L20.4526 12.0914" stroke="#11101D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </g>
 </g>
 <defs>
