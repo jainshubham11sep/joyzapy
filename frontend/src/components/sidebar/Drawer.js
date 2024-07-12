@@ -1,39 +1,45 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+// import React, { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import { useDrawerContext } from "@/context/drawerContext";
 import Link from "next/link";
 
 export default function CustomDrawer({ gameCategories }) {
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
-  const drawerRef = useRef(null);
+  // const drawerRef = useRef(null);
 
-  const handleClickOutside = (event) => {
-    if (drawerRef.current && !drawerRef.current.contains(event.target)) {
-      setDrawerOpen(false);
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // const handleClickOutside = (event) => {
+  //   if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+  //     setDrawerOpen(false);
+  //   }
+  // };
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
   const handleLinkClick = () => {
     setDrawerOpen(false);
   };
 
-
   return (
-    <Box sx={{ display: "flex" }} >
-      <div className={`hidden md:flex bg-[#11101D] text-[#FFF] w-min py-[31px] flex-col items-center justify-center gap-10 ${drawerOpen ? "" : ""}`}>
-        <div className="flex flex-col items-center justify-between h-[100vh]" >
+    <Box sx={{ display: "flex" }}>
+      <div
+        className={`hidden md:flex bg-[#11101D] text-[#FFF] w-min py-[31px] flex-col items-center justify-center gap-10 ${
+          drawerOpen ? "" : ""
+        }`}
+      >
+        <div className="flex flex-col items-center justify-between h-[100vh]">
           <div className="flex flex-col items-start justify-start gap-4 w-max">
             <Link //all Games
               href="/"
               className="w-full hover:bg-sky-700 duration-700"
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 " onClick={handleLinkClick}>
+              <button
+                className="flex items-center justify-center py-[14px] px-[21px] gap-8 "
+                onClick={handleLinkClick}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="33"
@@ -48,15 +54,19 @@ export default function CustomDrawer({ gameCategories }) {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal ${drawerOpen ? "block" : "hidden"
-                    }`}
+                  className={`text-[18px] font-normal ${
+                    drawerOpen ? "block" : "hidden"
+                  }`}
                 >
                   All Games
                 </p>
               </button>
             </Link>
 
-            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700" onClick={handleLinkClick}>
+            <button
+              className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700"
+              onClick={handleLinkClick}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -87,14 +97,18 @@ export default function CustomDrawer({ gameCategories }) {
               </svg>
 
               <p
-                className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
-                  }`}
+                className={`text-[18px] font-normal  ${
+                  drawerOpen ? "block" : "hidden"
+                }`}
               >
                 Recently Played
               </p>
             </button>
 
-            <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700" onClick={handleLinkClick}>
+            <button
+              className="flex items-center justify-start py-[14px] px-[21px] gap-8 w-full hover:bg-sky-700 duration-700"
+              onClick={handleLinkClick}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -121,8 +135,9 @@ export default function CustomDrawer({ gameCategories }) {
               </svg>
 
               <p
-                className={`text-[18px] font-normal ${drawerOpen ? "block" : "hidden"
-                  }`}
+                className={`text-[18px] font-normal ${
+                  drawerOpen ? "block" : "hidden"
+                }`}
               >
                 Wishlist
               </p>
@@ -131,13 +146,14 @@ export default function CustomDrawer({ gameCategories }) {
             {/* line div */}
             <div className="w-full h-[1px] bg-[#FFF]"></div>
 
-
-
             <Link //Featured
               href="/game/Featured"
               className=" hover:bg-sky-700 duration-700 w-full"
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleLinkClick}>
+              <button
+                className="flex items-center justify-center py-[14px] px-[21px] gap-8"
+                onClick={handleLinkClick}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -176,8 +192,9 @@ export default function CustomDrawer({ gameCategories }) {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
-                    }`}
+                  className={`text-[18px] font-normal  ${
+                    drawerOpen ? "block" : "hidden"
+                  }`}
                 >
                   Featured
                 </p>
@@ -227,7 +244,10 @@ export default function CustomDrawer({ gameCategories }) {
               href="/about-us"
               className=" hover:bg-sky-700 duration-700 w-full"
             >
-              <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleLinkClick}>
+              <button
+                className="flex items-center justify-center py-[14px] px-[21px] gap-8"
+                onClick={handleLinkClick}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="33"
@@ -246,8 +266,9 @@ export default function CustomDrawer({ gameCategories }) {
                 </svg>
 
                 <p
-                  className={`text-[18px] font-normal  ${drawerOpen ? "block" : "hidden"
-                    }`}
+                  className={`text-[18px] font-normal  ${
+                    drawerOpen ? "block" : "hidden"
+                  }`}
                 >
                   About
                 </p>

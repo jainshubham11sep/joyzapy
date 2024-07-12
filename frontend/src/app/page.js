@@ -1,17 +1,21 @@
 import Image from "next/image";
-import Home from "../components/home"
-import Navbar from "../components/navbar/index.js"
+import Home from "../components/home";
+import Navbar from "../components/navbar/index.js";
 
 const fetchAllGames = async () => {
   try {
     const data = await fetch("http://localhost:3000/api/game/all");
+    if (!data.ok) {
+      throw new Error("error");
+    }
+
     const game = await data.json();
-    return game;
+
+    return game.length > 0 ? game : [];
   } catch (error) {
     console.log(error.message, "game error");
   }
 };
-
 
 const fetchFeaturedGames = async () => {
   try {

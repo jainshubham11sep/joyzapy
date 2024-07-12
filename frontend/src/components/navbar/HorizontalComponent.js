@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
+import CrossCircleImg from "../../../public/assets/cross-circle.svg";
 
 const HorizontalComponent = ({ gameCategories, games }) => {
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
@@ -22,6 +23,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     top: false,
   });
 
+  //toggle drawer
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -35,11 +37,46 @@ const HorizontalComponent = ({ gameCategories, games }) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleInputChange = (event, value, reason) => {
-    if (reason === "input") {
-      setAnchorEl(event.currentTarget);
+  // const handleInputChange = (event, value, reason) => {
+  //   if (reason === "input") {
+  //     setAnchorEl(event.currentTarget);
+  //   }
+  // };
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    if (value.length > 2) {
+      const filteredGames = games?.filter((game) => {
+        return game?.game_name?.toLowerCase().includes(value.toLowerCase());
+      });
+      setSuggestions(filteredGames);
+    } else {
+      setSuggestions([]);
     }
   };
+
+  const handleSuggestionClick = (game) => {
+    router.push(`/${game?.game_id}`);
+    setQuery("");
+    setSuggestions([]);
+  };
+
+  const handleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
+
+  useEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth]);
+    }
+
+    window.addEventListener("resize", updateSize);
+    updateSize();
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   const list = (anchor) => (
     <Box sx={{ width: anchor === "top" }} role="presentation">
@@ -52,7 +89,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           <Image
             height={30}
             width={30}
-            src="/assets/cross-circle.svg"
+            src={CrossCircleImg}
             alt="cross icon"
             className=""
           />
@@ -86,10 +123,10 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                 //     </ul>
                 //   )}
                 // </div>
-                suggestions.map((game) => game.game_name)
+                suggestions?.map((game) => game?.game_name)
               }
               onChange={(event, value) => {
-                const selectedGame = suggestions.find(
+                const selectedGame = suggestions?.find(
                   (game) => game.game_name === value
                 );
                 if (selectedGame) {
@@ -143,7 +180,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                     }
                   }
                 >
-                  {props.children}
+                  {props?.children}
                 </div>
               )}
             />
@@ -168,46 +205,11 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     </Box>
   );
 
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.length > 2) {
-      const filteredGames = games.filter((game) => {
-        return game.game_name.toLowerCase().includes(value.toLowerCase());
-      });
-      setSuggestions(filteredGames);
-    } else {
-      setSuggestions([]);
-    }
-  };
-
-  const handleSuggestionClick = (game) => {
-    router.push(`/${game.game_id}`);
-    setQuery("");
-    setSuggestions([]);
-  };
-
-  const handleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  };
-
-  useEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth]);
-    }
-
-    window.addEventListener("resize", updateSize);
-    updateSize();
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   return (
     <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] ">
       <div className="flex flex-row w-[100%] items-center justify-between">
         <div className="flex items-center justify-between max-[767px]:gap-2 min-[768px]:gap-6 min-[1024px]:gap-16">
-          {size[0] > 768 ? (
+          {size?.[0] > 768 ? (
             <button
               onClick={handleDrawer}
               className={`duration-100 ${drawerOpen ? "rotate-180" : ""} z-0`}
@@ -235,8 +237,8 @@ const HorizontalComponent = ({ gameCategories, games }) => {
 
         <div className="relative ">
           <div className="block md:hidden">
-            {["top"].map((anchor) => (
-              <React.Fragment key={anchor}>
+            {["top"]?.map((anchor, id) => (
+              <React.Fragment key={id.toString()}>
                 <Button onClick={toggleDrawer(anchor, true)}>
                   <Image
                     height={30}
@@ -273,15 +275,15 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               placeholder="Search for games..."
             />
           </div>
-          {suggestions.length > 0 && (
+          {suggestions?.length > 0 && (
             <ul className="hidden md:block absolute z-10 w-full mr-10 bg-white shadow-lg rounded-lg mt-2 lg:w-[92%]">
-              {suggestions.map((game) => (
+              {suggestions?.map((game) => (
                 <li
-                  key={game._id}
+                  key={game?._id}
                   className="px-4 py-2 cursor-pointer hover:bg-gray-200"
                   onClick={() => handleSuggestionClick(game)}
                 >
-                  {game.game_name}
+                  {game?.game_name}
                 </li>
               ))}
             </ul>
@@ -294,12 +296,12 @@ const HorizontalComponent = ({ gameCategories, games }) => {
 
 export default HorizontalComponent;
 
-function Example() {
-  return (
-    <>
-      {["start", "end", "top", "bottom"].map((placement, idx) => (
-        <OffCanvasExample key={idx} placement={placement} name={placement} />
-      ))}
-    </>
-  );
-}
+// function Example() {
+//   return (
+//     <>
+//       {["start", "end", "top", "bottom"].map((placement, idx) => (
+//         <OffCanvasExample key={idx} placement={placement} name={placement} />
+//       ))}
+//     </>
+//   );
+// }
