@@ -61,10 +61,10 @@ const Footer = () => {
                 {/* footer part 2 */}
                 <div className='flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]'>
                     <h1 className='text-[25px] font-bold'>Categories</h1>
-                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Featured">Featured</Link>
-                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Adventure">Adventure</Link>
-                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Sports">Sports</Link>
-                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/games/Puzzle">Puzzle</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/game/Featured">Featured</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/game/Adventure">Adventure</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/game/Sports">Sports</Link>
+                    <Link className='text-[18px] font-normal transition-colors duration-300 hover:text-blue-500' href="/game/Puzzle">Puzzle</Link>
                 </div>
 
                 {/* footer part 3 */}

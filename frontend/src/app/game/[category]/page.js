@@ -30,7 +30,7 @@ const category = async({ params }) => {
   
   const { category } = params;
   console.log(category, "paramsparams");
-  const arr = ["all","featured"];
+  const arr = ["All","Featured"];
 if(!arr.includes(category)) {
 notFound()
 }

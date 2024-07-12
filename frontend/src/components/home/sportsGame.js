@@ -13,7 +13,7 @@ const SportGame = ({ data , title }) => {
           <h3 className="font-montserrat font-bold text-[25px] leading-[30.48px] text-[#FFFFFF] max-[600px]:font-semibold max-[600px]:text-lg max-[600px]:leading-[21.94px]">
             Sports Games
           </h3>
-          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer" onClick={()=>router.push(`/games/${title.split(' ')[0]}`)}>
+          <h3 className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer" onClick={()=>router.push(`/game/${title.split(' ')[0]}`)}>
             See all
           </h3>
         </div>

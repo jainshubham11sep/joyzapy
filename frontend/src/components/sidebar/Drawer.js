@@ -134,7 +134,7 @@ export default function CustomDrawer({ gameCategories }) {
 
 
             <Link //Featured
-              href="/games/Featured"
+              href="/game/Featured"
               className=" hover:bg-sky-700 duration-700 w-full"
               on
             >
