@@ -35,7 +35,7 @@ const Form = () => {
               type="text"
               name="name"
               id="name"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
+              className="px-8 py-4 w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="John David"
               value={formData.name}
               onChange={handleChange}
@@ -50,7 +50,7 @@ const Form = () => {
               type="email"
               name="email"
               id="email"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
+              className="px-8 py-4 w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="example@yourmail.com"
               value={formData.email}
               onChange={handleChange}
@@ -68,7 +68,7 @@ const Form = () => {
               type="number"
               name="phone"
               id="phone"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
+              className="px-8 py-4 w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="(000) 123 456"
               value={formData.phone}
               onChange={handleChange}
@@ -83,7 +83,7 @@ const Form = () => {
               type="text"
               name="subject"
               id="subject"
-              className="px-8 py-[21.5px] w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
+              className="px-8 py-4 w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="ex. project"
               value={formData.subject}
               onChange={handleChange}
@@ -101,7 +101,7 @@ const Form = () => {
             id="message"
             placeholder="Hello there,I would like to talk about how to..."
             className="px-[30px] py-[31px] w-full rounded-[20px] font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
-            rows={8}
+            rows={6}
             value={formData.message}
             onChange={handleChange}
           ></textarea>

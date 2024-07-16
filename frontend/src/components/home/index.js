@@ -1,7 +1,9 @@
 "use client"
+import { useRouter } from "next/navigation";
 import FeaturedGames from "./featuredGames";
 import SportGame from "./sportsGame";
 import Image from "next/image";
+
 
 const imageData = [
   { image: "/assets/relatedgames/1.png", name: "olx" },
@@ -24,6 +26,7 @@ const sportGameData = [
 ];
 
 function index({ gameData, featureGameData }) {
+  const router = useRouter();
 
   return (
     <>
@@ -32,7 +35,7 @@ function index({ gameData, featureGameData }) {
         style={{ flex: 3 , marginRight:"auto" , marginLeft:"auto", maxWidth:"1444px"}}
       >
         <div>
-          <div className="containerRight">
+          <div className="containerRight cursor-pointer" onClick={()=>router.push("/668395e5fd2948791f8d2ccc")}>
             <Image
               width={500}
               height={500}

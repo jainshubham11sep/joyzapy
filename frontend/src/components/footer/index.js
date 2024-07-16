@@ -21,6 +21,24 @@ const Footer = () => {
       link: "/game/Puzzle",
     },
   ];
+  let main_links = [
+    {
+      title: "Home",
+      link: "/",
+    },
+    {
+      title: "About Us",
+      link: "/about-us",
+    },
+    {
+      title: "Privacy Policy",
+      link: "/privacy-policy",
+    },
+    {
+      title: "Contact Us",
+      link: "/contact-us",
+    },
+  ];
   return (
     <div className="bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full">
       <div className="flex flex-col items-start justify-start gap-[27px] py-14 max-w-[1440px] mx-auto">
@@ -133,37 +151,20 @@ const Footer = () => {
 
           {/* footer part 3 */}
           <div className="flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]">
-            <h1 className="text-[25px] font-bold transition-colors duration-300 hover:text-blue-500">
+            <h1 className="text-[25px] font-bold">
               Main
             </h1>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href="/about-us"
-            >
-              About Us
-            </Link>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href="/privacy-policy"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href="/contact-us"
-            >
-              Contact Us
-            </Link>
+            {main_links?.map((main, id) => (
+              <Link
+                className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+                href={main?.link}
+                key={id.toString()}
+              >
+                {main?.title}
+              </Link>
+            ))}
           </div>
         </div>
-
-        {/* 3 parts end */}
       </div>
 
       <div className="text-[18px] font-normal py-[17px]">

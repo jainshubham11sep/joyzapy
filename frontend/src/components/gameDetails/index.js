@@ -1,5 +1,6 @@
 "use client";
 import FeaturedGames from "../home/featuredGames";
+import PlayIcon from "../../../public/assets/playIcon.svg"
 import Image from "next/image";
 
 const imageData = [
@@ -56,25 +57,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
                 <div className="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px] cursor-pointer">
                   <div className="">Play Now</div>
                   <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                    >
-                      <g clipPath="url(#clip0_242_158)">
-                        <path
-                          d="M13.6613 5.31296L7.30266 0.65029C6.80601 0.286613 6.21835 0.0675647 5.60483 0.0174251C4.99131 -0.0327145 4.37589 0.0880131 3.82678 0.366226C3.27767 0.644439 2.81633 1.06927 2.49388 1.59363C2.17144 2.11799 2.00049 2.72139 1.99999 3.33696V12.667C1.99903 13.2831 2.16909 13.8875 2.49122 14.4127C2.81336 14.938 3.27494 15.3635 3.82458 15.642C4.37423 15.9205 4.99038 16.041 5.60444 15.9901C6.2185 15.9392 6.80639 15.7188 7.30266 15.3536L13.6613 10.691C14.0832 10.3813 14.4263 9.9767 14.6628 9.50983C14.8993 9.04296 15.0225 8.52697 15.0225 8.00362C15.0225 7.48028 14.8993 6.96429 14.6628 6.49742C14.4263 6.03055 14.0832 5.62592 13.6613 5.31629V5.31296Z"
-                          fill="#FEFEFE"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_242_158">
-                          <rect width="16" height="16" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
+                    <Image src={PlayIcon}/>
                   </div>
                 </div>
               </div>

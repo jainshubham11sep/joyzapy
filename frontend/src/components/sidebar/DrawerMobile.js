@@ -5,6 +5,9 @@ import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Link from "next/link";
+import HomeIcon from "../../../public/assets/homeIcon.svg";
+import FeaturedIcon from "../../../public/assets/featuredIcon.svg";
+import AboutIcon from "../../../public/assets/aboutIcon.svg";
 
 const drawerWidth = 270;
 
@@ -15,8 +18,8 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: "hidden",
-  backgroundColor: "#11101d", // Set background color here
-  color: "#FFF", // Set text color here
+  backgroundColor: "#11101d",
+  color: "#FFF", 
 });
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -96,24 +99,12 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="33"
-                      height="32"
-                      viewBox="0 0 33 32"
-                      fill="none"
-                    >
-                      <path
-                        d="M4.50004 17.3338H5.83337V26.6671C5.83337 28.1378 7.02937 29.3338 8.50004 29.3338H24.5C25.9707 29.3338 27.1667 28.1378 27.1667 26.6671V17.3338H28.5C28.7637 17.3338 29.0214 17.2555 29.2406 17.109C29.4599 16.9625 29.6307 16.7543 29.7316 16.5107C29.8325 16.2671 29.8589 15.999 29.8075 15.7404C29.7561 15.4818 29.6291 15.2443 29.4427 15.0578L17.4427 3.0578C17.319 2.93388 17.1721 2.83556 17.0103 2.76848C16.8485 2.7014 16.6752 2.66687 16.5 2.66687C16.3249 2.66687 16.1515 2.7014 15.9898 2.76848C15.828 2.83556 15.6811 2.93388 15.5574 3.0578L3.55737 15.0578C3.37096 15.2443 3.24402 15.4818 3.1926 15.7404C3.14117 15.999 3.16758 16.2671 3.26847 16.5107C3.36936 16.7543 3.54022 16.9625 3.75943 17.109C3.97864 17.2555 4.23637 17.3338 4.50004 17.3338ZM13.8334 26.6671V20.0005H19.1667V26.6671H13.8334ZM16.5 5.88581L24.5 13.8858V20.0005L24.5014 26.6671H21.8334V20.0005C21.8334 18.5298 20.6374 17.3338 19.1667 17.3338H13.8334C12.3627 17.3338 11.1667 18.5298 11.1667 20.0005V26.6671H8.50004V13.8858L16.5 5.88581Z"
-                        fill="white"
-                      />
-                    </svg>
-
+                    <Image src={HomeIcon} />
                     <p className="text-[18px] font-normal">All Games</p>
                   </button>
                 </Link>
 
-                <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700" onClick={handleDrawerClose}>
+                {/* <button className="flex items-center justify-center py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700" onClick={handleDrawerClose}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -144,9 +135,9 @@ export default function CustomDrawer({ gameCategories }) {
                   </svg>
 
                   <p className="text-[18px] font-normal">Recently Played</p>
-                </button>
+                </button> */}
 
-                <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700 w-full" onClick={handleDrawerClose}>
+                {/* <button className="flex items-center justify-start py-[14px] px-[21px] gap-8 hover:bg-sky-700 duration-700 w-full" onClick={handleDrawerClose}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -173,7 +164,7 @@ export default function CustomDrawer({ gameCategories }) {
                   </svg>
 
                   <p className="text-[18px] font-normal">Wishlist</p>
-                </button>
+                </button> */}
 
                 {/* line div */}
                 <div className="w-full h-[1px] bg-[#FFF]"></div>
@@ -183,42 +174,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                    >
-                      <g clipPath="url(#clip0_310_121)">
-                        <path
-                          d="M22.7075 5.02918C21.8112 3.53541 20.2178 2.53955 18.4253 2.53955H6.47511C4.68256 2.53955 3.08923 3.53541 2.19294 5.02918C1.09752 7.0209 0.5 9.21179 0.5 11.5022C0.5 16.9794 2.69089 21.4607 5.47925 21.4607C6.97302 21.4607 8.16805 20.0665 9.0643 17.1786C9.16386 16.7802 9.5622 16.4815 10.0602 16.4815H14.9398C15.3382 16.4815 15.7365 16.7802 15.9357 17.1786C16.832 20.0665 18.027 21.4607 19.5208 21.4607C22.3091 21.4607 24.5 16.9794 24.5 11.5022C24.4004 9.21179 23.8029 7.0209 22.7075 5.02918ZM19.4211 19.469C19.1224 19.469 18.4253 18.6723 17.7282 16.5811C17.3299 15.2865 16.1348 14.4898 14.8402 14.4898H10.0602C8.76556 14.4898 7.57053 15.386 7.17219 16.5811C6.47511 18.6723 5.77798 19.469 5.47925 19.469C4.48339 19.469 2.49172 16.3819 2.49172 11.5022C2.49172 9.61013 2.98962 7.71802 3.88592 6.02508C4.48344 5.12883 5.4793 4.53132 6.47516 4.53132H18.4254C19.4212 4.53132 20.4171 5.12883 21.0146 6.02508C21.9109 7.71802 22.4088 9.61013 22.4088 11.5022C22.4087 16.3819 20.417 19.469 19.4211 19.469Z"
-                          fill="#FEFEFE"
-                        />
-                        <path
-                          d="M9.49993 9.00002H8.49994V8.00004C8.49994 7.40004 8.09996 7.00006 7.49996 7.00006C6.89996 7.00006 6.49997 7.40004 6.49997 8.00004V9.00002H5.49999C4.89998 9.00002 4.5 9.40001 4.5 10C4.5 10.6 4.89998 11 5.49999 11H6.49992V12C6.49992 12.6 6.89991 13 7.49991 13C8.09991 13 8.4999 12.6 8.4999 12V11H9.49993C10.0999 11 10.4999 10.6001 10.4999 10.0001C10.4999 9.40001 10.0999 9.00002 9.49993 9.00002Z"
-                          fill="#FEFEFE"
-                        />
-                        <path
-                          d="M19 10C19.8284 10 20.5 9.32843 20.5 8.5C20.5 7.67157 19.8284 7 19 7C18.1716 7 17.5 7.67157 17.5 8.5C17.5 9.32843 18.1716 10 19 10Z"
-                          fill="#FEFEFE"
-                        />
-                        <path
-                          d="M16 13C16.8284 13 17.5 12.3284 17.5 11.5C17.5 10.6716 16.8284 10 16 10C15.1716 10 14.5 10.6716 14.5 11.5C14.5 12.3284 15.1716 13 16 13Z"
-                          fill="#FEFEFE"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_310_121">
-                          <rect
-                            width="24"
-                            height="24"
-                            fill="white"
-                            transform="translate(0.5)"
-                          />
-                        </clipPath>
-                      </defs>
-                    </svg>
+                    <Image src={FeaturedIcon}/>
 
                     <p className="text-[18px] font-normal">Featured</p>
                   </button>
@@ -284,22 +240,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="33"
-                      height="32"
-                      viewBox="0 0 33 32"
-                      fill="none"
-                    >
-                      <path
-                        d="M16.5 2C8.76875 2 2.5 8.26875 2.5 16C2.5 23.7313 8.76875 30 16.5 30C24.2313 30 30.5 23.7313 30.5 16C30.5 8.26875 24.2313 2 16.5 2ZM16.5 27.625C10.0813 27.625 4.875 22.4188 4.875 16C4.875 9.58125 10.0813 4.375 16.5 4.375C22.9188 4.375 28.125 9.58125 28.125 16C28.125 22.4188 22.9188 27.625 16.5 27.625Z"
-                        fill="white"
-                      />
-                      <path
-                        d="M15 10.5C15 10.8978 15.158 11.2794 15.4393 11.5607C15.7206 11.842 16.1022 12 16.5 12C16.8978 12 17.2794 11.842 17.5607 11.5607C17.842 11.2794 18 10.8978 18 10.5C18 10.1022 17.842 9.72064 17.5607 9.43934C17.2794 9.15804 16.8978 9 16.5 9C16.1022 9 15.7206 9.15804 15.4393 9.43934C15.158 9.72064 15 10.1022 15 10.5ZM17.25 14H15.75C15.6125 14 15.5 14.1125 15.5 14.25V22.75C15.5 22.8875 15.6125 23 15.75 23H17.25C17.3875 23 17.5 22.8875 17.5 22.75V14.25C17.5 14.1125 17.3875 14 17.25 14Z"
-                        fill="white"
-                      />
-                    </svg>
+                    <Image src={AboutIcon}/>
 
                     <p className="text-[18px] font-normal">About</p>
                   </button>

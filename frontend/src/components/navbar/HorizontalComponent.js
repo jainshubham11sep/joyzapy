@@ -224,7 +224,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           ) : (
             <CustomDrawer gameCategories={gameCategories} />
           )}
-          <div className=" bg-slate-50 px-4 py-[6px] ">
+          <div className="bg-slate-50 px-4 py-[6px] cursor-pointer" onClick={()=>router.push('/')}>
             <Image
               height={100}
               width={100}
