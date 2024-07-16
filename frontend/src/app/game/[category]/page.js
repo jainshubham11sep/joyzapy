@@ -14,8 +14,18 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const data = await fetch("http://localhost:3000/api/game/featuredgames");
-    const game = await data.json();
+    const response = await fetch("http://localhost:3000/api/game/featuredgames");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const game = await response.json();
+
+    if (!game || game.length === 0) {
+      throw new Error("No featured games data found");
+    }
+
     return game;
   } catch (error) {
     console.log(error.message, "game error");

@@ -224,12 +224,12 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           ) : (
             <CustomDrawer gameCategories={gameCategories} />
           )}
-          <div className="bg-slate-50 px-4 py-[6px] cursor-pointer" onClick={()=>router.push('/')}>
+          <div className=" cursor-pointer" onClick={()=>router.push('/')}>
             <Image
-              height={100}
-              width={100}
+              height={150}
+              width={150}
               className="self-center pt-1"
-              src={"/assets/gamehub.png"}
+              src={"/assets/Full logo White.png"}
               alt="header-console"
             />
           </div>

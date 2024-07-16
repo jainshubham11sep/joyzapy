@@ -42,10 +42,20 @@ const Footer = () => {
   return (
     <div className="bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full">
       <div className="flex flex-col items-start justify-start gap-[27px] py-14 max-w-[1440px] mx-auto">
-        <div className="flex items-center justify-start gap-4">
+        {/* <div className="flex items-center justify-start gap-4">
           <Image src={console} alt="footer_icon" />
 
           <h1 className="text-[30px] font-bold">Game store</h1>
+        </div> */}
+
+        <div>
+        <Image
+              height={150}
+              width={150}
+              className="self-center pt-1"
+              src={"/assets/Full logo White.png"}
+              alt="header-console"
+            />
         </div>
 
         {/* container of three parts of footer */}

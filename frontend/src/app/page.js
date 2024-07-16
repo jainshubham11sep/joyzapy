@@ -4,14 +4,19 @@ import Navbar from "../components/navbar/index.js";
 
 const fetchAllGames = async () => {
   try {
-    const data = await fetch("http://localhost:3000/api/game/all");
-    if (!data.ok) {
-      throw new Error("error");
+    const response = await fetch("http://localhost:3000/api/game/all");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const game = await data.json();
+    const games = await response.json();
 
-    return game.length > 0 ? game : [];
+    if (!Array.isArray(games) || games.length === 0) {
+      throw new Error("No games data found");
+    }
+
+    return games;
   } catch (error) {
     console.log(error.message, "game error");
   }
@@ -19,13 +24,25 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const data = await fetch("http://localhost:3000/api/game/featuredgames");
-    const game = await data.json();
+    const response = await fetch("http://localhost:3000/api/game/featuredgames");
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const game = await response.json();
+
+    if (!game || game.length === 0) {
+      throw new Error("No featured games data found");
+    }
+
     return game;
   } catch (error) {
     console.log(error.message, "game error");
   }
 };
+
+
 export default async function HomePage() {
   const gameData = await fetchAllGames();
   const featureGameData = await fetchFeaturedGames();

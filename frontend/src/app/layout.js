@@ -18,11 +18,13 @@ export const metadata = {
 
 const fetchGameCategories = async () => {
   try {
-    const data = await fetch("http://localhost:3000/api/categories/all", {
-      next: { revalidate: "60" },
-      
-    });
-    const categories = await data.json();
+    const response = await fetch("http://localhost:3000/api/categories/all", { next: { revalidate: 60 } });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const categories = await response.json();
     return categories;
   } catch (error) {
     console.log(error.message, "categories error");
