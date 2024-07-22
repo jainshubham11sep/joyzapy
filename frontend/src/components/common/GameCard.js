@@ -29,7 +29,7 @@ const GameCard = ({ data, imageData }) => {
         <Image
         width={25}
         height={25}
-          src={"/assets/Vector.png"}
+          src={"/nextAssets/Vector.png"}
           alt="heart image"
           className="max-[800px]:w-4 max-[800px]:h-4"
         />

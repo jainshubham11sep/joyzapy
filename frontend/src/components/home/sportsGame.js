@@ -35,7 +35,7 @@ const SportGame = ({ data , title }) => {
                 <Image
                   width={100}
                   height={100}
-                  src={"/assets/Vector.png"}
+                  src={"/nextAssets/Vector.png"}
                   alt="heart image"
                   className="max-[600px]:w-4 max-[600px]:h-4"
                 />

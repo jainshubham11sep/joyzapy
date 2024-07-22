@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import console from "../../../public/assets/console_icon.svg";
+import console from "../../../public/nextAssets/console_icon.svg";
 
 const Footer = () => {
   let category_links = [
@@ -53,7 +53,7 @@ const Footer = () => {
               height={150}
               width={150}
               className="self-center pt-1"
-              src={"/assets/Full logo White.png"}
+              src={"/nextAssets/Full logo White.png"}
               alt="header-console"
             />
         </div>
@@ -113,7 +113,7 @@ const Footer = () => {
                   <Image
                     height={10}
                     width={10}
-                    src={"/assets/facebook.svg"}
+                    src={"/nextAssets/facebook.svg"}
                     alt="facebook"
                   />
                 </Link>
@@ -121,7 +121,7 @@ const Footer = () => {
                   <Image
                     height={20}
                     width={20}
-                    src={"/assets/Twitter.svg"}
+                    src={"/nextAssets/Twitter.svg"}
                     alt="twitter"
                   />
                 </Link>
@@ -129,7 +129,7 @@ const Footer = () => {
                   <Image
                     height={20}
                     width={20}
-                    src={"/assets/linkedin.svg"}
+                    src={"/nextAssets/linkedin.svg"}
                     alt="linkedin"
                   />
                 </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
                   <Image
                     height={20}
                     width={20}
-                    src={"/assets/instagram.svg"}
+                    src={"/nextAssets/instagram.svg"}
                     alt="instagram"
                   />
                 </Link>

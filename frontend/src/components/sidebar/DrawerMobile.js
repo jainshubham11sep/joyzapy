@@ -5,9 +5,9 @@ import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Link from "next/link";
-import HomeIcon from "../../../public/assets/homeIcon.svg";
-import FeaturedIcon from "../../../public/assets/featuredIcon.svg";
-import AboutIcon from "../../../public/assets/aboutIcon.svg";
+import HomeIcon from "../../../public/nextAssets/homeIcon.svg";
+import FeaturedIcon from "../../../public/nextAssets/featuredIcon.svg";
+import AboutIcon from "../../../public/nextAssets/aboutIcon.svg";
 
 const drawerWidth = 270;
 
@@ -66,7 +66,7 @@ export default function CustomDrawer({ gameCategories }) {
             zIndex: theme.zIndex.drawer + 1,
           }}
         >
-          <Image width={30} height={30} src={"/assets/menu.svg"} alt="menu" />
+          <Image width={30} height={30} src={"/nextAssets/menu.svg"} alt="menu" />
         </IconButton>
       )}
       {open && (
@@ -85,7 +85,7 @@ export default function CustomDrawer({ gameCategories }) {
                     width={30}
                     height={30}
                     className="rotate-180"
-                    src={"/assets/menu.svg"}
+                    src={"/nextAssets/menu.svg"}
                     alt="menu"
                   />
                 </button>

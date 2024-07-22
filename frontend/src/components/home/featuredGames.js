@@ -37,7 +37,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             <Image
               height={25}
               width={25}
-              src={"/assets/gamepad.png"}
+              src={"/nextAssets/gamepad.png"}
               alt="gamepad"
             />
           </div>
@@ -57,7 +57,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             <Image
               width={15}
               height={15}
-              src={"/assets/arrow.png"}
+              src={"/nextAssets/arrow.png"}
               alt="image"
               className=" absolute right-[15px] lg:right-[33px]"
             />
@@ -96,7 +96,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                   <Image
                     height={25}
                     width={25}
-                    src={"/assets/Vector.png"}
+                    src={"/nextAssets/Vector.png"}
                     alt="heart image"
                     // className="max-[768px]:w-4 max-[768px]:h-4"
                   />
@@ -112,7 +112,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             <Image
               height={15}
               width={15}
-              src={"/assets/arrow.png"}
+              src={"/nextAssets/arrow.png"}
               alt="image"
               className=" absolute left-[15px] lg:left-[33px] rotate-180"
             />

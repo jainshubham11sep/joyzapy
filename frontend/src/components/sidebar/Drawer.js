@@ -4,9 +4,9 @@ import { useDrawerContext } from "@/context/drawerContext";
 import Link from "next/link";
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
-import HomeIcon from '../../../public/assets/homeIcon.svg'
-import AboutIcon from '../../../public/assets/aboutIcon.svg'
-import FeaturedIcon from '../../../public/assets/featuredIcon.svg'
+import HomeIcon from '../../../public/nextAssets/homeIcon.svg'
+import AboutIcon from '../../../public/nextAssets/aboutIcon.svg'
+import FeaturedIcon from '../../../public/nextAssets/featuredIcon.svg'
 import Image from "next/image";
 
 export default function CustomDrawer({ gameCategories }) {

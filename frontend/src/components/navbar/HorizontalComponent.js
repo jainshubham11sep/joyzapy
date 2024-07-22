@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import CrossCircleImg from "../../../public/assets/cross-circle.svg";
+import CrossCircleImg from "../../../public/nextAssets/cross-circle.svg";
 
 const HorizontalComponent = ({ gameCategories, games }) => {
   const { drawerOpen, setDrawerOpen } = useDrawerContext();
@@ -98,7 +98,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           <Image
             height={30}
             width={30}
-            src={"/assets/magnifying_glass.svg"}
+            src={"/nextAssets/magnifying_glass.svg"}
             alt="magnifying-glass"
           />
           <Stack spacing={2} sx={{ width: "100%" }}>
@@ -217,7 +217,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               <Image
                 height={30}
                 width={30}
-                src={"/assets/menu.svg"}
+                src={"/nextAssets/menu.svg"}
                 alt="burger"
               />
             </button>
@@ -229,7 +229,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               height={150}
               width={150}
               className="self-center pt-1"
-              src={"/assets/Full logo White.png"}
+              src={"/nextAssets/Full logo White.png"}
               alt="header-console"
             />
           </div>
@@ -243,7 +243,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                   <Image
                     height={30}
                     width={30}
-                    src={"/assets/magnifying_glass.svg"}
+                    src={"/nextAssets/magnifying_glass.svg"}
                     alt="magnifying-glass"
                     className="block md:hidden"
                   />
@@ -263,7 +263,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             <Image
               height={30}
               width={30}
-              src={"/assets/magnifying_glass.svg"}
+              src={"/nextAssets/magnifying_glass.svg"}
               alt="magnifying-glass"
             />
 

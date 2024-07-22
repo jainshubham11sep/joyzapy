@@ -1,26 +1,26 @@
 "use client";
 import FeaturedGames from "../home/featuredGames";
-import PlayIcon from "../../../public/assets/playIcon.svg"
+import PlayIcon from "../../../public/nextAssets/playIcon.svg"
 import Image from "next/image";
 
 const imageData = [
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
 
@@ -51,7 +51,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
                   height={500}
                   width={500}
                   className="absolute w-full h-full z-[0] rounded-[30px]"
-                  src="/assets/miniblox.png"
+                  src="/nextAssets/miniblox.png"
                 />
                 <div className="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>
                 <div className="z-[10] flex gap-[16px] items-center justify-center bg-[#0088DC] text-[#F4F4F4] text-[16px]  md:text-[25px]   px-[24px] py-[8px]  rounded-[12px] cursor-pointer">

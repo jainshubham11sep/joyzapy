@@ -4,18 +4,18 @@ import styles from "./game.module.css";
 // import { useRouter } from "next/navigation";
 
 const imageData = [
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/assets/relatedgames/1.png", name: "olx" },
-  { image: "/assets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/assets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
+  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
+  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
+  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
 const CategoryGames = ({ category, allGameData, featureGameData }) => {
