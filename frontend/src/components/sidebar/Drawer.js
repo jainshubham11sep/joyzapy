@@ -35,10 +35,10 @@ export default function CustomDrawer({ gameCategories }) {
                 onClick={handleLinkClick}
               >
                 {drawerOpen ? (
-                  <Image src={HomeIcon} />
+                  <Image src={HomeIcon} alt="home icon"/>
                 ) : (
                   <Tooltip TransitionComponent={Zoom} title="Home" placement="right-start">
-                    <Image src={HomeIcon} />
+                    <Image src={HomeIcon} alt="home icon"/>
                   </Tooltip>
                 )}
 
@@ -143,10 +143,10 @@ export default function CustomDrawer({ gameCategories }) {
                 onClick={handleLinkClick}
               >
                 {drawerOpen ? (
-                  <Image src={FeaturedIcon} />
+                  <Image src={FeaturedIcon} alt="feature icon" />
                 ) : (
                   <Tooltip TransitionComponent={Zoom} title="Featured Games" placement="right-start">
-                    <Image src={FeaturedIcon} />
+                    <Image src={FeaturedIcon} alt="feature icon" />
                   </Tooltip>
                 )}
                 <p
@@ -205,10 +205,10 @@ export default function CustomDrawer({ gameCategories }) {
                 onClick={handleLinkClick}
               >
                 {drawerOpen ? (
-                  <Image src={AboutIcon} />
+                  <Image src={AboutIcon} alt="aboutus icon" />
                 ) : (
                   <Tooltip TransitionComponent={Zoom} title="About Us" placement="right-start">
-                    <Image src={AboutIcon} />
+                    <Image src={AboutIcon} alt="aboutus icon"/>
                   </Tooltip>
                 )}
                 <p

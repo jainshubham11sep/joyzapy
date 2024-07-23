@@ -36,7 +36,7 @@ const fetchFeaturedGames = async () => {
 
 const category = async ({ params }) => {
   const { category } = params;
-  const arr = ["All", "Featured"];
+  const arr = ["All", "Featured","Related"];
   if (!arr.includes(category)) {
     notFound()
   }

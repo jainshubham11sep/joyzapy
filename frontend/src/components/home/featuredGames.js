@@ -3,14 +3,17 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const FeaturedGames = ({ title, imageData, gameData }) => {
+const FeaturedGames = ({ title, gameData }) => {
+
   const router = useRouter()
   const scrollContainerRef = useRef(null);
+
+  const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: -300, 
+        left: -300,
         behavior: "smooth",
       });
     }
@@ -42,7 +45,7 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
             />
           </div>
           <h3
-            className="font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] "
+            className={`font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] ${gameData.length < 5 ? 'pointer-events-none text-[#b0b0b0]' : ''}`}
             onClick={() => router.push(`/game/${title.split(" ")[0]}`)}
           >
             See all
@@ -50,7 +53,8 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
         </div>
 
         <div className="overflow-hidden no_scrollbar relative">
-          <button
+          {gameData.length >= 5 &&(
+            <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollLeft}
           >
@@ -62,11 +66,12 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
               className=" absolute right-[15px] lg:right-[33px]"
             />
           </button>
+          )}
+          
           <div
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
           >{
-
               gameData?.map((data, index) => (
                 <div
                   key={index}
@@ -75,19 +80,12 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                     router.push(`/${data?.game_id || data?._id}`)
                   }}
                 >
-                  {/* <Image
-                  width={700}
-                  height={700}
-                  src={data.featured_img}
-                  alt={data.name}
-                  className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 "
-                /> */}
                   <Image
                     width={700}
                     height={700}
-                    src={imageData[index]?.image}
+                    src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
                     alt={data.name}
-                    className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500 max-h-[170px]"
+                    className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500 max-h-[170px] min-h-[170px]"
                   />
                   <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
                     {data.game_name}
@@ -103,8 +101,10 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
                 </div> */}
                 </div>
               ))}
-            
+
           </div>
+          {gameData.length >= 5 &&(
+
           <button
             className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
             onClick={scrollRight}
@@ -116,7 +116,9 @@ const FeaturedGames = ({ title, imageData, gameData }) => {
               alt="image"
               className=" absolute left-[15px] lg:left-[33px] rotate-180"
             />
+            
           </button>
+          )}
         </div>
       </div>
     </>

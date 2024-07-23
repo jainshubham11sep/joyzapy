@@ -16,14 +16,7 @@ const imageData = [
   { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
 ];
 
-const sportGameData = [
-  { image: "/nextAssets/sportsgames/1.png", name: "Smash karts" },
-  { image: "/nextAssets/sportsgames/2.png", name: "Smash karts" },
-  { image: "/nextAssets/sportsgames/3.png", name: "Smash karts" },
-  { image: "/nextAssets/sportsgames/4.png", name: "Smash karts" },
-  { image: "/nextAssets/sportsgames/5.png", name: "Smash karts" },
-  { image: "/nextAssets/sportsgames/6.png", name: "Smash karts" },
-];
+
 
 function index({ gameData, featureGameData }) {
   const router = useRouter();

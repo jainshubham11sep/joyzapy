@@ -99,7 +99,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <Image src={HomeIcon} />
+                    <Image src={HomeIcon} alt="home icon"/>
                     <p className="text-[18px] font-normal">All Games</p>
                   </button>
                 </Link>
@@ -174,7 +174,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <Image src={FeaturedIcon}/>
+                    <Image src={FeaturedIcon} alt="featured icon"/>
 
                     <p className="text-[18px] font-normal">Featured</p>
                   </button>
@@ -240,7 +240,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
-                    <Image src={AboutIcon}/>
+                    <Image src={AboutIcon} alt="aboutus icon"/>
 
                     <p className="text-[18px] font-normal">About</p>
                   </button>

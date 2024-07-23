@@ -4,6 +4,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   crossOrigin: 'anonymous',
+  images: {
+    domains: ['www.punogames.com'],
+  },
 };
 
 export default nextConfig;
