@@ -46,11 +46,11 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-
-    if (value.length > 2) {
+  
+    if (value.length >= 1) {
       const filteredGames = games?.filter((game) => {
         return game?.game_name?.toLowerCase().includes(value.toLowerCase());
-      });
+      }).slice(0, 7);
       setSuggestions(filteredGames);
     } else {
       setSuggestions([]);
@@ -224,7 +224,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
           ) : (
             <CustomDrawer gameCategories={gameCategories} />
           )}
-          <div className=" cursor-pointer" onClick={()=>router.push('/')}>
+          <div className=" cursor-pointer" onClick={() => router.push('/')}>
             <Image
               height={150}
               width={150}
