@@ -1,12 +1,13 @@
 import React from "react";
 import GameDetails from "../../components/gameDetails";
 import { notFound } from "next/navigation";
+import AppConstants from "../../constants/AppConstants"
 
 const fetchGameDetails = async (req) => {
   try {
     const gameId = await req;
     // console.log(gameId, "gameId");
-    const data = await fetch("http://localhost:3000/api/game/gamedetails", {
+    const data = await fetch(`${AppConstants.baseURL}/game/gamedetails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ const fetchGameDetails = async (req) => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/game/featuredgames");
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -47,7 +48,7 @@ const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
     // console.log(cat_arr, "cat_arrrrr");
-    const data = await fetch("http://localhost:3000/api/game/relatedgames", {
+    const data = await fetch(`${AppConstants.baseURL}/game/relatedgames`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const GameCard = ({ data, imageData }) => {
+const GameCard = ({ data }) => {
   const router = useRouter()
   const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
@@ -13,30 +13,13 @@ const GameCard = ({ data, imageData }) => {
       <Image
         height={700}
         width={700}
-        // src={data?.featured_img}
         src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
-        alt={imageData[0].name}
+        alt={data?.game_name}
         className="h-[180px] rounded-[30px] max-[800px]:h-[114px] max-[800px]:rounded-[8px] z-0"
       />
-      {/* <Image
-      height={700}
-      width={700}
-        src={data.image}
-        alt={data.name}
-        className="h-[180px] rounded-[30px] max-[800px]:h-[114px] max-[800px]:rounded-[8px] z-0"
-      /> */}
       <h2 className="font-montserrat font-medium text-lg leading-[21.94px] text-[#FFFFFF] max-[800px]:text-base max-[800px]:leading-[28.8px] max-[800px]:tracking-[5%]">
         {data?.game_name}
       </h2>
-      {/* <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[800px]:w-6 max-[800px]:h-6 max-[800px]:top-2 max-[800px]:right-2">
-        <Image
-        width={25}
-        height={25}
-          src={"/nextAssets/Vector.png"}
-          alt="heart image"
-          className="max-[800px]:w-4 max-[800px]:h-4"
-        />
-      </div> */}
     </div>
   );
 };

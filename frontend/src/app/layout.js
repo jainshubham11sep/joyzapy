@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import Sidebar from "@/components/sidebar/sidebar";
 import DrawerContextComponent from "@/context/drawerContext";
 import Script from "next/script";
+import AppConstants from "../constants/AppConstants";
 
 const montserrat = Montserrat({
   weight: ["400", "700"],
@@ -18,7 +19,7 @@ export const metadata = {
 
 const fetchGameCategories = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/categories/all", { next: { revalidate: 60 } });
+    const response = await fetch(`${AppConstants.baseURL}/categories/all`, { next: { revalidate: 60 } });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

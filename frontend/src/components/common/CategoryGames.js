@@ -33,12 +33,12 @@ const CategoryGames = ({ category, allGameData, featureGameData }) => {
         </div>
       </div>
       <div className="grid-container-game justify-items-center">
-        {category === "Featured"
+        {category === "featured"
           ? featureGameData
               ?.filter((data) => data?.game_id)
-              ?.map((data) => <GameCard data={data} imageData={imageData} />)
+              ?.map((data) => <GameCard data={data}  />)
           : allGameData?.map((data) => (
-              <GameCard data={data} imageData={imageData} />
+              <GameCard data={data} />
             ))}
       </div>
     </div>

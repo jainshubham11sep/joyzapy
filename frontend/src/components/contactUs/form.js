@@ -1,7 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import AppConstants from "../../constants/AppConstants"
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const Form = () => {
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,11 +26,50 @@ const Form = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formData);
-  };
+    if (formData.phone.length < 10) {
 
+      console.log("Please enter the Phone Number correctly");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${AppConstants.baseURL}/contactus`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      console.log("Success:", result);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      })
+      setOpenSnackbar(true);
+
+
+    } catch (error) {
+      console.error("Error:", error);
+
+    }
+  };
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="max-w-[662.1px] flex flex-col gap-[30px] m-auto max-[720px]:w-auto mb-16">
@@ -71,7 +118,15 @@ const Form = () => {
               className="px-8 py-4 w-full rounded-[283px] border font-montserrat font-normal text-base leading-[28.8px] tracking-[0.08px] outline-none max-[550px]:px-4 max-[550px]:py-3"
               placeholder="(000) 123 456"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={(e) => {
+                const { name, value } = e.target;
+                if (/^\d{0,10}$/.test(value)) {
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    [name]: value,
+                  }));
+                }
+              }}
               required
             />
           </div>
@@ -104,16 +159,31 @@ const Form = () => {
             rows={6}
             value={formData.message}
             onChange={handleChange}
+            required
           ></textarea>
+          </div>
+  
+          <button
+            type="submit"
+            className="flex rounded-[12px] py-2 px-6 gap-4 bg-[#0088DC] shadow-[8px_8px_0px_0px_#00000040] w-fit m-auto text-[#F4F4F4] font-montserrat font-bold text-[25px] leading-[30.48px]"
+            
+          >
+            Submit form
+          </button>
+  
+          
         </div>
-
-        <button
-          type="submit"
-          className="flex rounded-[12px] py-2 px-6 gap-4 bg-[#0088DC] shadow-[8px_8px_0px_0px_#00000040] w-fit m-auto text-[#F4F4F4] font-montserrat font-bold text-[25px] leading-[30.48px]"
+  
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
         >
-          Submit form
-        </button>
-      </div>
+          <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
+            Our team will contact you shortly!
+          </Alert>
+        </Snackbar>
+      
     </form>
   );
 };

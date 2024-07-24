@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Home from "../components/home";
 import Navbar from "../components/navbar/index.js";
+import AppConstants from "../constants/AppConstants"
 
 const fetchAllGames = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/game/all");
+    const response = await fetch(`${AppConstants.baseURL}/game/all`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -24,7 +25,7 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/game/featuredgames");
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

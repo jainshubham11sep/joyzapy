@@ -4,7 +4,6 @@ import { ObjectId } from "mongodb";
 export async function POST(request) {
   try {
     const { gameId } = await request.json(); // Extract gameId from the request body
-    // console.log(gameId,"gameIdgameId")
 
     if (!ObjectId.isValid(gameId)) {
       return new Response(JSON.stringify({ error: "Invalid game ID" }), {
@@ -17,9 +16,46 @@ export async function POST(request) {
 
     const client = await clientPromise;
     const db = client.db("punogames");
-    const game = await db.collection("allgames").findOne({ _id: new ObjectId(gameId) });
 
-    if (!game) {
+    const pipeline = [
+      { $match: { _id: new ObjectId(gameId) } },
+      {
+        $lookup: {
+          from: "allcategories",
+          let: { catIds: "$cat_arr" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $in: [{ $toString: "$_id" }, "$$catIds"],
+                },
+              },
+            },
+          ],
+          as: "matchedCategories",
+        },
+      },
+      {
+        $addFields: {
+          category_names: {
+            $map: {
+              input: "$matchedCategories",
+              as: "category",
+              in: "$$category.cat_name",
+            },
+          },
+        },
+      },
+      {
+        $project: {
+          matchedCategories: 0,
+        },
+      },
+    ];
+
+    const game = await db.collection("allgames").aggregate(pipeline).toArray();
+
+    if (!game || game.length === 0) {
       return new Response(JSON.stringify({ error: "Game not found" }), {
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +64,7 @@ export async function POST(request) {
       });
     }
 
-    return new Response(JSON.stringify(game), {
+    return new Response(JSON.stringify(game[0]), {
       headers: {
         "Content-Type": "application/json",
       },

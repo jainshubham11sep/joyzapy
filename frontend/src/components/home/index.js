@@ -31,7 +31,7 @@ function index({ gameData, featureGameData }) {
         style={{ flex: 3 , marginRight:"auto" , marginLeft:"auto", maxWidth:"1444px"}}
       >
         <div>
-          <div className="containerRight cursor-pointer" onClick={()=>router.push("/668395e5fd2948791f8d2ccc")}>
+          <div className="containerRight cursor-pointer" onClick={()=>router.push("/669a00abf2314c2bff08f842")}>
             <Image
               width={500}
               height={500}

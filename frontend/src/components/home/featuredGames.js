@@ -45,34 +45,35 @@ const FeaturedGames = ({ title, gameData }) => {
             />
           </div>
           <h3
-            className={`font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] ${gameData.length < 5 ? 'pointer-events-none text-[#b0b0b0]' : ''}`}
-            onClick={() => router.push(`/game/${title.split(" ")[0]}`)}
+            className={`font-montserrat font-normal text-base leading-[28.8px] tracking-[5%] text-[#15AEE3] cursor-pointer hover:text-[#42e6ff] ${gameData?.length < 5 ? 'pointer-events-none text-[#b0b0b0]' : ''}`}
+            onClick={() => router.push(`/game/${title.split(" ")[0].toLowerCase()}`)}
           >
             See all
           </h3>
         </div>
 
         <div className="overflow-hidden no_scrollbar relative">
-          {gameData.length >= 5 &&(
+          {gameData?.length >= 5 && (
             <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
-            onClick={scrollLeft}
-          >
-            <Image
-              width={15}
-              height={15}
-              src={"/nextAssets/arrow.png"}
-              alt="image"
-              className=" absolute right-[15px] lg:right-[33px]"
-            />
-          </button>
+              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+              onClick={scrollLeft}
+            >
+              <Image
+                width={15}
+                height={15}
+                src={"/nextAssets/arrow.png"}
+                alt="image"
+                className=" absolute right-[15px] lg:right-[33px]"
+              />
+            </button>
           )}
-          
+
           <div
             ref={scrollContainerRef}
             className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
-          >{
-              gameData?.map((data, index) => (
+          >
+            {
+              gameData?.slice(0, 10).map((data, index) => (
                 <div
                   key={index}
                   className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
@@ -103,21 +104,21 @@ const FeaturedGames = ({ title, gameData }) => {
               ))}
 
           </div>
-          {gameData.length >= 5 &&(
+          {gameData?.length >= 5 && (
 
-          <button
-            className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
-            onClick={scrollRight}
-          >
-            <Image
-              height={15}
-              width={15}
-              src={"/nextAssets/arrow.png"}
-              alt="image"
-              className=" absolute left-[15px] lg:left-[33px] rotate-180"
-            />
-            
-          </button>
+            <button
+              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+              onClick={scrollRight}
+            >
+              <Image
+                height={15}
+                width={15}
+                src={"/nextAssets/arrow.png"}
+                alt="image"
+                className=" absolute left-[15px] lg:left-[33px] rotate-180"
+              />
+
+            </button>
           )}
         </div>
       </div>

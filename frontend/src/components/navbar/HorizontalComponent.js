@@ -35,18 +35,10 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     setState({ ...state, [anchor]: open });
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  // const handleInputChange = (event, value, reason) => {
-  //   if (reason === "input") {
-  //     setAnchorEl(event.currentTarget);
-  //   }
-  // };
-
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-  
+
     if (value.length >= 1) {
       const filteredGames = games?.filter((game) => {
         return game?.game_name?.toLowerCase().includes(value.toLowerCase());
@@ -108,21 +100,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
               disableClearable
               freeSolo
               options={
-                // <div className="absolute w-[90%]">
-                //   {suggestions.length > 0 && (
-                //     <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
-                //       {suggestions.map((game) => (
-                //         <li
-                //           key={game._id}
-                //           className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                //           // onClick={() => handleSuggestionClick(game)}
-                //         >
-                //           {game.game_name}
-                //         </li>
-                //       ))}
-                //     </ul>
-                //   )}
-                // </div>
                 suggestions?.map((game) => game?.game_name)
               }
               onChange={(event, value) => {
@@ -142,19 +119,19 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                   onChange={handleSearchChange}
                   placeholder="Search for games..."
                   InputLabelProps={{
-                    style: { color: "#FFFFFF", position: "relative" }, // Change this to the desired color
+                    style: { color: "#FFFFFF", position: "relative" }
                   }}
                   InputProps={{
                     ...params.InputProps,
                     type: "search",
                     style: {
-                      border: "none", // Remove the default border
+                      border: "none",
                     },
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        display: "none", // Remove the fieldset
+                        display: "none",
                       },
                       "& .MuiAutocomplete-input": {
                         "::placeholder": {
@@ -171,7 +148,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
                   onClick={toggleDrawer(anchor, false)}
                   {...props}
                   style={
-                    // { zIndex: 1600, width: "100%", position: 'absolute', top: anchorEl ? anchorEl.getBoundingClientRect().top : 0, left: anchorEl ? anchorEl.getBoundingClientRect().left : 0 }
                     {
                       position: "fixed",
                       width: "85%",
@@ -186,21 +162,6 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             />
           </Stack>
         </div>
-        {/* <div className="absolute w-[90%]">
-          {suggestions.length > 0 && (
-            <ul className="block md:hidden z-10 w-full bg-white shadow-lg rounded-lg mt-24 lg:w-[92%]">
-              {suggestions.map((game) => (
-                <li
-                  key={game._id}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-200"
-                  onClick={() => handleSuggestionClick(game)}
-                >
-                  {game.game_name}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div> */}
       </div>
     </Box>
   );
@@ -295,13 +256,3 @@ const HorizontalComponent = ({ gameCategories, games }) => {
 };
 
 export default HorizontalComponent;
-
-// function Example() {
-//   return (
-//     <>
-//       {["start", "end", "top", "bottom"].map((placement, idx) => (
-//         <OffCanvasExample key={idx} placement={placement} name={placement} />
-//       ))}
-//     </>
-//   );
-// }

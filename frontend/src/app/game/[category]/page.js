@@ -1,10 +1,11 @@
 import React from "react";
 import CategoryGames from "@/components/common/CategoryGames";
 import { notFound } from "next/navigation";
+import AppConstants from "../../../constants/AppConstants"
 
 const fetchAllGames = async () => {
   try {
-    const data = await fetch("http://localhost:3000/api/game/all");
+    const data = await fetch(`${AppConstants.baseURL}/game/all`);
     const game = await data.json();
     return game;
   } catch (error) {
@@ -14,7 +15,7 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/game/featuredgames");
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,15 +35,36 @@ const fetchFeaturedGames = async () => {
 
 
 
+
 const category = async ({ params }) => {
   const { category } = params;
-  const arr = ["All", "Featured","Related"];
+  const arr = ["all", "featured", "action", "adventure", "thriller"];
   if (!arr.includes(category)) {
     notFound()
   }
+  let gameData;
 
   const featureGameData = await fetchFeaturedGames();
-  const gameData = await fetchAllGames();
+  if (category === "adventure" || category === "action" || category === "thriller") {
+    const categoryIdMap = {
+      adventure: "66987d17dec4bed4fb6bf8e0",
+      action: "66965fc66845f70cb600d44c",
+      thriller: "6698a1ea673e42caf98382ce",
+    };
+
+    const categoryId = categoryIdMap[category];
+
+    gameData = await fetch(`${AppConstants.baseURL}/categories/category_games`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ categoryId }),
+    }).then(response => response.json());
+  } else {
+    gameData = await fetchAllGames();
+  }
+
 
   // console.log(featureGameData, "featureGameDatafeatureGameData")
   // console.log(gameData, "allgameee")

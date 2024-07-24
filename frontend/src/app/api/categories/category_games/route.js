@@ -1,9 +1,9 @@
 import clientPromise from "@/lib/mongodb";
 
-export async function GET() {
+export async function POST(request) {
   try {
     const client = await clientPromise;
-    let categoryId = "667d4d2f7fd5b95183945747";
+    const { categoryId } = await request.json();
     const db = client.db("punogames");
 
     const projection = {

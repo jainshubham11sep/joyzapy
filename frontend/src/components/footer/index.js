@@ -3,24 +3,7 @@ import Image from "next/image";
 import console from "../../../public/nextAssets/console_icon.svg";
 
 const Footer = () => {
-  let category_links = [
-    {
-      title: "Featured",
-      link: "/game/Featured",
-    },
-    {
-      title: "Adventure",
-      link: "/game/Adventure",
-    },
-    {
-      title: "Sports",
-      link: "/game/Sports",
-    },
-    {
-      title: "Puzzle",
-      link: "/game/Puzzle",
-    },
-  ];
+  
   let main_links = [
     {
       title: "Home",
@@ -42,33 +25,26 @@ const Footer = () => {
   return (
     <div className="bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full">
       <div className="flex flex-col items-start justify-start gap-[27px] py-14 max-w-[1440px] mx-auto">
-        {/* <div className="flex items-center justify-start gap-4">
-          <Image src={console} alt="footer_icon" />
-
-          <h1 className="text-[30px] font-bold">Game store</h1>
-        </div> */}
+        
 
         <div>
-        <Image
-              height={150}
-              width={150}
-              className="self-center pt-1"
-              src={"/nextAssets/Full logo White.png"}
-              alt="header-console"
-            />
+          <Image
+            height={150}
+            width={150}
+            className="self-center pt-1"
+            src={"/nextAssets/Full logo White.png"}
+            alt="header-console"
+          />
         </div>
-
-        {/* container of three parts of footer */}
         <div className="flex flex-col items-start justify-center gap-9 md:flex-row gap-[80px] md:gap-[77px] lg:gap-[180px] ">
-          {/* footer part 1 */}
           <div className="flex flex-col items-start justify-center gap-[39px]">
             <div className="flex flex-col items-start gap-2">
               <div className="text-[25px] font-bold">Contact Us</div>
               <div className="leading-[29px] text-[18px] font-normal">
                 You can contact Us
                 <br />
-                to send email
-                <br /> to us
+                by sending an email
+                <br /> to us on
               </div>
             </div>
 
@@ -76,7 +52,8 @@ const Footer = () => {
               <input
                 className="py-[7px] pl-4 pr-2 rounded-full w-[250px] md:w-[300px] h-[46px] text-[#000]"
                 type="text"
-                placeholder="Your email"
+                placeholder="contact@punogames.com"
+                disabled
               />
 
               <svg
@@ -148,15 +125,42 @@ const Footer = () => {
           {/* footer part 2 */}
           <div className="flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]">
             <h1 className="text-[25px] font-bold">Categories</h1>
-            {category_links?.map((category, id) => (
+            
               <Link
                 className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-                href={category?.link}
-                key={id.toString()}
+                href={"/game/featured"}  
               >
-                {category?.title}
+                Featured
               </Link>
-            ))}
+      
+      {/* link: "/game/adventure",
+      categoryId:"66987d17dec4bed4fb6bf8e0" */}
+
+      {/* link: "/game/action",
+      categoryId:"66965fc66845f70cb600d44c" */}
+    
+      {/* link: "/game/thriller",
+      categoryId:"6698a1ea673e42caf98382ce" */}
+    
+              <Link
+                className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+                href={"/game/adventure/"}  
+              >
+                Adventure
+              </Link>
+              <Link
+                className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+                href={"/game/action"}  
+              >
+                Action
+              </Link>
+              <Link
+                className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+                href={"/game/thriller"}  
+              >
+                Thriller
+              </Link>
+            
           </div>
 
           {/* footer part 3 */}
