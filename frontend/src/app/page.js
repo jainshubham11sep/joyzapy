@@ -3,9 +3,13 @@ import Home from "../components/home";
 import Navbar from "../components/navbar/index.js";
 import AppConstants from "../constants/AppConstants"
 
+// export const dynamic  = 'force-dynamic' // Custom flag for dynamic behavior
+export const revalidate = 0;
+
 const fetchAllGames = async () => {
   try {
-    const response = await fetch(`${AppConstants.baseURL}/game/all`);
+    const response = await fetch(`${AppConstants.baseURL}/game/all`,{
+      method: "POST"});
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -25,7 +29,8 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
+      method: "POST"});
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

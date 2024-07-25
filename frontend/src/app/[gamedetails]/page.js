@@ -5,14 +5,14 @@ import AppConstants from "../../constants/AppConstants"
 
 const fetchGameDetails = async (req) => {
   try {
-    const gameId = await req;
-    // console.log(gameId, "gameId");
+    const game_name = await req;
+    // console.log(game_name, "game_name");
     const data = await fetch(`${AppConstants.baseURL}/game/gamedetails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(gameId),
+      body: JSON.stringify(game_name),
     });
     if(!data.ok){
       return data.ok;
@@ -27,7 +27,8 @@ const fetchGameDetails = async (req) => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
+      method: "POST"});
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -67,7 +68,7 @@ const fetchRelatedGames = async (req) => {
 const page = async ({ params }) => {
 
   const data = await fetchGameDetails({
-    gameId: params.gamedetails,
+    game_name: params.gamedetails,
   });
   // console.log(data,"game details")
 

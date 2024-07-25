@@ -5,7 +5,8 @@ import AppConstants from "../../../constants/AppConstants"
 
 const fetchAllGames = async () => {
   try {
-    const data = await fetch(`${AppConstants.baseURL}/game/all`);
+    const data = await fetch(`${AppConstants.baseURL}/game/all`,{
+      method: "POST"});
     const game = await data.json();
     return game;
   } catch (error) {
@@ -15,7 +16,8 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`);
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
+      method: "POST"});
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

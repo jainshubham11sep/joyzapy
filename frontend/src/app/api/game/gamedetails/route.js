@@ -3,10 +3,10 @@ import { ObjectId } from "mongodb";
 
 export async function POST(request) {
   try {
-    const { gameId } = await request.json(); // Extract gameId from the request body
+    const { game_name } = await request.json(); // Extract gameId from the request body
 
-    if (!ObjectId.isValid(gameId)) {
-      return new Response(JSON.stringify({ error: "Invalid game ID" }), {
+    if (!game_name) {
+      return new Response(JSON.stringify({ error: "Invalid game" }), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -18,7 +18,7 @@ export async function POST(request) {
     const db = client.db("punogames");
 
     const pipeline = [
-      { $match: { _id: new ObjectId(gameId) } },
+      { $match: { game_name:(game_name) } },
       {
         $lookup: {
           from: "allcategories",

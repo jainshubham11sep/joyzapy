@@ -78,7 +78,7 @@ const FeaturedGames = ({ title, gameData }) => {
                   key={index}
                   className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
                   onClick={() => {
-                    router.push(`/${data?.game_id || data?._id}`)
+                    router.push(`/${data?.game_name}`)
                   }}
                 >
                   <Image

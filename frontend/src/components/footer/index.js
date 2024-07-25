@@ -182,7 +182,7 @@ const Footer = () => {
       </div>
 
       <div className="text-[18px] font-normal py-[17px]">
-        Game store/ All rights reserved.
+      © 2024 Puno Games. All Rights Reserved.
       </div>
     </div>
   );
