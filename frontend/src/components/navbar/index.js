@@ -9,7 +9,9 @@ const index = ({ gameCategories }) => {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const res = await fetch(`${AppConstants.baseURL}/game/all`);
+      const res = await fetch(`${AppConstants.baseURL}/game/all`,{
+        method: "POST"});
+      console.log(res,"resresres");
       const data = await res.json();
       setGames(data);
     };

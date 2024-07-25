@@ -1,6 +1,13 @@
 import React from 'react'
 import PrivacyPolicy from "../../components/privacyPolicy"
 
+export const metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy Policy',
+}
+
+
+
 const page = () => {
   return (
     <div className='bg-[#1F1F29] px-4 lg:px-16 py-6 w-[100%] '>

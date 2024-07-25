@@ -3,6 +3,13 @@ import Home from "../components/home";
 import Navbar from "../components/navbar/index.js";
 import AppConstants from "../constants/AppConstants"
 
+// import  { Metadata } from 'next'
+ 
+export const metadata = {
+  title: 'PunoGames',
+  description: 'PunoGames',
+}
+
 // export const dynamic  = 'force-dynamic' // Custom flag for dynamic behavior
 export const revalidate = 0;
 
@@ -50,6 +57,7 @@ const fetchFeaturedGames = async () => {
 
 
 export default async function HomePage() {
+ 
   const gameData = await fetchAllGames();
   const featureGameData = await fetchFeaturedGames();
   return (

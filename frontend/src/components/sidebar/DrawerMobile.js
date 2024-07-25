@@ -100,7 +100,7 @@ export default function CustomDrawer({ gameCategories }) {
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>
                     <Image src={HomeIcon} alt="home icon"/>
-                    <p className="text-[18px] font-normal">All Games</p>
+                    <p className="text-[18px] font-normal">Home</p>
                   </button>
                 </Link>
 
@@ -169,8 +169,8 @@ export default function CustomDrawer({ gameCategories }) {
                 {/* line div */}
                 <div className="w-full h-[1px] bg-[#FFF]"></div>
 
-                <Link //Featured
-                  href="/game/Featured"
+                <Link 
+                  href="/game/featured"
                   className="hover:bg-sky-700 duration-700 w-full"
                 >
                   <button className="flex items-center justify-center py-[14px] px-[21px] gap-8" onClick={handleDrawerClose}>

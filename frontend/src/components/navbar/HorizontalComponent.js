@@ -50,7 +50,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   };
 
   const handleSuggestionClick = (game) => {
-    router.push(`/${game?.game_id}`);
+    router.push(`/${game?.game_name}`);
     setQuery("");
     setSuggestions([]);
   };

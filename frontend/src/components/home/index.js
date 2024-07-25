@@ -20,9 +20,6 @@ const imageData = [
 
 function index({ gameData, featureGameData }) {
   const router = useRouter();
-  console.log(gameData,
-    "gameDatagameDatagameData"
-  )
 
   return (
     <>

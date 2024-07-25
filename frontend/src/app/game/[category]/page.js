@@ -3,6 +3,14 @@ import CategoryGames from "@/components/common/CategoryGames";
 import { notFound } from "next/navigation";
 import AppConstants from "../../../constants/AppConstants"
 
+export async function generateMetadata({ params, searchParams }, parent) {
+  const {category} = params
+
+  return {
+    title: `${category} games`,
+  }
+}
+
 const fetchAllGames = async () => {
   try {
     const data = await fetch(`${AppConstants.baseURL}/game/all`,{

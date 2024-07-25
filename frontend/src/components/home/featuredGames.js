@@ -55,7 +55,7 @@ const FeaturedGames = ({ title, gameData }) => {
         <div className="overflow-hidden no_scrollbar relative">
           {gameData?.length >= 5 && (
             <button
-              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[250px] absolute text-white left-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
               onClick={scrollLeft}
             >
               <Image
@@ -107,7 +107,7 @@ const FeaturedGames = ({ title, gameData }) => {
           {gameData?.length >= 5 && (
 
             <button
-              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[180px] md:h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
+              className="bg-[#2929299f] backdrop-blur-sm w-[150px] lg:w-[180px] h-[250px] absolute text-white right-[-111px] top-[-33px] rounded-[50%] z-[1] flex items-center"
               onClick={scrollRight}
             >
               <Image

@@ -46,7 +46,7 @@ export default function CustomDrawer({ gameCategories }) {
                   className={`text-[18px] font-normal ${drawerOpen ? "block" : "hidden"
                     }`}
                 >
-                  All Games
+                  Home
                 </p>
               </button>
             </Link>
@@ -134,8 +134,8 @@ export default function CustomDrawer({ gameCategories }) {
             {/* line div */}
             <div className="w-full h-[1px] bg-[#FFF]"></div>
 
-            <Link //Featured
-              href="/game/Featured"
+            <Link 
+              href="/game/featured"
               className=" hover:bg-sky-700 duration-700 w-full"
             >
               <button

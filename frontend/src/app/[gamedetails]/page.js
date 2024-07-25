@@ -3,6 +3,16 @@ import GameDetails from "../../components/gameDetails";
 import { notFound } from "next/navigation";
 import AppConstants from "../../constants/AppConstants"
 
+
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const {gamedetails} = params
+
+  return {
+    title: gamedetails,
+  }
+}
+
 const fetchGameDetails = async (req) => {
   try {
     const game_name = await req;
