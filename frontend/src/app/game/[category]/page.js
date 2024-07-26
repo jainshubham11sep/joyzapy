@@ -58,7 +58,7 @@ const category = async ({ params }) => {
   if (category === "adventure" || category === "action" || category === "thriller") {
     const categoryIdMap = {
       adventure: "66987d17dec4bed4fb6bf8e0",
-      action: "66965fc66845f70cb600d44c",
+      action: "66a11f8b1925df46266c5ec6",
       thriller: "6698a1ea673e42caf98382ce",
     };
 
