@@ -17,6 +17,7 @@ export async function POST() {
 
     const transformedGames = allgames.map((game) => ({
       game_id: game._id,
+      layout:game.layout,
       game_name: game.game_name,
       description: game.description,
       game_file: game.game_file,

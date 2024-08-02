@@ -18,6 +18,10 @@ const Footer = () => {
       link: "/privacy-policy",
     },
     {
+      title: "Terms and Conditions",
+      link: "/terms-and-conditions",
+    },
+    {
       title: "Contact Us",
       link: "/contact-us",
     },
