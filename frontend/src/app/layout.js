@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: "Puno Games",
-  
+
 };
 
 const fetchGameCategories = async () => {
@@ -38,6 +38,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/nextAssets/Icon White.png" />
         <meta
           name="google-site-verification"
           content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw"

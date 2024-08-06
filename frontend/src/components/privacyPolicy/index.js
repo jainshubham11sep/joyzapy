@@ -12,7 +12,7 @@ function PrivacyPolicy() {
         <div
           className={`h-[152px] ${styles.background} bg-cover bg-no-repeat rounded-[20px] flex justify-center items-center  `}
         >
-          <div className="flex flex-col justify-center items-center   ">
+          <div className="flex flex-col justify-center items-center">
             <p className="text-[35px] font-bold  px-[2px] md:text-[40px] leading-[48px] text-[#333333]">
               Privacy Policy{" "}
             </p>

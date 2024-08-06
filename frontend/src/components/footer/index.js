@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
 
             <div className="relative">
-              <p className="text-xl">contact@punogames.com</p>
+              <p className="text-xl">admin@quizangomedia.com</p>
             </div>
 
             <div className="flex flex-col items-start gap-[3px]">

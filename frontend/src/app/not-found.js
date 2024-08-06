@@ -7,8 +7,8 @@ const notfound = () => {
     <div className='flex flex-col mt-24 mb-10 w-[100%] text-white items-center '>
       <div>
         <Image
-width={500}
-height={500}
+          width={500}
+          height={500}
           src={"/nextAssets/404 arror.gif"}
           alt="404 not found"
         />
