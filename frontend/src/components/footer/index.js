@@ -25,6 +25,10 @@ const Footer = () => {
       title: "Contact Us",
       link: "/contact-us",
     },
+    {
+      title:"Blogs",
+      link:"https://www.punogames.com/blog/"
+    }
   ];
   return (
     <div className="bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full">
@@ -136,6 +140,7 @@ const Footer = () => {
                 className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
                 href={main?.link}
                 key={id.toString()}
+                target={main?.title==="Blogs" ? "_blank":''}
               >
                 {main?.title}
               </Link>

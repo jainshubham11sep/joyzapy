@@ -70,13 +70,13 @@ const FeaturedGames = ({ title, gameData }) => {
 
           <div
             ref={scrollContainerRef}
-            className="flex gap-5 overflow-x-hidden no_scrollbar z-[2]"
+            className="flex gap-5 overflow-x-scroll z-[2]"
           >
             {
               gameData?.slice(0, 10).map((data, index) => (
                 <div
                   key={index}
-                  className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[164px] cursor-pointer h-fit max-w-[164px]"
+                  className="flex flex-col gap-4 relative min-w-[300px] max-[768px]:min-w-[250px] cursor-pointer h-fit max-w-[164px]"
                   onClick={() => {
                     router.push(`/${data?.game_name}`)
                   }}
@@ -85,11 +85,11 @@ const FeaturedGames = ({ title, gameData }) => {
                     width={700}
                     height={700}
                     src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
-                    alt={data.name}
+                    alt={data?.title}
                     className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500 max-h-[170px] min-h-[170px]"
                   />
                   <h2 className="font-montserrat font-medium text-lg z-[2] leading-[21.94px] text-[#FFFFFF] max-[768px]:text-base max-[768px]:leading-[28.8px] max-[768px]:tracking-[5%]">
-                    {data.game_name}
+                    {data?.title}
                   </h2>
                   {/* <div className="w-11 h-11 rounded-[100px] bg-[#5744B899] flex items-center justify-center gap-2 absolute top-4 right-4 max-[768px]:w-6 max-[768px]:h-6 max-[768px]:top-2 max-[768px]:right-2">
                   <Image

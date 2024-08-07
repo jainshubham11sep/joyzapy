@@ -2,16 +2,14 @@ import React from 'react'
 import TermsAndConditions from "../../components/terms-and-conditions/index"
 
 export const metadata = {
-  title: 'Terms and conditions',
-  description: 'Terms and conditions',
+  title: 'Terms and Conditions - punogames.com',
+  description: 'Review the Terms and Conditions of PunoGames at punogames.com. Understand your rights and responsibilities while using our site and playing our online games. Stay informed.',
 }
-
-
 
 const page = () => {
   return (
-    <div className='bg-[#1F1F29] px-4 lg:px-16 py-6 w-[100%] '>
-      <TermsAndConditions/>
+    <div>
+      <TermsAndConditions />
     </div>
   )
 }

@@ -6,8 +6,8 @@ import AppConstants from "../constants/AppConstants"
 // import  { Metadata } from 'next'
  
 export const metadata = {
-  title: 'PunoGames',
-  description: 'PunoGames',
+  title: 'Play Free Online Games, Best Online Games - PunoGames',
+  description: 'Play the best free online games at PunoGames! Enjoy top-rated games in action, puzzle, strategy, and more. Hours of fun and entertainment await. Play now for free!',
 }
 
 // export const dynamic  = 'force-dynamic' // Custom flag for dynamic behavior

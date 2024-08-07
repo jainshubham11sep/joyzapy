@@ -29,7 +29,7 @@ function PrivacyPolicy() {
 
           </p>
           <div className="flex flex-col gap-[8px]">
-            <div className=" mx-auto p-4 text-white">
+            <div className=" mx-auto  text-white">
               <p className="text-white font-bold text-[24px]">Interpretation and Definitions:</p>
               <h2 className="text-xl font-semibold mt-6 mb-2 text-white">Interpretation</h2>
               <p className="text-[14px] font-normal  leading-[28.8px] tradcking-[0.8px] text-white md:text-[16px]">

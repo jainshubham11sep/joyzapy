@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
 const GameDetails = ({ data, featureGameData, relatedgames }) => {
-
+  console.log(featureGameData, "featureGameData")
 
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,7 +20,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
     const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(userAgent);
     setIsMobile(isMobileDevice);
     const isLandscapeOrientation = window.orientation === 90 || window.orientation === -90;
-    console.log(isLandscapeOrientation,"isLandscapeOrientation")
+    console.log(isLandscapeOrientation, "isLandscapeOrientation")
 
     if (
       isMobileDevice &&
@@ -35,10 +35,10 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
 
   useEffect(() => {
 
-    // window.addEventListener('resize', checkDevice);
+    window.addEventListener('resize', checkDevice);
     window.addEventListener('orientationchange', checkDevice);
     return () => {
-      // window.removeEventListener('resize', checkDevice);
+      window.removeEventListener('resize', checkDevice);
       window.removeEventListener('orientationchange', checkDevice);
     };
   }, [data?.layout]);
@@ -84,7 +84,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
       console.error('Iframe not found or not yet rendered');
     }
   };
-  console.log(isMobile,showRotateMessage,"fullscreen")
+  console.log(isMobile, showRotateMessage, "fullscreen")
 
   return (
 
@@ -98,7 +98,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
         />
       </div>
       <div className="flex flex-col items-center gap-[56px] self-stretch bg-[#1F1F29] text-[#FEFEFE] w-full" style={{ display: isMobile && showRotateMessage ? "none" : "block" }}>
-        <div className="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px] w-full">
+        <div className="md:px-[46px] md:py-[40px] flex flex-col gap-[48px] self-stretch md:bg-[#11101D] rounded-[30px] w-full mb-6">
           <div className="flex  gap-[16px]  w-full">
             <div className="  flex flex-col basis-[100%] md:basis-[70%] gap-[13px] md:gap-[24px] items-start w-full">
               <div className="flex relative  justify-center items-center  w-full  bg-cover bg-no-repeat rounded-[32px] aspect-video overflow-hidden ">
@@ -193,21 +193,21 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
           </div>
           <div className="block md:hidden">
             <div className="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
-            <div className="text-[18px] font-semibold mb-6">
+            {/* <div className="text-[18px] font-semibold mb-6">
               Home/<span className="text-[#15AEE3]"> {data?.title} </span>
-            </div>
+            </div> */}
             <div className="text-[24px] font-bold mb-6">{data?.title}</div>
           </div>
           <div className=" flex-col items-start gap-6 self-stretch hidden md:flex">
             <div className="w-full h-[1px]  bg-[#fff]/[0.34] mb-6"></div>
-            <div className="text-[18px] font-semibold mb-6">
+            {/* <div className="text-[18px] font-semibold mb-6">
               Home/<span className="text-[#15AEE3]"> {data?.title} </span>
-            </div>
+            </div> */}
             <div className="text-[24px] font-bold mb-6">{data?.title}</div>
 
             <div className="leading-[28.8px] tracking-[0.8px] mb-6" dangerouslySetInnerHTML={{ __html: data?.description }} />
 
-            
+
             <div className="mb-6">
               <div className="text-xl font-bold ">Category</div>
               <div className=" leading-[28.8px] tracking-[0.8px]">
@@ -229,7 +229,15 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
           </div>
         </div>
         <div className="w-full">
-          <FeaturedGames title={"Featured Games"} gameData={featureGameData} />
+          {
+            featureGameData ?
+              (
+                <FeaturedGames title={"Featured Games"} gameData={featureGameData} />
+              ) : (
+                ""
+              )
+          }
+
           <FeaturedGames title={"Related Games"} gameData={relatedgames} />
         </div>
       </div>
