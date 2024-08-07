@@ -50,9 +50,9 @@ export default async function RootLayout({ children }) {
             <Navbar gameCategories={gameCategories} />
             <div style={{}}>
               <main className="flex gap-3 justify-center">
-                <div className="sidebarcontainer">
+                {/* <div className="sidebarcontainer">
                   <Sidebar gameCategories={gameCategories} />
-                </div>
+                </div> */}
 
                 {children}
               </main>

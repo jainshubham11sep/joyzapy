@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import CrossCircleImg from "../../../public/nextAssets/cross-circle.svg";
 
 const HorizontalComponent = ({ gameCategories, games }) => {
-  const { drawerOpen, setDrawerOpen } = useDrawerContext();
+  // const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -55,9 +55,9 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     setSuggestions([]);
   };
 
-  const handleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  };
+  // const handleDrawer = () => {
+  //   setDrawerOpen(!drawerOpen);
+  // };
 
   useEffect(() => {
     function updateSize() {
@@ -170,7 +170,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
     <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] ">
       <div className="flex flex-row w-[100%] items-center justify-between">
         <div className="flex items-center justify-between max-[767px]:gap-2 min-[768px]:gap-6 min-[1024px]:gap-16">
-          {size?.[0] > 768 ? (
+          {/* {size?.[0] > 768 ? (
             <button
               onClick={handleDrawer}
               className={`duration-100 ${drawerOpen ? "rotate-180" : ""} z-0`}
@@ -184,8 +184,8 @@ const HorizontalComponent = ({ gameCategories, games }) => {
             </button>
           ) : (
             <CustomDrawer gameCategories={gameCategories} />
-          )}
-          <div className=" cursor-pointer" onClick={() => router.push('/')}>
+          )} */}
+          <div className=" cursor-pointer lg:ml-[3rem]" onClick={() => router.push('/')}>
             <Image
               height={150}
               width={150}
