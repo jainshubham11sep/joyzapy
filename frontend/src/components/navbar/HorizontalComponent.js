@@ -12,7 +12,7 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import CrossCircleImg from "../../../public/nextAssets/cross-circle.svg";
 
-const HorizontalComponent = ({ gameCategories, games }) => {
+const HorizontalComponent = ({ games }) => {
   // const { drawerOpen, setDrawerOpen } = useDrawerContext();
   const [size, setSize] = useState([0]);
   const [query, setQuery] = useState("");
@@ -167,7 +167,7 @@ const HorizontalComponent = ({ gameCategories, games }) => {
   );
 
   return (
-    <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] " style={{marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}>
+    <div className="flex items-center justify-center  py-2 px-5 md:px-15 md:py-[30px] " style={{ marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}>
       <div className="flex flex-row w-[100%] items-center justify-between">
         <div className="flex items-center justify-between max-[767px]:gap-2 min-[768px]:gap-6 min-[1024px]:gap-16">
           {/* {size?.[0] > 768 ? (

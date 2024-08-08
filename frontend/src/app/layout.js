@@ -17,6 +17,8 @@ export const metadata = {
 
 };
 
+
+
 const fetchGameCategories = async () => {
   try {
     const response = await fetch(`${AppConstants.baseURL}/categories/all`, { next: { revalidate: 60 } });
@@ -34,6 +36,7 @@ const fetchGameCategories = async () => {
 
 export default async function RootLayout({ children }) {
   const gameCategories = await fetchGameCategories();
+  console.log(gameCategories)
 
   return (
     <html lang="en">
@@ -57,7 +60,7 @@ export default async function RootLayout({ children }) {
                 {children}
               </main>
             </div>
-            <Footer />
+            <Footer gameCategories={gameCategories} />
           </div>
         </DrawerContextComponent>
         <Script

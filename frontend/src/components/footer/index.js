@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import console from "../../../public/nextAssets/console_icon.svg";
 
-const Footer = () => {
+const Footer = ({ gameCategories }) => {
+
 
   let main_links = [
     {
@@ -26,8 +27,8 @@ const Footer = () => {
       link: "/contact-us",
     },
     {
-      title:"Blogs",
-      link:"https://www.punogames.com/blog/"
+      title: "Blogs",
+      link: "https://www.punogames.com/blog/"
     }
   ];
   return (
@@ -102,14 +103,22 @@ const Footer = () => {
           {/* footer part 2 */}
           <div className="flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]">
             <h1 className="text-[25px] font-bold">Categories</h1>
+            {
+              gameCategories
+              .filter((category)=>category?.description)
+              .slice(0,4)
+              .map((category) => (
+                <Link
+                key={category?._id}
+                  className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+                  href={`/game/${category?.cat_name}`}
+                >
+                  {category?.cat_name}
+                </Link>
+              ))
+            }
 
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href={"/game/featured"}
-            >
-              Featured
-            </Link>
-            <Link
+            {/* <Link
               className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
               href={"/game/adventure/"}
             >
@@ -126,7 +135,7 @@ const Footer = () => {
               href={"/game/thriller"}
             >
               Thriller
-            </Link>
+            </Link> */}
 
           </div>
 
@@ -140,7 +149,7 @@ const Footer = () => {
                 className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
                 href={main?.link}
                 key={id.toString()}
-                target={main?.title==="Blogs" ? "_blank":''}
+                target={main?.title === "Blogs" ? "_blank" : ''}
               >
                 {main?.title}
               </Link>

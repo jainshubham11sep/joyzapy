@@ -205,7 +205,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
             </div> */}
             <div className="text-[24px] font-bold mb-6">{data?.title}</div>
 
-            <div className="leading-[28.8px] tracking-[0.8px] mb-6" dangerouslySetInnerHTML={{ __html: data?.description }} />
+            <div className="leading-[28.8px] tracking-[0.8px] mb-6 w-fit" dangerouslySetInnerHTML={{ __html: data?.description }} />
 
 
             <div className="mb-6">
