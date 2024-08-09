@@ -84,7 +84,6 @@ export async function POST() {
   ])
   .toArray();
 
-      // console.log(featuredGamesData, "featureeeee")
     return new Response(JSON.stringify(featuredGamesData), {
       headers: {
         "Content-Type": "application/json",

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import AppConstants from "../../../constants/AppConstants"
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {category} = params
+  const { category } = params
 
   return {
     title: `${category} games`,
@@ -13,8 +13,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 const fetchAllGames = async () => {
   try {
-    const data = await fetch(`${AppConstants.baseURL}/game/all`,{
-      method: "POST"});
+    const data = await fetch(`${AppConstants.baseURL}/game/all`, {
+      method: "POST"
+    });
     const game = await data.json();
     return game;
   } catch (error) {
@@ -24,8 +25,9 @@ const fetchAllGames = async () => {
 
 const fetchFeaturedGames = async () => {
   try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
-      method: "POST"});
+    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`, {
+      method: "POST"
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

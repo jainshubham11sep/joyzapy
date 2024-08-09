@@ -129,6 +129,37 @@ h6 {
   font-weight: bold;
 }
 
+.truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.container strong {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fullscreen-mode {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .truncate-text {
+    -webkit-line-clamp: 2; /* Limits the text to 2 lines */
+  }
+}
+
 @keyframes loading {
   to {
     transform: rotate(360deg);

@@ -19,24 +19,24 @@ export const metadata = {
 
 
 
-const fetchGameCategories = async () => {
-  try {
-    const response = await fetch(`${AppConstants.baseURL}/categories/all`, { next: { revalidate: 60 } });
+// const fetchGameCategories = async () => {
+//   try {
+//     const response = await fetch(`${AppConstants.baseURL}/categories/all`, { next: { revalidate: 60 } });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    const categories = await response.json();
-    return categories;
-  } catch (error) {
-    console.log(error.message, "categories error");
-  }
-};
+//     const categories = await response.json();
+//     return categories;
+//   } catch (error) {
+//     console.log(error.message, "categories error");
+//   }
+// };
 
 export default async function RootLayout({ children }) {
-  const gameCategories = await fetchGameCategories();
-  console.log(gameCategories)
+  // const gameCategories = await fetchGameCategories();
+  // console.log(gameCategories)
 
   return (
     <html lang="en">
@@ -50,7 +50,8 @@ export default async function RootLayout({ children }) {
       <body className={montserrat.className}>
         <DrawerContextComponent>
           <div style={{ width: "100%" }}>
-            <Navbar gameCategories={gameCategories} />
+            <Navbar />
+            {/* <Navbar gameCategories={gameCategories} /> */}
             <div style={{}}>
               <main className="flex gap-3 justify-center">
                 {/* <div className="sidebarcontainer">
@@ -60,7 +61,7 @@ export default async function RootLayout({ children }) {
                 {children}
               </main>
             </div>
-            <Footer gameCategories={gameCategories} />
+            <Footer />
           </div>
         </DrawerContextComponent>
         <Script

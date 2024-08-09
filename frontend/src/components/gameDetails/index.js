@@ -6,14 +6,12 @@ import { useState, useEffect } from "react";
 
 const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
-const GameDetails = ({ data, featureGameData, relatedgames }) => {
-  console.log(featureGameData, "featureGameData")
+const GameDetails = ({ data, relatedgames }) => {
 
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showRotateMessage, setShowRotateMessage] = useState(false);
-  console.log(data, "datadatadata")
   const checkDevice = () => {
     console.log("i am calleddd")
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -61,30 +59,52 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
     setIsPlaying(true);
   };
 
-
-
   const handleFullscreen = () => {
     checkDevice();
     const iframe = document.getElementById('gameIframe');
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  
     if (iframe && !(isMobile && showRotateMessage)) {
-      try {
-        if (iframe.requestFullscreen) {
-          iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) {
-          iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) {
-          iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) {
-          iframe.msRequestFullscreen();
+      if (isIOS) {
+        // Use CSS to maximize the iframe for iOS devices
+        console.log('Using fallback fullscreen mode for iOS');
+        iframe.style.position = 'fixed'; // Use fixed to ensure it covers the screen
+        iframe.style.width = '100vw';
+        iframe.style.height = '100vh';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.zIndex = '9999'; // Bring it to the front
+        iframe.style.border = 'none'; // Remove any border
+  
+        // Also, add a class to body to handle other elements
+        document.body.classList.add('fullscreen-mode');
+  
+        // Optionally, lock screen orientation for landscape
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('landscape').catch(() => {
+            console.log('Screen orientation lock not supported');
+          });
         }
-      } catch (error) {
-        console.error('Error attempting to enable fullscreen:', error);
+      } else {
+        try {
+          if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+          } else if (iframe.mozRequestFullScreen) {
+            iframe.mozRequestFullScreen();
+          } else if (iframe.webkitRequestFullscreen) {
+            iframe.webkitRequestFullscreen();
+          } else if (iframe.msRequestFullscreen) {
+            iframe.msRequestFullscreen();
+          }
+        } catch (error) {
+          console.error('Error attempting to enable fullscreen:', error);
+        }
       }
     } else {
       console.error('Iframe not found or not yet rendered');
     }
   };
-  console.log(isMobile, showRotateMessage, "fullscreen")
 
   return (
 
@@ -205,7 +225,7 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
             </div> */}
             <div className="text-[24px] font-bold mb-6">{data?.title}</div>
 
-            <div className="leading-[28.8px] tracking-[0.8px] mb-6 w-fit" dangerouslySetInnerHTML={{ __html: data?.description }} />
+            <div className="container leading-[28.8px] tracking-[0.8px] mb-6" dangerouslySetInnerHTML={{ __html: data?.description }} />
 
 
             <div className="mb-6">
@@ -229,14 +249,14 @@ const GameDetails = ({ data, featureGameData, relatedgames }) => {
           </div>
         </div>
         <div className="w-full">
-          {
+          {/* {
             featureGameData ?
               (
                 <FeaturedGames title={"Featured Games"} gameData={featureGameData} />
               ) : (
                 ""
               )
-          }
+          } */}
 
           <FeaturedGames title={"Related Games"} gameData={relatedgames} />
         </div>

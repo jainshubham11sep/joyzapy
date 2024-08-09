@@ -7,14 +7,6 @@ const Footer = ({ gameCategories }) => {
 
   let main_links = [
     {
-      title: "Home",
-      link: "/",
-    },
-    {
-      title: "About Us",
-      link: "/about-us",
-    },
-    {
       title: "Privacy Policy",
       link: "/privacy-policy",
     },
@@ -26,16 +18,11 @@ const Footer = ({ gameCategories }) => {
       title: "Contact Us",
       link: "/contact-us",
     },
-    {
-      title: "Blogs",
-      link: "https://www.punogames.com/blog/"
-    }
+
   ];
   return (
     <div className="bg-[#11101D] flex flex-col items-center gap-[5px] text-[#FFF] w-full">
       <div className="flex flex-col items-start justify-start gap-[27px] py-14 max-w-[1440px] mx-auto">
-
-
         <div>
           <Image
             height={150}
@@ -102,8 +89,20 @@ const Footer = ({ gameCategories }) => {
 
           {/* footer part 2 */}
           <div className="flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]">
-            <h1 className="text-[25px] font-bold">Categories</h1>
-            {
+            <h1 className="text-[25px] font-bold">Main</h1>
+            <Link
+              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+              href={"/"}
+            >Home</Link>
+            <Link
+              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+              href={"/about-us"}
+            >About Us</Link>
+            <Link
+              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
+              href={"https://www.punogames.com/blog/"}
+            >Blogs</Link>
+            {/* {
               gameCategories
               .filter((category)=>category?.description)
               .slice(0,4)
@@ -116,33 +115,16 @@ const Footer = ({ gameCategories }) => {
                   {category?.cat_name}
                 </Link>
               ))
-            }
+            } */}
 
-            {/* <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href={"/game/adventure/"}
-            >
-              Adventure
-            </Link>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href={"/game/action"}
-            >
-              Action
-            </Link>
-            <Link
-              className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href={"/game/thriller"}
-            >
-              Thriller
-            </Link> */}
+
 
           </div>
 
           {/* footer part 3 */}
           <div className="flex flex-col items-start justify-center gap-[17px] px-[1px] py-[2px]">
             <h1 className="text-[25px] font-bold">
-              Main
+              Explore
             </h1>
             {main_links?.map((main, id) => (
               <Link

@@ -6,10 +6,13 @@ import AppConstants from "../../constants/AppConstants"
 
 
 export async function generateMetadata({ params, searchParams }, parent) {
-  const {gamedetails} = params
-
+  const { gamedetails } = params;
+  const data = await fetchGameDetails({
+    game_name: gamedetails,
+  });
   return {
-    title: gamedetails,
+    title: data?.meta_title ? data.meta_title : gamedetails,
+    description: data?.meta_description ? data.meta_description : gamedetails,
   }
 }
 
@@ -24,7 +27,7 @@ const fetchGameDetails = async (req) => {
       },
       body: JSON.stringify(game_name),
     });
-    if(!data.ok){
+    if (!data.ok) {
       return data.ok;
     }
     const jsonData = await data.json();
@@ -35,26 +38,26 @@ const fetchGameDetails = async (req) => {
   }
 };
 
-const fetchFeaturedGames = async () => {
-  try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
-      method: "POST"});
+// const fetchFeaturedGames = async () => {
+//   try {
+//     const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
+//       method: "POST"});
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    const game = await response.json();
+//     const game = await response.json();
 
-    if (!game || game.length === 0) {
-      throw new Error("No featured games data found");
-    }
+//     if (!game || game.length === 0) {
+//       throw new Error("No featured games data found");
+//     }
 
-    return game;
-  } catch (error) {
-    console.log(error.message, "game error");
-  }
-};
+//     return game;
+//   } catch (error) {
+//     console.log(error.message, "game error");
+//   }
+// };
 const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
@@ -82,21 +85,21 @@ const page = async ({ params }) => {
   });
   // console.log(data,"game details")
 
-  if(!data){
+  if (!data) {
     notFound();
   }
 
-  const featureGameData = await fetchFeaturedGames();
+  // const featureGameData = await fetchFeaturedGames();
 
   const relatedgames = await fetchRelatedGames({
     cat_arr: data?.cat_arr,
   });
-  // console.log(relatedgames, "relatedgamesrelatedgames")
+
 
 
   return (
-    <div className="px-4 lg:pl-10 lg:pr-16 py-6 w-[70%]" style={{ flex: 3,  marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}>
-      <GameDetails data={data} featureGameData={featureGameData} relatedgames={relatedgames} />
+    <div className="px-4 lg:pl-10 lg:pr-16 py-6 w-[70%]" style={{ flex: 3, marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}>
+      <GameDetails data={data} relatedgames={relatedgames} />
     </div>
   );
 };

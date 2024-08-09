@@ -3,9 +3,8 @@ import { useRouter } from "next/navigation";
 import FeaturedGames from "./featuredGames";
 import Image from "next/image";
 
-function index({ gameData, featureGameData }) {
+function index({ gameData }) {
   const router = useRouter();
-  console.log(featureGameData, "featureeee")
 
   return (
     <>
@@ -14,7 +13,7 @@ function index({ gameData, featureGameData }) {
         style={{ flex: 3, marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}
       >
         <div>
-          <div className="containerRight cursor-pointer" onClick={() => router.push("/")}>
+          <div className="containerRight cursor-pointer" onClick={() => router.push("https://www.punogames.com/pool-8-ball")}>
             <Image
               width={500}
               height={500}
@@ -30,16 +29,16 @@ function index({ gameData, featureGameData }) {
               className="hidden max-[600px]:block w-full"
             />
           </div>
-          <div className="flex flex-col mt-16 mb-4 lg:mb-16">
+          <div className="flex flex-col mt-8 mb-4 lg:mb-16">
             <FeaturedGames title={"All Games"} gameData={gameData} />
-            {
+            {/* {
               featureGameData ?
                 (
                   <FeaturedGames title={"Featured Games"} gameData={featureGameData} />
                 ) : (
                   ""
                 )
-            }
+            } */}
           </div>
         </div>
       </div>

@@ -34,35 +34,35 @@ const fetchAllGames = async () => {
   }
 };
 
-const fetchFeaturedGames = async () => {
-  try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
-      method: "POST"});
+// const fetchFeaturedGames = async () => {
+//   try {
+//     const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`,{
+//       method: "POST"});
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
 
-    const game = await response.json();
+//     const game = await response.json();
 
-    if (!game || game.length === 0) {
-      throw new Error("No featured games data found");
-    }
+//     if (!game || game.length === 0) {
+//       throw new Error("No featured games data found");
+//     }
 
-    return game;
-  } catch (error) {
-    console.log(error.message, "game error");
-  }
-};
+//     return game;
+//   } catch (error) {
+//     console.log(error.message, "game error");
+//   }
+// };
 
 
 export default async function HomePage() {
  
   const gameData = await fetchAllGames();
-  const featureGameData = await fetchFeaturedGames();
+  // const featureGameData = await fetchFeaturedGames();
   return (
     <>
-      <Home gameData={gameData} featureGameData={featureGameData} />
+      <Home gameData={gameData} />
     </>
   );
 }
