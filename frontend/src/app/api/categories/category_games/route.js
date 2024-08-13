@@ -3,7 +3,7 @@ import clientPromise from "@/lib/mongodb";
 export async function POST(request) {
   try {
     const client = await clientPromise;
-    const { categoryId } = await request.json();
+    const { cat_name } = await request.json();
     const db = client.db("punogames");
 
     const projection = {
@@ -16,6 +16,17 @@ export async function POST(request) {
       developer_name: 1,
       release_date: 1,
     };
+
+    const category = await db
+      .collection("allcategories")
+      .find({
+        cat_name: cat_name
+      })
+      .limit(1)
+      .toArray();
+
+    let categoryId = category[0]._id.toString()
+
     const categoryData = await db
       .collection("allgames")
       .find(
@@ -24,26 +35,25 @@ export async function POST(request) {
         },
         { projection: projection }
       )
-      // .sort({ metacritic: -1 })
+
       .limit(10)
       .toArray();
 
-    // Properly return the response using new Response() constructor
     return new Response(JSON.stringify(categoryData), {
       headers: {
         "Content-Type": "application/json",
       },
-      status: 200, // HTTP status code
+      status: 200,
     });
   } catch (error) {
     console.error(error, "error");
 
-    // Return an error response properly
+
     return new Response(JSON.stringify({ error: "Failed to fetch games" }), {
       headers: {
         "Content-Type": "application/json",
       },
-      status: 500, // Indicate a server error
+      status: 500,
     });
   }
 }

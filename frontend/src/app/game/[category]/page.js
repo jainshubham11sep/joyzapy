@@ -11,30 +11,57 @@ export async function generateMetadata({ params, searchParams }, parent) {
   }
 }
 
-const fetchAllGames = async () => {
+
+// const fetchFeaturedGames = async () => {
+//   try {
+//     const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`, {
+//       method: "POST"
+//     });
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const game = await response.json();
+
+//     if (!game || game.length === 0) {
+//       throw new Error("No featured games data found");
+//     }
+
+//     return game;
+//   } catch (error) {
+//     console.log(error.message, "game error");
+//   }
+// };
+
+
+// const fetchGameCategories = async () => {
+//   try {
+//     const response = await fetch(`${AppConstants.baseURL}/categories/all`, { next: { revalidate: 60 } });
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const categories = await response.json();
+//     return categories;
+//   } catch (error) {
+//     console.log(error.message, "categories error");
+//   }
+// };
+
+
+
+const fetchCategories_games = async (category) => {
   try {
-    const data = await fetch(`${AppConstants.baseURL}/game/all`, {
-      method: "POST"
-    });
-    const game = await data.json();
-    return game;
-  } catch (error) {
-    console.log(error.message, "game error");
-  }
-};
-
-const fetchFeaturedGames = async () => {
-  try {
-    const response = await fetch(`${AppConstants.baseURL}/game/featuredgames`, {
-      method: "POST"
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
+    let response = await fetch(`${AppConstants.baseURL}/categories/category_games`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ cat_name: category }),
+    })
     const game = await response.json();
-
     if (!game || game.length === 0) {
       throw new Error("No featured games data found");
     }
@@ -43,48 +70,23 @@ const fetchFeaturedGames = async () => {
   } catch (error) {
     console.log(error.message, "game error");
   }
-};
+}
 
-
-
-
-const category = async ({ params }) => {
+const page = async ({ params }) => {
   const { category } = params;
-  const arr = ["all", "featured", "action", "adventure", "thriller"];
-  if (!arr.includes(category)) {
-    notFound()
-  }
-  let gameData;
+  const decodedCategory = decodeURIComponent(category);
 
-  const featureGameData = await fetchFeaturedGames();
-  if (category === "adventure" || category === "action" || category === "thriller") {
-    const categoryIdMap = {
-      adventure: "66987d17dec4bed4fb6bf8e0",
-      action: "66a11f8b1925df46266c5ec6",
-      thriller: "6698a1ea673e42caf98382ce",
-    };
+  const gameData = await fetchCategories_games(decodedCategory);
 
-    const categoryId = categoryIdMap[category];
-
-    gameData = await fetch(`${AppConstants.baseURL}/categories/category_games`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ categoryId }),
-    }).then(response => response.json());
-  } else {
-    gameData = await fetchAllGames();
+  if (gameData?.error) {
+    notFound();
   }
 
-
-  // console.log(featureGameData, "featureGameDatafeatureGameData")
-  // console.log(gameData, "allgameee")
   return (
     <div className="w-full">
-      <CategoryGames category={category} allGameData={gameData} featureGameData={featureGameData} />
+      <CategoryGames category={decodedCategory} allGameData={gameData} />
     </div>
   );
 };
 
-export default category;
+export default page;

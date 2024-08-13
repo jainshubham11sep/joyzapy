@@ -3,22 +3,9 @@ import GameCard from "./GameCard";
 import styles from "./game.module.css";
 // import { useRouter } from "next/navigation";
 
-const imageData = [
-  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
-  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
-  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
-  { image: "/nextAssets/relatedgames/1.png", name: "olx" },
-  { image: "/nextAssets/relatedgames/2.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/3.png", name: "Store Manager" },
-  { image: "/nextAssets/relatedgames/4.png", name: "Stickman Destruction" },
-];
 
-const CategoryGames = ({ category, allGameData, featureGameData }) => {
+
+const CategoryGames = ({ category, allGameData }) => {
   // const router = useRouter()
 
   return (
@@ -33,13 +20,11 @@ const CategoryGames = ({ category, allGameData, featureGameData }) => {
         </div>
       </div>
       <div className="grid-container-game justify-items-center">
-        {category === "featured"
-          ? featureGameData
-              ?.filter((data) => data?.game_name)
-              ?.map((data) => <GameCard data={data}  />)
-          : allGameData?.map((data) => (
-              <GameCard data={data} />
-            ))}
+        {
+          allGameData?.map((data) => (
+            <GameCard data={data} />
+          ))
+        }
       </div>
     </div>
   );

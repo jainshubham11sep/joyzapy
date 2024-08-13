@@ -143,11 +143,25 @@ h6 {
 }
 
 .container strong {
-  display: inline-block;
+  /* display: inline-block; */
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
+}
+.spanStyle span {
+  background-color: transparent !important;
+  color: white !important;
+}
+ol, ul {
+  list-style-type: disc; /* Default for <ul> */
+  list-style-position: outside; /* Default position */
+  padding-left: 5px;
+  
+}
+
+ol {
+  list-style-type: decimal; /* Default for <ol> */
 }
 
 .fullscreen-mode {

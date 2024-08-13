@@ -5,7 +5,6 @@ const GameCard = ({ data }) => {
   const router = useRouter()
   const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
-  console.log(data,"catdatadata")
   return (
     <div onClick={() => router.push(`/${data?.game_name}`)}
       className="flex flex-col gap-4 relative w-[calc(100%/4)] min-w-[300px] max-[800px]:min-w-[164px] cursor-pointer max-[400px]:min-w-[140px]"

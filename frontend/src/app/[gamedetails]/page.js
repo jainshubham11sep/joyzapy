@@ -16,6 +16,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
   }
 }
 
+export const revalidate = 0;
+
 const fetchGameDetails = async (req) => {
   try {
     const game_name = await req;
@@ -62,13 +64,15 @@ const fetchRelatedGames = async (req) => {
   try {
     const cat_arr = await req;
     // console.log(cat_arr, "cat_arrrrr");
+
     const data = await fetch(`${AppConstants.baseURL}/game/relatedgames`, {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cat_arr),
-    });
+    }, { cache: 'no-store' });
 
     const jsonData = await data.json();
     // console.log(jsonData, "game dataa");
