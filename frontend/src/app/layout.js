@@ -14,10 +14,7 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: "Puno Games",
-
 };
-
-
 
 // const fetchGameCategories = async () => {
 //   try {
@@ -77,6 +74,11 @@ export default async function RootLayout({ children }) {
               gtag('config', 'G-65RF85LYJ9');
             `,
           }}
+        />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9014156375881181"
+          crossorigin="anonymous"
         />
       </body>
     </html>
