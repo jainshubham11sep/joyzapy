@@ -63,15 +63,15 @@ export default async function RootLayout({ children }) {
         </DrawerContextComponent>
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-65RF85LYJ9"
+          src="https://www.googletagmanager.com/gtag/js?id=G-T3C3R7F3K1"
         ></Script>
         <Script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
+               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-65RF85LYJ9');
+              gtag('config', 'G-T3C3R7F3K1');
             `,
           }}
         />
