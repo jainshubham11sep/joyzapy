@@ -43,6 +43,10 @@ export default async function RootLayout({ children }) {
           name="google-site-verification"
           content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw"
         />
+        <meta
+          name="galaksion-domain-verification"
+          content="52220fcfcc0597a5d2add76f757613813034fd1fe17e94a74871ef4e8c35cd24"
+        />
       </head>
       <body className={montserrat.className}>
         <DrawerContextComponent>
