@@ -84,6 +84,12 @@ export default async function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9014156375881181"
           crossorigin="anonymous"
         />
+        <Script
+          data-cfasync="false"
+          async
+          type="text/javascript"
+          src="//zl.ibrelend.com/raHVPs0D5CFmNW/107082"
+        />
       </body>
     </html>
   );
