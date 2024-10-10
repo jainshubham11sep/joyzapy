@@ -8,8 +8,8 @@ Object.defineProperty(exports, "__esModule", {
     };
   }  else {
     exports.default = {
-      websiteURL: "https://www.punogames.com/",
-      baseURL: "https://www.punogames.com/api",
+      websiteURL: "https://www.joyzapy.com/",
+      baseURL: "https://www.joyzapy.com/api",
     };
   }
   

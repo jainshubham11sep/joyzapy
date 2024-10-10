@@ -100,7 +100,7 @@ const Footer = ({ gameCategories }) => {
             >About Us</Link>
             <Link
               className="text-[18px] font-normal transition-colors duration-300 hover:text-blue-500"
-              href={"https://www.punogames.com/blog/"}
+              href={"https://www.joyzapy.com/blog/"}
             >Blogs</Link>
             {/* {
               gameCategories
@@ -141,7 +141,7 @@ const Footer = ({ gameCategories }) => {
       </div>
 
       <div className="text-[18px] font-normal py-[17px] text-center">
-        © 2024 Puno Games. All Rights Reserved.
+        © 2024 Joyzapy Games. All Rights Reserved.
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function index({ gameData }) {
         style={{ flex: 3, marginRight: "auto", marginLeft: "auto", maxWidth: "1444px" }}
       >
         <div>
-          <div className="containerRight cursor-pointer" onClick={() => router.push("https://www.punogames.com/pool-8-ball")}>
+          <div className="containerRight cursor-pointer" onClick={() => router.push("https://www.joyzapy.com/pool-8-ball")}>
             <Image
               width={500}
               height={500}

@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Puno Games",
+  title: "Joyzapy Games",
 };
 
 // const fetchGameCategories = async () => {

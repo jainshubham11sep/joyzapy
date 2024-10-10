@@ -24,7 +24,7 @@ function AboutUS() {
         <hr />
         <div className="pb-10">
           <p className=" text-white text-[16px] text-center font-normal leading-[28.8px] tracking-[0.8px]">
-            Welcome to Quizango Media Private Limited, the proud creators of Puno Games, which can be found at <a className="font-bold text-blue-500" href="https://www.punogames.com/">punogames.com</a>. Puno Games is a product owned by Quizango Media Private Limited, and we specialize in developing cutting-edge HTML5 games. We are dedicated to creating exceptional gaming experiences by leveraging the latest technologies and industry trends.
+            Welcome to Quizango Media Private Limited, the proud creators of Joyzapy Games, which can be found at <a className="font-bold text-blue-500" href="https://www.joyzapy.com/">joyzapy.com</a>. Joyzapy Games is a product owned by Quizango Media Private Limited, and we specialize in developing cutting-edge HTML5 games. We are dedicated to creating exceptional gaming experiences by leveraging the latest technologies and industry trends.
           </p>
           <h2 className="text-white text-[24px] mt-10 text-left font-bold underline mb-4">
             Who We Are
@@ -42,7 +42,7 @@ function AboutUS() {
             Our Games
           </h2>
           <p className=" text-white text-[16px] text-left font-normal leading-[28.8px] tracking-[0.8px]">
-            At Puno Games, we pride ourselves on our diverse portfolio of HTML5 games. Our offerings span multiple genres, including arcade, action, casual, sports, puzzles, and many more. Each game is meticulously crafted to provide an immersive and enjoyable experience for players of all ages. We focus on delivering games that are not only fun but also visually rich and engaging, ensuring players keep coming back for more.
+            At Joyzapy Games, we pride ourselves on our diverse portfolio of HTML5 games. Our offerings span multiple genres, including arcade, action, casual, sports, puzzles, and many more. Each game is meticulously crafted to provide an immersive and enjoyable experience for players of all ages. We focus on delivering games that are not only fun but also visually rich and engaging, ensuring players keep coming back for more.
           </p>
           <h2 className="text-white text-[24px] mt-10 text-left font-bold underline mb-4">
             Industries We Serve
@@ -60,7 +60,7 @@ function AboutUS() {
             Partner with Us
           </h2>
           <p className=" text-white text-[16px] text-left font-normal leading-[28.8px] tracking-[0.8px]">
-            If you are interested in licensing our HTML5 games for your business and making them available on your platform, we would love to hear from you. Partnering with Puno Games means gaining access to a wide range of high-quality games that can enhance your platform and attract more users.
+            If you are interested in licensing our HTML5 games for your business and making them available on your platform, we would love to hear from you. Partnering with Joyzapy Games means gaining access to a wide range of high-quality games that can enhance your platform and attract more users.
           </p>
           <h2 className="text-white text-[24px] mt-10 text-left font-bold underline mb-4">
             Contact Us
@@ -68,7 +68,7 @@ function AboutUS() {
           <p className=" text-white text-[16px] text-left font-normal leading-[28.8px] tracking-[0.8px]">
             For more information or to discuss licensing opportunities, please contact us at:<br />
             <span className="font-bold">Email:</span> <a className="text-blue-500" href="mailto:admin@quizangomedia.com">admin@quizangomedia.com</a><br />
-            Thank you for considering Puno Games by Quizango Media Private Limited. <br />We look forward to the opportunity to work with you and bring exceptional gaming experiences to your audience.
+            Thank you for considering Joyzapy Games by Quizango Media Private Limited. <br />We look forward to the opportunity to work with you and bring exceptional gaming experiences to your audience.
           </p>
         </div>
       </div>

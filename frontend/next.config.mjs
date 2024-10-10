@@ -5,7 +5,7 @@ const nextConfig = {
   },
   crossOrigin: 'anonymous',
   images: {
-    domains: ['www.punogames.com'],
+    domains: ['www.joyzapy.com'],
   },
 };
 

@@ -2,8 +2,8 @@ import React from 'react'
 import PrivacyPolicy from "../../components/privacyPolicy"
 
 export const metadata = {
-  title: 'Privacy Policy - punogames.com',
-  description: 'Read the Privacy Policy of PunoGames at punogames.com. Learn how we protect your data and ensure your privacy while enjoying our online games. Your trust is our priority.',
+  title: 'Privacy Policy - joyzapy.com',
+  description: 'Read the Privacy Policy of Joyzapy at joyzapy.com. Learn how we protect your data and ensure your privacy while enjoying our online games. Your trust is our priority.',
 }
 
 
