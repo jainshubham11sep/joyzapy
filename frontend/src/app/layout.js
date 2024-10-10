@@ -39,14 +39,14 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="/nextAssets/Icon White.png" />
-        <meta
+        {/* <meta
           name="google-site-verification"
           content="3E-90dtujCuWbZjknnWACcE2natuWbbx2ApAx8izHNw"
         />
         <meta
           name="galaksion-domain-verification"
           content="52220fcfcc0597a5d2add76f757613813034fd1fe17e94a74871ef4e8c35cd24"
-        />
+        /> */}
       </head>
       <body className={montserrat.className}>
         <DrawerContextComponent>
@@ -65,7 +65,7 @@ export default async function RootLayout({ children }) {
             <Footer />
           </div>
         </DrawerContextComponent>
-        <Script
+        {/* <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-T3C3R7F3K1"
         ></Script>
@@ -89,7 +89,7 @@ export default async function RootLayout({ children }) {
           async
           type="text/javascript"
           src="//zl.ibrelend.com/raHVPs0D5CFmNW/107082"
-        />
+        /> */}
       </body>
     </html>
   );
