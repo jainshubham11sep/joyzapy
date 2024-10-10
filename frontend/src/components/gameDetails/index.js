@@ -4,7 +4,7 @@ import PlayIcon from "../../../public/nextAssets/playIcon.svg"
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
+const fallbackImage = 'https://www.joyzapy.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
 const GameDetails = ({ data, relatedgames }) => {
 
@@ -139,7 +139,7 @@ const GameDetails = ({ data, relatedgames }) => {
                         height={500}
                         width={500}
                         className="absolute w-full h-full z-[0] rounded-[30px]"
-                        src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
+                        src={data?.featured_img ? `https://www.joyzapy.com/assets${data?.featured_img}` : fallbackImage}
                         alt={data?.game_name}
                       />
                       <div className="  bg-[#11101D]/60 flex justify-center items-center rounded-full aspect-square p-48  absolute "></div>

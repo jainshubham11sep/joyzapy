@@ -8,7 +8,7 @@ const FeaturedGames = ({ title, gameData }) => {
   const router = useRouter()
   const scrollContainerRef = useRef(null);
 
-  const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
+  const fallbackImage = 'https://www.joyzapy.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -87,7 +87,7 @@ const FeaturedGames = ({ title, gameData }) => {
                 <Image
                   width={500}
                   height={500}
-                  src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
+                  src={data?.featured_img ? `https://www.joyzapy.com/assets${data?.featured_img}` : fallbackImage}
                   alt={data?.title}
                   className=" rounded-[30px]  max-[768px]:rounded-[8px] z-0 hover:scale-105 duration-500 max-[375px]:min-h-[90px]  min-h-[100px] md:h-[180px]"
                 />

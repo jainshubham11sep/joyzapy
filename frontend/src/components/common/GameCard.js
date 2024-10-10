@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 const GameCard = ({ data }) => {
   const router = useRouter()
-  const fallbackImage = 'https://www.punogames.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
+  const fallbackImage = 'https://www.joyzapy.com/assets/test_game_party/featured_img/featured_img-1721440575527.jpg'
 
   return (
     <div onClick={() => router.push(`/${data?.game_name}`)}
@@ -12,7 +12,7 @@ const GameCard = ({ data }) => {
       <Image
         height={700}
         width={700}
-        src={data?.featured_img ? `https://www.punogames.com/assets${data?.featured_img}` : fallbackImage}
+        src={data?.featured_img ? `https://www.joyzapy.com/assets${data?.featured_img}` : fallbackImage}
         alt={data?.game_name}
         className="h-[180px] rounded-[30px] max-[800px]:h-[114px] max-[800px]:rounded-[8px] z-0"
       />

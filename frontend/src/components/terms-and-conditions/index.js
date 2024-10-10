@@ -60,7 +60,7 @@ function TermsAndConditions() {
                   <strong>Third-party Social Media Service </strong>means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
                 </li>
                 <li className="mb-2">
-                  <strong>Website </strong> refers to Puno Games, accessible from https://www.punogames.com/
+                  <strong>Website </strong> refers to Joyzapy Games, accessible from https://www.joyzapy.com/
                 </li>
                 <li className="mb-2">
                   <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
